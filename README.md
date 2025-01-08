@@ -9,7 +9,7 @@ Os templates aqui presentes são projetados para facilitar a criação de docume
 
 - *[Documento de Qualidade](https://github.com/lorioliveira/-QA-Templates/blob/main/DOCUMENTA%C3%87%C3%83O%20DE%20QUALIDADE.pdf): Template para utilizar como documento geral sobre Qualidade.*
 - *[Plano de Testes](https://github.com/lorioliveira/-QA-Templates/blob/main/%5BQA%20-%20Modelo%5D%20Plano%20de%20Teste.pdf): Template para definir o escopo, objetivos, critérios de aceitação e prazos de execução dos testes.*
-- *[Estrutura de Testes](https://github.com/lorioliveira/-QA-Templates/blob/main/Estrutura_Testes): Template para organizar os tipos de testes realizados (funcionais, de regressão, usabilidade, segurança, desempenho, etc.).*
+- *[Estrutura de Testes]([https://github.com/lorioliveira/-QA-Templates/blob/main/Estrutura_Testes](https://github.com/lorioliveira/-QA-Templates/blob/main/Estrutura%20de%20Testes.pdf)): Template para organizar os tipos de testes realizados (funcionais, de regressão, usabilidade, segurança, desempenho, etc.).*
 - *[Relatório de Testes](https://github.com/lorioliveira/-QA-Templates/blob/main/Relatorio_Testes): Template para documentar os resultados dos testes, incluindo ciclos de testes e status de cada teste.*
 - *Lista de Bugs: Template para rastrear e documentar os bugs encontrados durante o processo de teste.*
 - *Documentação de Ferramentas e Ambientes: Template para descrever as ferramentas e ambientes utilizados nos testes.*
