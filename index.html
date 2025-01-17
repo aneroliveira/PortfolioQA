@@ -8,12 +8,24 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            margin: 20px;
+            margin: 0;
             padding: 0;
             background-color: #f4f4f9;
             color: #333;
         }
-        h1, h2, h3 {
+        header {
+            background-color: #2980b9;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        main {
+            padding: 20px;
+        }
+        h2, h3 {
             color: #2c3e50;
         }
         a {
@@ -25,88 +37,108 @@
         }
         .template {
             margin-bottom: 20px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
         }
         .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            text-align: center;
             margin-top: 40px;
-            font-size: 0.9em;
-            color: #666;
         }
         img {
             max-width: 100%;
             height: auto;
             margin: 20px 0;
+            border-radius: 8px;
+        }
+        .button-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2980b9;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button-link:hover {
+            background-color: #3498db;
         }
     </style>
 </head>
 <body>
-    <h1>QA - Templates</h1>
-    <p>Bem-vindo ao repositório <strong>QA-Templates</strong>!</p>
-    <p>
-        Este repositório contém templates que criei e utilizo em minhas documentações de qualidade, incluindo planos de testes, relatórios de resultados, estrutura de testes, listas de bugs e muito mais.
-    </p>
-    <p>
-        Os templates aqui presentes são projetados para facilitar a criação de documentos consistentes e bem organizados para equipes de QA e desenvolvimento.
-    </p>
+    <header>
+        <h1>QA - Templates</h1>
+        <p>Repositório com Templates para QA e Documentação de Testes</p>
+    </header>
 
-    <h2>📂 Alguns dos Templates que estarão por aqui:</h2>
+    <main>
+        <section>
+            <p>Bem-vindo ao repositório <strong>QA-Templates</strong>!</p>
+            <p>
+                Este repositório contém templates que criei e utilizo em minhas documentações de qualidade, incluindo planos de testes, relatórios de resultados, estrutura de testes, listas de bugs e muito mais.
+            </p>
+            <p>
+                Os templates aqui presentes são projetados para facilitar a criação de documentos consistentes e bem organizados para equipes de QA e desenvolvimento.
+            </p>
 
-    <div class="template">
-        <h3>Documento de Qualidade</h3>
-        <p>
-            Template para utilizar como documento geral sobre Qualidade.  
-            <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/DOCUMENTA%C3%87%C3%83O%20DE%20QUALIDADE.pdf" target="_blank">Acesse aqui</a>.
-        </p>
-    </div>
+            <h2>📂 Alguns dos Templates que estarão por aqui:</h2>
 
-    <div class="template">
-        <h3>Plano de Testes</h3>
-        <p>
-            Template para definir o escopo, objetivos, critérios de aceitação, prazos de execução dos testes e muito mais.   
-            <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/%5BQA%20-%20Modelo%5D%20Plano%20de%20Teste.pdf" target="_blank">Acesse aqui</a>.
-        </p>
-    </div>
+            <div class="template">
+                <h3>Documento de Qualidade</h3>
+                <p>Template para utilizar como documento geral sobre Qualidade.  
+                    <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/DOCUMENTA%C3%87%C3%83O%20DE%20QUALIDADE.pdf" target="_blank" class="button-link">Acesse aqui</a>.
+                </p>
+            </div>
 
-    <div class="template">
-        <h3>Estrutura de Testes</h3>
-        <p>
-            Template para organizar os tipos de testes realizados (funcionais, de regressão, usabilidade, segurança, desempenho, etc.).  
-            <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/Estrutura%20de%20Testes.pdf" target="_blank">Acesse aqui</a>.
-        </p>
-    </div>
+            <div class="template">
+                <h3>Plano de Testes</h3>
+                <p>Template para definir o escopo, objetivos, critérios de aceitação, prazos de execução dos testes e muito mais.   
+                    <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/%5BQA%20-%20Modelo%5D%20Plano%20de%20Teste.pdf" target="_blank" class="button-link">Acesse aqui</a>.
+                </p>
+            </div>
 
-    <div class="template">
-        <h3>Relatório de Testes</h3>
-        <p>
-            Template para documentar os resultados dos testes, incluindo ciclos de testes e status de cada teste.  
-            <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/Relatorio_Testes" target="_blank">Acesse aqui</a>.
-        </p>
-    </div>
+            <div class="template">
+                <h3>Estrutura de Testes</h3>
+                <p>Template para organizar os tipos de testes realizados (funcionais, de regressão, usabilidade, segurança, desempenho, etc.).  
+                    <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/Estrutura%20de%20Testes.pdf" target="_blank" class="button-link">Acesse aqui</a>.
+                </p>
+            </div>
 
-    <div class="template">
-        <h3>Caso de Teste</h3>
-        <p>
-            Template para escrever casos de teste, incluindo estrutura com pré-condições, cenários com critérios de aceitação, informações sobre ambiente de teste e seção para anexos de evidência.  
-            <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/%5BQA%20-%20Modelo%5D%20Caso%20de%20Teste.pdf" target="_blank">Acesse aqui</a>.
-        </p>
-    </div>
+            <div class="template">
+                <h3>Relatório de Testes</h3>
+                <p>Template para documentar os resultados dos testes, incluindo ciclos de testes e status de cada teste.  
+                    <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/Relatorio_Testes" target="_blank" class="button-link">Acesse aqui</a>.
+                </p>
+            </div>
 
-    <h3>OBS.: Alguns templates ainda estão sendo inseridos aqui, então seguiremos com atualizações! 😉</h3>
+            <div class="template">
+                <h3>Caso de Teste</h3>
+                <p>Template para escrever casos de teste, incluindo estrutura com pré-condições, cenários com critérios de aceitação, informações sobre ambiente de teste e seção para anexos de evidência.  
+                    <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/%5BQA%20-%20Modelo%5D%20Caso%20de%20Teste.pdf" target="_blank" class="button-link">Acesse aqui</a>.
+                </p>
+            </div>
 
-    <p>
-        ➡️ <strong><a href="https://aneroliveira.notion.site/Bem-vinda-o-ao-meu-QG-122044ae16fd8008a8f4cc348fbbe337?pvs=74s" target="_blank">+ Sobre mim 🖲️</a></strong>
-    </p>
+            <h3>OBS.: Alguns templates ainda estão sendo inseridos aqui, então seguiremos com atualizações! 😉</h3>
 
-    <h2>Licença para os Templates:</h2>
-    <p>
-        Os templates deste repositório estão licenciados sob a 
-        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a>.  
-        Você pode usá-los e modificá-los para fins pessoais, mas não pode usá-los comercialmente ou redistribuí-los sob outra licença sem permissão.
-    </p>
+            <p>
+                ➡️ <strong><a href="https://aneroliveira.notion.site/Bem-vinda-o-ao-meu-QG-122044ae16fd8008a8f4cc348fbbe337?pvs=74s" target="_blank">+ Sobre mim 🖲️</a></strong>
+            </p>
 
-    <img src="https://github.com/user-attachments/assets/68f662aa-7764-4dcb-9af2-977daf5ef7f2" alt="Imagem ilustrativa dos templates">
+            <h2>Licença para os Templates:</h2>
+            <p>
+                Os templates deste repositório estão licenciados sob a 
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a>.  
+                Você pode usá-los e modificá-los para fins pessoais, mas não pode usá-los comercialmente ou redistribuí-los sob outra licença sem permissão.
+            </p>
 
-    <div class="footer">
+            <img src="https://github.com/user-attachments/assets/68f662aa-7764-4dcb-9af2-977daf5ef7f2" alt="Imagem ilustrativa dos templates">
+        </section>
+    </main>
+
+    <footer class="footer">
         🐞 Obrigada por visitar o repositório! 🌟
-    </div>
+    </footer>
 </body>
 </html>
