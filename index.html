@@ -6,6 +6,60 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <title>QA - Templates</title>
     <style>
+        /*Seção inicial - Cabeçalho*/
+        header {
+            background-color: #495357;
+            background-image: url('https://raw.githubusercontent.com/aneroliveira/-QA-Templates/refs/heads/main/images/An%20abstract%20design%20using%20a%20color%20palette%20inspired%20by%20ladybugs%2C%20featuring%20vibrant%20shades%20of%20red%2C%20black%2C%20and%20yellow.webp');
+            background-size: cover; /* A imagem cobrirá todo o espaço disponível */
+            background-position: center; /* Centraliza a imagem no footer */
+            color: rgb(255, 248, 248);
+            padding: 3rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+        }
+        header h1 {
+            margin: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        /* Navegação */
+        nav {
+            background-color: #f09aa7;
+            padding: 10px 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            background-color: #7f93a6;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* Estilo dos textos da página*/
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -14,40 +68,27 @@
             background-color: #f8f8f8;
             color: #333333;
         }
-
-        header {
-            background-color: #495357;
-            background-image: url('https://github.com/user-attachments/assets/68f662aa-7764-4dcb-9af2-977daf5ef7f2');
-            background-size: cover; /* A imagem cobrirá todo o espaço disponível */
-            background-position: center center; /* Centraliza a imagem no footer */
-            color: rgb(255, 248, 248);
-            padding: 3rem;
-            text-align: center;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-        }
-
-        header h1 {
-            margin: 0;
-        }
-
+        /* ajuste centralizado dos textos no body*/
         main {
             padding: 1.5rem 3rem 1.5rem 3rem;
             text-align: center;
         }
 
+        /*Cor dos Títulos*/
         h2, h3 {
             color: #2c3e50;
         }
 
+        /*Cor dos links - fora dos botões*/
         a {
             color: #2980b9;
             text-decoration: none;
         }
-
         a:hover {
             text-decoration: underline;
         }
 
+        /*Estilo dos DIVs de cada template*/
         .template {
             margin-bottom: 20px;
             padding: 10px 40px;
@@ -60,33 +101,15 @@
             text-align: center; /* Alinha o conteúdo da div template */
             text-shadow: 1.5px 2px 2px rgba(255, 253, 253, 0.5);
         }
-
         .template p {
             margin-bottom: 10px; /* Espaço entre o texto e o botão */
         }
-
+        /*Estilo do grupo dos DIVs de cada template*/
         .grupao {
-            margin: 0 18rem; /* Espaço extra à esquerda e à direita para a classe grupao */
+            margin: 0 18rem; /* Espaço extra à esquerda e à direita para centralizar */
         }
-
-        .footer {
-            background-image: url('https://github.com/user-attachments/assets/68f662aa-7764-4dcb-9af2-977daf5ef7f2');
-            background-size: cover; /* A imagem cobrirá todo o espaço disponível */
-            background-position: center center; /* Centraliza a imagem no footer */
-            color: white;
-            padding: 10px;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        img {
-            max-width: 50%;
-            height: auto;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .button-link {
+         /*Estilo dos botões em cada DIV de template*/
+         .button-link {
             display: inline-block;
             padding: 5px 20px;
             background-color: #576469;
@@ -97,7 +120,6 @@
             margin-top: 10px; /* Espaço entre o texto e o botão */
             width: auto; /* Faz o botão ocupar apenas o espaço necessário */
         }
-
         .button-link:hover {
             background-color: #576469;
             text-decoration: none;
@@ -117,9 +139,29 @@
             text-align: center;
             margin-top: 10px;
         }
+
+        /*Estilo da imagem usada*/
+        img {
+            max-width: 50%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
         .licenca{
             width: auto;
             margin: 0 18rem;
+        }
+
+        /*Seção final - Rodapé*/
+        .footer {
+            background-image: url('https://raw.githubusercontent.com/aneroliveira/-QA-Templates/refs/heads/main/images/An%20abstract%20design%20using%20a%20color%20palette%20inspired%20by%20ladybugs%2C%20featuring%20vibrant%20shades%20of%20red%2C%20black%2C%20and%20yellow.webp');
+            background-size: cover; /* A imagem cobrirá todo o espaço disponível */
+            background-position: center; /* Centraliza a imagem no footer */
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -128,6 +170,14 @@
         <h1>[QA] Templates</h1>
         <p>Repositório com Templates de Documentação de Testes 🐞</p>
     </header>
+    
+    <nav>
+        <ul>
+            <li><a href="/home.html">Home</a></li>
+            <li><a href="/about_me.html">Sobre Mim</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
 
     <main>
         <section>
@@ -142,7 +192,6 @@
             <h2>📂 Alguns dos templates que estarão por aqui:</h2>
             <div class="grupao">
                 <div class="template">
-                    <div class="template">
                     <h3>Documento de Qualidade</h3>
                     <p>Template para utilizar como documento geral sobre Qualidade.  
                         <div class=".button-container">
@@ -150,6 +199,7 @@
                         </div>
                     </p>
                 </div>
+
                 <div class="template">
                     <h3>Plano de Testes</h3>
                     <p>Template para definir o escopo, objetivos, critérios de aceitação, prazos de execução dos testes e muito mais.   
