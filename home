@@ -5,39 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>QA - Templates</title>
     <style>
         /*Seção inicial - Cabeçalho*/
         header {
-            background-color: #495357;
-            background-image: url('https://img.notionusercontent.com/s3/prod-files-secure%2F0b92b662-cfef-4db8-82ac-9ff7ae640a45%2F6ee1fc41-2656-4e4c-a505-c0c5135739e5%2FDALLE_2024-10-17_18.39.11_-_A_pixel_art_banner_depicting_ladybugs_(joaninhas)_symbolizing_Quality_Assurance_(QA)._The_scene_should_feature_colorful_stylized_ladybugs_interacting.webp/size/w=2000?exp=1737576090&sig=DhYI9SmdDFPC7gK_D0_jNbHgtLTT0byLkIUMp6QWaPI');
+            background-image: url('https://raw.githubusercontent.com/aneroliveira/-QA-Templates/refs/heads/main/images/A_pixel_art_banner_depicting_ladybugs_(joaninhas)_symbolizing_Quality_Assurance_(QA).webp');
             background-size: cover;
+            background-repeat: no-repeat;
             /* A imagem cobrirá todo o espaço disponível */
             background-position: center 60%;
             /* Centraliza a imagem no footer */
-            color: rgb(255, 248, 248);
+            color: rgb(255, 255, 255);
             padding: 4rem;
             text-align: center;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 100);
         }
 
         header h1 {
-            margin: 0;
+            display: inline-flex; /* Aplica o texto no mesmo tam. que a div */
+            justify-content: center; /* Centraliza o texto */
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 25px;
+            padding: 0 20px 0 20px;
         }
 
         html {
             scroll-behavior: smooth;
         }
 
-
         /* Navegação */
         nav {
             background-color: #000;
             padding: 10px 0;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            
+
 
         }
+
         nav ul {
             list-style: none;
             display: flex;
@@ -60,7 +65,7 @@
 
         /* HOME */
         nav ul li a.home {
-            background-color: #000;
+            background-color: #8B4513;
             color: #fff;
             text-decoration: none;
         }
@@ -76,7 +81,7 @@
             background-color: #000;
             color: #fff;
             text-decoration: none;
-            position: relative;
+            box-shadow: 2px 2px 2px 2px #8B0000;
         }
 
         nav ul li a.sobre-mim:hover {
@@ -84,13 +89,13 @@
             color: #fff;
             text-decoration: none;
         }
-        
 
         /* HABILIDADES */
         nav ul li a.habilidades {
             background-color: #000;
             color: #fff;
             text-decoration: none;
+            box-shadow: 2px 2px 2px 2px #2E8B57;
         }
 
         nav ul li a.habilidades:hover {
@@ -104,6 +109,7 @@
             background-color: #000;
             color: #fff;
             text-decoration: none;
+            box-shadow: 2px 2px 2px 2px #1E90FF;
         }
 
         nav ul li a.publicacoes:hover {
@@ -111,7 +117,7 @@
             color: #fff;
             text-decoration: none;
         }
-        
+
         /* Estilo dos textos da página*/
         body {
             font-family: Arial, sans-serif;
@@ -144,72 +150,6 @@
             text-decoration: underline;
         }
 
-        /*Estilo dos DIVs de cada template*/
-        .template {
-            margin-bottom: 20px;
-            padding: 10px 40px;
-            background-color: #f09aa7;
-            border-radius: 9px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            /* Garante que o botão será centralizado abaixo do texto */
-            text-align: center;
-            /* Alinha o conteúdo da div template */
-            text-shadow: 1.5px 2px 2px rgba(255, 253, 253, 0.5);
-        }
-
-        .template p {
-            margin-bottom: 10px;
-            /* Espaço entre o texto e o botão */
-        }
-
-        /*Estilo do grupo dos DIVs de cada template*/
-        .grupao {
-            margin: 0 18rem;
-            /* Espaço extra à esquerda e à direita para centralizar */
-        }
-
-        /*Estilo dos botões em cada DIV de template*/
-        .button-link {
-            display: inline-block;
-            padding: 5px 20px;
-            background-color: #576469;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            text-align: center;
-            margin-top: 10px;
-            /* Espaço entre o texto e o botão */
-            width: auto;
-            /* Faz o botão ocupar apenas o espaço necessário */
-        }
-
-        .button-link:hover {
-            background-color: #576469;
-            text-decoration: none;
-        }
-
-        .button-container {
-            display: block;
-            /* Garante que o botão ocupe uma linha separada */
-            text-align: center;
-            /* Centraliza o botão dentro da div */
-            width: 100%;
-            /* Faz o container ocupar a largura total disponível */
-        }
-
-        .button-link {
-            padding: 5px 20px;
-            background-color: #7f93a6;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            text-align: center;
-            margin-top: 10px;
-        }
-
         /*Estilo da imagem usada*/
         img {
             max-width: 50%;
@@ -221,6 +161,123 @@
         .licenca {
             width: auto;
             margin: 0 18rem;
+        }
+
+        /* Conteúdo da página HOME*/
+        .container {
+            margin: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .section-content {
+            font-size: 1em;
+            color: #f0eeee;
+        }
+
+        .sobre-mim {
+            background-color: #751313;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 60);
+            box-shadow: 2px 2px 2px 2px #5e0e0e;
+        }
+
+        .habilidades {
+            background-color: #267e4c;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 60);
+            box-shadow: 2px 2px 2px 2px #154e2e;
+        }
+
+        .publicacoes {
+            background-color: #1b4d80;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 60);
+            box-shadow: 2px 2px 2px 2px #0f355c;
+        }
+
+        .espaco {
+            background-color: #000000;
+            text-align: center;
+        }
+
+        /*Ajuste no tamanho dos ícones de 'Contato'*/
+        div a i {
+            font-size: 40px;
+            margin-right: 10px;
+        }
+
+        /*Contato*/
+        .contato_linkedin {
+            background-color: #2b5a70;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 60);
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            /* Aplica o flexbox ao link */
+            align-items: center;
+            /* Alinha verticalmente o ícone e o texto no centro */
+            font-size: 20px;
+        }
+
+        .contato_linkedin:hover {
+            text-decoration: none;
+        }
+
+        .contato_mail {
+            background-color: #cf6767;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 60);
+            text-decoration: none;
+            display: flex;
+            /* Aplica o flexbox ao link */
+            align-items: center;
+            /* Alinha verticalmente o ícone e o texto no centro */
+            font-size: 20px;
+
+        }
+
+        .contato_mail:hover {
+            text-decoration: none;
+        }
+
+        /*Botão 'Voltar para Topo'*/
+        #myBtn {
+            position: fixed;
+            bottom: 50px;
+            /* Distância do fundo da página */
+            right: 25px;
+            /* Distância da lateral direita */
+            z-index: 99;
+            /* Garante que o botão fique acima de outros elementos */
+            background-color: #ffffff;
+            /* Cor do fundo */
+            color: #000000;
+            /* Cor do texto */
+            border: none;
+            border-radius: 15px;
+            /* Bordas arredondadas */
+            padding: 10px 15px;
+            font-size: 20px;
+            /* Tamanho da fonte */
+            cursor: pointer;
+            /* Altera o cursor ao passar sobre o botão */
+            display: none;
+            /* Esconde o botão inicialmente */
+        }
+
+        #myBtn:hover {
+            background-color: #db0b9d;
+            /* Cor do botão ao passar o mouse */
         }
 
         /*Seção final - Rodapé*/
@@ -240,109 +297,101 @@
 
 <body>
     <header>
-        <h1>[QA] Templates</h1>
-        <p>Repositório com Templates de Documentação de Testes 🐞</p>
+        <h1>Bem vinda(o) ao meu QG! 🐞 </h1>
     </header>
 
     <nav>
         <ul>
-            <li ><a href="/home.html"class="home">Home</a></li>
-            <li><a href="/about_me.html" class="sobre-mim">Sobre Mim</a></li>
-            <li><a href="#contato" class="habilidades">Habilidades Técnicas</a></li>
-            <li><a href="#contato" class="publicacoes">Posts/Artigos</a></li>
+            <li><a href="/home.html" class="home" title="Você está aqui!">Home</a></li>
+            <li><a href="/about_me.html" class="sobre-mim" title="Formação, carreira e +!">Sobre Mim</a></li>
+            <li><a href="/home.html" class="habilidades" title="Ferramentas, tech e metodologias">Habilidades Técnicas</a></li>
+            <li><a href="/index.html" class="publicacoes" title="Atividade no LinkedIn">Posts/Artigos</a></li>
         </ul>
     </nav>
 
     <main>
         <section>
-            <p>Bem-vindo ao repositório <strong>[QA] Templates</strong>!</p>
+            <p><i>Sou a <strong style="color: #ff63e5">Lorena</strong>, uma <strong>geminiana</strong> ♊ apaixonada por
+                    <strong>dogs</strong> 🐾,
+                    desafios e por <strong>"caçar" bugs</strong>!</i></p>
             <p>
-                Este repositório contém templates que montei e utilizo em minhas documentações de qualidade, incluindo
-                planos de testes, relatórios de resultados, estrutura de testes, listas de bugs e muito mais.
+                Sigo desbravando o <i>universo da Qualidade de Software</i> com a certeza de que todo bug é uma
+                <strong>oportunidade</strong> de melhoria.
             </p>
             <p>
-                Os templates aqui presentes são projetados para facilitar a criação de documentos consistentes e bem
-                organizados para profissionais de QA e outros.
+                Com mais de <strong>6</strong> anos de experiência em TI, iniciei minha carreira no suporte técnico,
+                onde desenvolvi uma base sólida para minha transição para a área de Qualidade de Software (QA).
+                Hoje, procuro assegurar a entrega contínua de software de alta qualidade, combinando técnicas de testes,
+                diversas metodologias e <u>criatividade</u> para garantir soluções <strong>robustas</strong> e
+                <strong>eficientes</strong>.
             </p>
 
-            <h2>📂 Alguns dos templates que estarão por aqui:</h2>
-            <div class="grupao">
-                <div class="template">
-                    <h3>Documento de Qualidade</h3>
-                    <p>Template para utilizar como documento geral sobre Qualidade.
-                    <div class=".button-container">
-                        <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/DOCUMENTA%C3%87%C3%83O%20DE%20QUALIDADE.pdf"
-                            target="_blank" class="button-link">Acesse aqui</a>
-                    </div>
-                    </p>
+            <div class="section espaco">🐞</div>
+
+            <h2>📂 Aqui, você encontrará:</h2>
+            <div class="container">
+                <div class="section sobre-mim">
+                    <div class="section-title">🙋🏽‍♀️ Sobre mim</div>
+                    <div class="section-content">Um pouco mais sobre minha formação, carreira, visão profissional e
+                        mais!</div>
                 </div>
 
-                <div class="template">
-                    <h3>Plano de Testes</h3>
-                    <p>Template para definir o escopo, objetivos, critérios de aceitação, prazos de execução dos testes
-                        e muito mais.
-
-                    <div class=".button-container">
-                        <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/%5BQA%20-%20Modelo%5D%20Plano%20de%20Teste.pdf"
-                            target="_blank" class="button-link">Acesse aqui</a>
-                    </div>
-                    </p>
+                <div class="section habilidades">
+                    <div class="section-title">🛠️ Habilidades Técnicas</div>
+                    <div class="section-content">Ferramentas, tecnologias e metodologias que domino e utilizo no meu
+                        cotidiano.</div>
                 </div>
 
-                <div class="template">
-                    <h3>Estrutura de Testes</h3>
-                    <p>Template para organizar os tipos de testes realizados (funcionais, de regressão, usabilidade,
-                        segurança, desempenho, etc.).
-                    <div class=".button-container">
-                        <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/Estrutura%20de%20Testes.pdf"
-                            target="_blank" class="button-link">Acesse aqui</a>
-                    </div>
-                    </p>
-                </div>
-
-                <div class="template">
-                    <h3>Relatório de Testes</h3>
-                    <p>Template para documentar os resultados dos testes, incluindo ciclos de testes e status de cada
-                        teste.
-                    <div class=".button-container">
-                        <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/Relatorio_Testes"
-                            target="_blank" class="button-link">Acesse aqui</a>
-                    </div>
-                    </p>
-                </div>
-
-                <div class="template">
-                    <h3>Caso de Teste</h3>
-                    <p>Template para escrever casos de teste, incluindo estrutura com pré-condições, cenários com
-                        critérios de aceitação, informações sobre ambiente de teste e seção para anexos de evidência.
-                    <div class=".button-container">
-                        <a href="https://github.com/lorioliveira/-QA-Templates/blob/main/%5BQA%20-%20Modelo%5D%20Caso%20de%20Teste.pdf"
-                            target="_blank" class="button-link">Acesse aqui</a>
-                    </div>
-                    </p>
+                <div class="section publicacoes">
+                    <div class="section-title">📝 Posts/Artigos</div>
+                    <div class="section-content">Conteúdos que publiquei no LinkedIn sobre Qualidade de Software,
+                        envolvendo estudos, insights e tendências da área.</div>
                 </div>
             </div>
 
-            <h3>OBS.: Alguns templates ainda estão sendo inseridos aqui, então seguiremos com atualizações! 😉</h3>
+            <div class="section espaco">🐞</div>
 
+            <h2> 📩 Contato</h2>
             <p>
-                ➡️ <strong><a
-                        href="https://aneroliveira.notion.site/Bem-vinda-o-ao-meu-QG-122044ae16fd8008a8f4cc348fbbe337?pvs=74s"
-                        target="_blank">+ Sobre mim 🖲️</a></strong>
-            </p>
+            <div class="container">
+                <p>Mais informações, entre em contato comigo! Será um prazer conversar.</p>
+                <div class="section contato_linkedin">
+                    <a href="https://www.linkedin.com/in/lorena-oliveira-051996/" target="_blank"
+                        class="contato_linkedin">
+                        <i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
 
-            <h2>Licença para os Templates:</h2>
-            <p>
-            <div class="licenca">
-                <i> Os templates deste repositório estão licenciados sob a
-                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons
-                        Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a>.
-                    Você pode usá-los e modificá-los para fins pessoais, mas não pode usá-los comercialmente ou
-                    redistribuí-los sob outra licença sem permissão.</i>
+                <div class="section contato_mail">
+                    <a href="mailto:aneoliver@gmail.com" class="contato_mail">
+                        <i class="fab fa-google"></i> e-mail</a>
+                </div>
+
             </div>
             </p>
         </section>
     </main>
+    <button onclick="topFunction()" id="myBtn" title="Voltar ao topo">↑</button>
+
+    <script>
+        // Código JavaScript para o botão de voltar ao topo
+        var mybutton = document.getElementById("myBtn");
+
+        // Quando o usuário rolar para baixo 20px a partir do topo do documento, mostra o botão
+        window.onscroll = function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        };
+
+        // Quando o usuário clicar no botão, retorna ao topo da página
+        function topFunction() {
+            document.body.scrollTop = 0; // Para Safari
+            document.documentElement.scrollTop = 0; // Para outros navegadores
+        }
+    </script>
+
     <footer class="footer">
         <strong>🐞 2025 🌟</strong>
     </footer>
