@@ -131,7 +131,7 @@
         /* ajuste centralizado dos textos no body*/
         main {
             padding: 1.5rem 3rem 1.5rem 3rem;
-            text-align: justify;
+            text-align: center;
         }
 
         /*Cor dos Títulos*/
@@ -165,13 +165,16 @@
 
         /* Conteúdo da página HOME*/
         .container {
-            margin: 20px;
+            margin: 0 150px 0 150px;
+            cursor: pointer;
+            transition: all 1.0s ease;
+            text-align: center;
         }
 
         .section {
             margin-bottom: 20px;
             padding: 10px;
-            border-radius: 5px;
+            border-radius: 10px;
         }
 
         .section-title {
@@ -191,10 +194,22 @@
             box-shadow: 2px 2px 2px 2px #5e0e0e;
         }
 
+        .sobre-mim:hover{
+            transform: scale(1.1);
+            box-shadow: 0px 8px 9px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
         .habilidades {
             background-color: #267e4c;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 60);
             box-shadow: 2px 2px 2px 2px #154e2e;
+        }
+
+        .habilidades:hover {    
+            transform: scale(1.1);
+            box-shadow: 0px 8px 9px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
         }
 
         .publicacoes {
@@ -202,6 +217,13 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 60);
             box-shadow: 2px 2px 2px 2px #0f355c;
         }
+
+        .publicacoes:hover {    
+            transform: scale(1.1);
+            box-shadow: 0px 8px 9px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
 
         .espaco {
             background-color: #000000;
@@ -221,15 +243,21 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 60);
             font-weight: bold;
             text-decoration: none;
-            display: flex;
+            display: inline-flex;
+            text-align: center;
+            margin-right: 1.5%;
             /* Aplica o flexbox ao link */
             align-items: center;
             /* Alinha verticalmente o ícone e o texto no centro */
             font-size: 20px;
+            
+            transition: all 1.0s ease;
+            text-align: center;
         }
 
         .contato_linkedin:hover {
             text-decoration: none;
+            transform: scale(1.1);
         }
 
         .contato_mail {
@@ -238,16 +266,20 @@
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 60);
             text-decoration: none;
-            display: flex;
+            display: inline-flex;
             /* Aplica o flexbox ao link */
             align-items: center;
             /* Alinha verticalmente o ícone e o texto no centro */
             font-size: 20px;
+            
+            transition: all 1.0s ease;
+            text-align: center;
 
         }
 
         .contato_mail:hover {
             text-decoration: none;
+            transform: scale(1.1);
         }
 
         /*Botão 'Voltar para Topo'*/
@@ -352,15 +384,13 @@
             <div class="section espaco">🐞</div>
 
             <h2> 📩 Contato</h2>
-            <p>
-            <div class="container">
                 <p>Mais informações, entre em contato comigo! Será um prazer conversar.</p>
+            <div class="container">
                 <div class="section contato_linkedin">
                     <a href="https://www.linkedin.com/in/lorena-oliveira-051996/" target="_blank"
                         class="contato_linkedin">
                         <i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
-
                 <div class="section contato_mail">
                     <a href="mailto:aneoliver@gmail.com" class="contato_mail">
                         <i class="fab fa-google"></i> e-mail</a>
