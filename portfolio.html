@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[QA] Portfólio</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Ícones de redes sociais */
+        .social-icons {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-container {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 20px;
+            width: 100%;
+        }
+
+        /* Alinhando os ícones de redes sociais à esquerda */
+        .social-icons-left {
+            display: flex;
+            gap: 10px;
+            padding: 0 20px;
+        }
+
+        /* Alinhando o ícone do GitHub à direita */
+        .social-icons-right {
+            display: flex;
+        }
+
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            color: white;
+            font-size: 25px;
+            text-decoration: none;
+        }
+
+        .linkedin {
+            background-color: #0077B5;
+        }
+
+        .email {
+            background-color: #d14836;
+        }
+
+        .github {
+            position: absolute;
+            right: 20px;
+            background-color: #272423;
+        }
+
+        /* Perfil */
+        .profile img {
+            width: 330px;
+            height: 330px;
+            border-radius: 50%;
+            margin: 60px 0 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: dotted 4px #e61ecb;
+        }
+
+        .profile h2 {
+            font-size: 20px;
+            margin-left: 20px;
+            color: #777;
+            letter-spacing: 13px;
+            text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile h1 {
+            font-size: 40px;
+            font-weight: bold;
+            margin: 20px 0 20px;
+        }
+
+        /* Menu */
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .color-dot {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-text {
+            position: absolute;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease-in-out;
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Efeito de expansão do botão ao passar o mouse */
+        .nav-item:hover {
+            width: 140px;
+            /* Expande horizontalmente */
+            height: 40px;
+            border-radius: 20px;
+            gap: 10px;
+        }
+
+        .nav-item:hover .color-dot {
+            border-radius: 20px;
+        }
+
+        .nav-item:hover .nav-text {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        /* Paleta de cores */
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .color {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        /* Links do menu */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #7B8A98;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background-color: #D8A6A0;
+            color: black;
+        }
+
+        /* Texto principal */
+        main {
+            max-width: 600px;
+            margin: 30px auto;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /*Botão 'Voltar para Topo'*/
+        #myBtn {
+            position: fixed;
+            bottom: 50px;
+            /* Distância do fundo da página */
+            right: 25px;
+            /* Distância da lateral direita */
+            z-index: 99;
+            /* Garante que o botão fique acima de outros elementos */
+            background-color: #ffffff;
+            /* Cor do fundo */
+            color: #000000;
+            /* Cor do texto */
+            border: none;
+            border-radius: 15px;
+            /* Bordas arredondadas */
+            padding: 10px 15px;
+            font-size: 20px;
+            /* Tamanho da fonte */
+            cursor: pointer;
+            /* Altera o cursor ao passar sobre o botão */
+            display: none;
+            /* Esconde o botão inicialmente */
+        }
+
+        #myBtn:hover {
+            background-color: #db0b9d;
+            /* Cor do botão ao passar o mouse */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="social-container">
+            <div class="social-icons-left">
+                <a href="https://www.linkedin.com/in/lorena-oliveira-051996/" target="_blank" class="icon linkedin">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:aneoliver@gmail.com" class="icon email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+            <div class="social-icons-right">
+                <a href="https://github.com/aneroliveira" class="icon github" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="profile">
+            <img src="../-QA-Templates-main/images/foto_perfil_.jpeg" alt="Imagem de perfil">
+            <h2>Quality Engineer 🐞</h2>
+            <h1>Lorena Santos</h1>
+        </div>
+
+        <nav class="nav-menu color-palette">
+            <ul>
+                <li class="nav-item" data-color="#999696">
+                    <span class="color-dot" style="background-color: #7c7c7c;"></span>
+                    <span class="nav-text">Home</span>
+                </li>
+                <li class="nav-item" data-color="#7F93A6">
+                    <span class="color-dot" style="background-color: #758391;"></span>
+                    <span class="nav-text">Sobre Mim</span>
+                </li>
+                <li class="nav-item" data-color="#D5838F">
+                    <span class="color-dot" style="background-color: #be7480;"></span>
+                    <span class="nav-text">Habilidades</span>
+                </li>
+                <li class="nav-item" data-color="#c06761">
+                    <span class="color-dot" style="background-color: #FF736A"></span>
+                    <span class="nav-text">Templates</span>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+        <div>
+            Sou a Lorena, uma geminiana ♊ apaixonada por dogs 🐶, desafios e por "caçar" bugs! 🐞
+        </div>
+        <div>
+            Com mais de 6 anos de experiência em TI, iniciei minha carreira no suporte técnico, onde desenvolvi uma base
+            sólida para minha transição para a área de Qualidade de Software (QA).
+            Hoje, procuro assegurar a entrega contínua de software de alta qualidade, combinando técnicas de testes,
+            diversas metodologias e criatividade para garantir soluções robustas e eficientes.
+        </div>
+    </main>
+
+
+    <button onclick="topFunction()" id="myBtn" title="Voltar ao topo">↑</button>
+    <script>
+        // Código JavaScripts
+        // * Para botão de voltar ao topo
+        var mybutton = document.getElementById("myBtn");
+
+        // Quando o usuário rolar para baixo 20px a partir do topo do documento, mostra o botão
+        window.onscroll = function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        };
+
+        // Quando o usuário clicar no botão, retorna ao topo da página
+        function topFunction() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'  // Adiciona a rolagem suave
+            });
+        }
+
+        // * Código para funcionamento dos botões do menu
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function () {
+                document.body.style.backgroundColor = this.getAttribute('data-color');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
