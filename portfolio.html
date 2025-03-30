@@ -7,337 +7,319 @@
     <title>[QA] Portfólio</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="styles.css">
+    <script src="actions.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-    <style>
-        /* Estilos gerais */
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            background-color: #f8f8f8;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Ícones de redes sociais */
-        .social-icons {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .social-container {
-            display: flex;
-            justify-content: space-between;
-            position: absolute;
-            top: 20px;
-            width: 100%;
-        }
-
-        /* Alinhando os ícones de redes sociais à esquerda */
-        .social-icons-left {
-            display: flex;
-            gap: 10px;
-            padding: 0 20px;
-        }
-
-        /* Alinhando o ícone do GitHub à direita */
-        .social-icons-right {
-            display: flex;
-        }
-
-        .icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 5px;
-            color: white;
-            font-size: 25px;
-            text-decoration: none;
-        }
-
-        .linkedin {
-            background-color: #0077B5;
-        }
-
-        .email {
-            background-color: #d14836;
-        }
-
-        .github {
-            position: absolute;
-            right: 20px;
-            background-color: #272423;
-        }
-
-        /* Perfil */
-        .profile img {
-            width: 330px;
-            height: 330px;
-            border-radius: 50%;
-            margin: 60px 0 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border: dotted 4px #e61ecb;
-        }
-
-        .profile h2 {
-            font-size: 20px;
-            margin-left: 20px;
-            color: #777;
-            letter-spacing: 13px;
-            text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
-        }
-
-        .profile h1 {
-            font-size: 40px;
-            font-weight: bold;
-            margin: 20px 0 20px;
-        }
-
-        /* Menu */
-        .nav-menu ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 0;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .color-dot {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            transition: all 0.3s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0;
-            color: white;
-            font-weight: bold;
-        }
-
-        .nav-text {
-            position: absolute;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.3s ease-in-out;
-            font-size: 14px;
-            color: white;
-            font-weight: bold;
-        }
-
-        /* Efeito de expansão do botão ao passar o mouse */
-        .nav-item:hover {
-            width: 140px;
-            /* Expande horizontalmente */
-            height: 40px;
-            border-radius: 20px;
-            gap: 10px;
-        }
-
-        .nav-item:hover .color-dot {
-            border-radius: 20px;
-        }
-
-        .nav-item:hover .nav-text {
-            opacity: 1;
-            transform: scale(1.2);
-        }
-
-        /* Paleta de cores */
-        .color-palette {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 10px;
-        }
-
-        .color {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-        }
-
-        /* Links do menu */
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #7B8A98;
-            font-weight: bold;
-            font-size: 18px;
-            padding: 10px 20px;
-            border-radius: 20px;
-            transition: 0.3s;
-        }
-
-        nav ul li a.active,
-        nav ul li a:hover {
-            background-color: #D8A6A0;
-            color: black;
-        }
-
-        /* Texto principal */
-        main {
-            max-width: 600px;
-            margin: 30px auto;
-            font-size: 18px;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        /*Botão 'Voltar para Topo'*/
-        #myBtn {
-            position: fixed;
-            bottom: 50px;
-            /* Distância do fundo da página */
-            right: 25px;
-            /* Distância da lateral direita */
-            z-index: 99;
-            /* Garante que o botão fique acima de outros elementos */
-            background-color: #ffffff;
-            /* Cor do fundo */
-            color: #000000;
-            /* Cor do texto */
-            border: none;
-            border-radius: 15px;
-            /* Bordas arredondadas */
-            padding: 10px 15px;
-            font-size: 20px;
-            /* Tamanho da fonte */
-            cursor: pointer;
-            /* Altera o cursor ao passar sobre o botão */
-            display: none;
-            /* Esconde o botão inicialmente */
-        }
-
-        #myBtn:hover {
-            background-color: #db0b9d;
-            /* Cor do botão ao passar o mouse */
-        }
-    </style>
 </head>
 
 <body>
     <header>
         <div class="social-container">
             <div class="social-icons-left">
-                <a href="https://www.linkedin.com/in/lorena-oliveira-051996/" target="_blank" class="icon linkedin">
+                <a href="https://www.linkedin.com/in/lorena-oliveira-051996/" target="_blank" class="icon linkedin"
+                    title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="mailto:aneoliver@gmail.com" class="icon email">
+                <a href="/cdn-cgi/l/email-protection#f899969d9794918e9d8ab89f95999194d69b9795" class="icon email"
+                    title="e-mail">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
             </div>
             <div class="social-icons-right">
-                <a href="https://github.com/aneroliveira" class="icon github" target="_blank">
+                <a href="https://github.com/aneroliveira" class="icon github" target="_blank" title="Github">
                     <i class="fa-brands fa-github"></i>
                 </a>
+                <button id="themeToggle" class="icon" aria-label="Alternar tema" title="Trocar tema">
+                    <i class="fa-solid fa-sun" id="sun-icon"></i>
+                    <i class="fa-solid fa-moon" id="moon-icon" style="display: none;"></i>
+                </button>
+
             </div>
         </div>
 
         <div class="profile">
             <img src="../-QA-Templates-main/images/foto_perfil_.jpeg" alt="Imagem de perfil">
-            <h2>Quality Engineer 🐞</h2>
+            <h2>Quality Engineer</h2>
             <h1>Lorena Santos</h1>
         </div>
 
         <nav class="nav-menu color-palette">
             <ul>
-                <li class="nav-item" data-color="#999696">
-                    <span class="color-dot" style="background-color: #7c7c7c;"></span>
-                    <span class="nav-text">Home</span>
+                <li class="nav-item">
+                    <a href="#home">
+                        <span class="ladybug-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="ladybug-svg"></svg>
+                        </span>
+                        <span class="nav-text">Home</span>
+                    </a>
                 </li>
-                <li class="nav-item" data-color="#7F93A6">
-                    <span class="color-dot" style="background-color: #758391;"></span>
-                    <span class="nav-text">Sobre Mim</span>
+
+                <li class="nav-item">
+                    <a href="#sobreMim">
+                        <span class="ladybug-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="ladybug-svg"></svg>
+                        </span>
+                        <span class="nav-text">Sobre Mim</span>
+                    </a>
                 </li>
-                <li class="nav-item" data-color="#D5838F">
-                    <span class="color-dot" style="background-color: #be7480;"></span>
-                    <span class="nav-text">Habilidades</span>
+
+                <li class="nav-item">
+                    <a href="#habilidades">
+                        <span class="ladybug-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="ladybug-svg"></svg>
+                        </span>
+                        <span class="nav-text">Habilidades</span>
+                    </a>
                 </li>
-                <li class="nav-item" data-color="#c06761">
-                    <span class="color-dot" style="background-color: #FF736A"></span>
-                    <span class="nav-text">Templates</span>
+
+                <li class="nav-item">
+                    <a href="#templates">
+                        <span class="ladybug-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="ladybug-svg">
+                            </svg>
+                        </span>
+                        <span class="nav-text">Templates</span>
+                    </a>
                 </li>
             </ul>
         </nav>
-
     </header>
 
     <main>
-        <div>
-            Sou a Lorena, uma geminiana ♊ apaixonada por dogs 🐶, desafios e por "caçar" bugs! 🐞
-        </div>
-        <div>
-            Com mais de 6 anos de experiência em TI, iniciei minha carreira no suporte técnico, onde desenvolvi uma base
-            sólida para minha transição para a área de Qualidade de Software (QA).
-            Hoje, procuro assegurar a entrega contínua de software de alta qualidade, combinando técnicas de testes,
-            diversas metodologias e criatividade para garantir soluções robustas e eficientes.
-        </div>
-    </main>
+        <section class="textHome active" id="home">
+            <p style="text-align: center;"><em>Sou a <strong>Lorena</strong>, uma <strong>geminiana</strong></em> ♊
+                <em>apaixonada por <strong>dogs</strong></em> 🐶<em>, desafios e por "caçar" bugs! </em>🐞<br></p>
+            Com mais de <strong>6</strong> anos de experiência em TI, iniciei minha carreira no suporte técnico, onde
+            desenvolvi uma base sólida para minha
+            transição para a área de <strong>Qualidade de Software</strong> (QA). <br>Hoje, procuro assegurar a entrega
+            contínua de software de alta qualidade,
+            combinando técnicas de testes, diversas metodologias e criatividade para garantir soluções robustas e
+            eficientes.</em>
 
+            <table>
+                <tr class="header-row">
+                    <td colspan="2">Aqui você encontrará:</td>
+                </tr>
+
+                <tr class="sobre-mim">
+                    <td><i class="bi bi-person-bounding-box"></i> Sobre mim</td>
+                    <td>Um pouco mais sobre minha formação, carreira, visão profissional e mais.</td>
+                </tr>
+
+                <tr class="habilidades">
+                    <td><i class="bi bi-award-fill"></i> Habilidades</td>
+                    <td>Ferramentas, tecnologias e metodologias que domino e utilizo no meu cotidiano.</td>
+                </tr>
+
+                <tr class="templates">
+                    <td><i class="bi bi-clipboard2-check-fill"></i> Templates</td>
+                    <td>Todos os templates de documentação de QA que utilizo e feitos por mim</td>
+                </tr>
+            </table>
+            <p style="text-align: center; font-size: 15px;">Navegue pelo menu acima</p>
+        </section>
+
+        <section id="sobreMim">
+            <div><em>
+                    <h2>Oi!
+                </em> 🙋🏽‍♀️</h2><em>Me chamo <strong>Lorena</strong> (mas pode me chamar de Lori), sou formada em
+                    Análise e Desenvolvimento de Sistemas pela FATEC Mogi das Cruzes,
+                    com 6 anos de experiência na área de TI, com foco dedicado à <strong>Qualidade de Software</strong>
+                    (QA). Iniciei minha carreira em suporte técnico, onde desenvolvi
+                    habilidades essenciais em <strong>resolução de problemas</strong> e <strong>suporte a sistemas
+                        críticos</strong>, e depois migrei para QA,
+                    aproveitando essa base para garantir a <strong>excelência</strong> no desenvolvimento de software,
+                    com experiência em áreas diversas, incluindo comércio exterior,
+                    geolocalização governamental, gestão de frotas e tags de pedágio. <br>Ao longo da minha trajetória,
+                    contribui de forma significativa para a implementação
+                    de testes regressivos e automação de testes, com destaque para a criação de um case de testes
+                    <strong>E2E</strong> utilizando <strong>Cypress</strong> em um portal de Gestão de
+                    tags de estacionamento para Pessoa Jurídica. <br>Minha atuação abrange desde a validação de
+                    funcionalidades até a otimização de processos de qualidade,
+                    sempre com o objetivo de garantir a entrega de software de alta performance e a plena satisfação dos
+                    usuários.
+                    Tenho sólida experiência com metodologias ágeis (<strong>Scrum/Kanban</strong>), tendo familiaridade
+                    em conduzir cerimônias e prestado apoio às equipes na definição e
+                    cumprimento de objetivos de curto/longo prazo.</em>
+            </div>
+            <div><em>Meu foco está em assegurar a entrega de software de alta qualidade por meio da combinação de testes
+                    manuais e automatizados, validação de funcionalidades,
+                    boa documentação (AMO!), e abordagens diferenciadas para testes. Em todos os processos, priorizo a
+                    colaboração estreita e eficaz com stakeholders e devs,
+                    promovendo um ambiente produtivo, sociável e alinhado.</em>
+            </div>
+            <div><em>Estou em constante busca por aprimoramento profissional, atualmente estudando para a certificação
+                    <strong>CTFL</strong> e me aprofundando em testes automatizados
+                    inicialmente com Cypress e Playwright, com o objetivo de expandir ainda mais minha expertise na
+                    área. Além da parte tech, sou apaixonada por explorar
+                    minha criatividade em <strong>design</strong>, onde gosto de experimentar com
+                    <strong>fontes</strong>, <strong>cores</strong> e <strong>elementos visuais</strong> para
+                    criar composições únicas.</em>
+            </div>
+            <div>
+                <h2>Experiências profissionais</h2>
+                <table class="career-table">
+                    <thead>
+                        <tr>
+                            <th>Período</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024 - <strong>Atual</strong></td>
+                            <td><strong>Analista de Qualidade de Software na Impulso (Grupo RD Saúde)</strong> -
+                                Primeira profissional de QA da empresa, com foco na
+                                implantação de processos de qualidade e na estratégia de testes para garantir a
+                                excelência dos sistemas da organização.</td>
+                        </tr>
+                        <tr>
+                            <td>2021 - 2024</td>
+                            <td><strong>Transição de Carreira → Analista de Qualidade de Software na Muralis
+                                    Tecnologia</strong></td>
+                        </tr>
+                        <tr>
+                            <td>2020 - 2021</td>
+                            <td><strong>Atendente de Suporte NOC na 76Telecom</strong> - Diagnóstico e resolução de
+                                problemas em redes e sistemas críticos,
+                                adquirindo experiência em ambientes de alta disponibilidade.</td>
+                        </tr>
+                        <tr>
+                            <td>2019 - 2020</td>
+                            <td><strong>Analista de Suporte Service Desk na Original Veículos</strong> - Suporte a
+                                sistemas e infraestrutura de TI, desenvolvimento
+                                de soluções para melhorias de processos internos.</td>
+                        </tr>
+                        <tr>
+                            <td>2018 - 2019</td>
+                            <td><strong>Auxiliar de Suporte de TI</strong> - Atendimento técnico e suporte a usuários,
+                                com foco em resolução de problemas
+                                e manutenção de sistemas.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+
+        <section id="habilidades">
+            <h1>Habilidades Técnicas e Comportamentais</h1>
+            <div>
+                Sou uma profissional com excelente habilidade de comunicação e forte espírito de trabalho em equipe, 
+                sempre disposta a me adaptar para superar desafios. Destaco-me pela capacidade de resolver problemas de 
+                forma eficaz, com pensamento crítico e abordagem proativa. Sou organizada e busco constantemente a 
+                melhoria contínua em minhas atividades.
+                Tenho experiência sólida em automação de testes, análise de logs, consultas a bancos de dados e monitoramento de sistemas.
+                Utilizo ferramentas modernas e aplico metodologias ágeis para assegurar a qualidade do software, otimizando a entrega de 
+                projetos e garantindo a excelência em todas as fases do desenvolvimento.
+                <br>
+                
+                <h3>Habilidades Técnicas</h3>
+                <details>
+                    <summary><i class="bi bi-braces"></i> Ferramentas de teste</summary>
+                    <li>Cypress: Automação de testes end-to-end.</li>
+                    <li>Selenium: Ferramenta para automação de testes de aplicações web.</li>
+                    <li>Postman: Testes de APIs.</li>
+                </details>
+                <br>
+                <details>
+                    <summary><i class="bi bi-braces"></i>  Ferramentas de Integração Contínua</summary>
+                    <li>Azure DevOps: Gerenciamento de projetos e CI/CD.</li>
+                    <li>GitHub Actions: Gerenciamento de projetos e CI/CD.</li>
+                </details>
+                <br>
+                <details>
+                    <summary><i class="bi bi-braces"></i>  Testes Funcionais e Não Funcionais</summary>
+                    <li>Testes de Regressão: Validação de funcionalidades em versões anteriores.</li>
+                    <li>Testes de Caixa Preta (Black Box): Validação de funcionalidades sem conhecimento da estrutura interna do sistema.</li>
+                    <li>Testes de Sistemas: Avaliação de todo o sistema em um ambiente integrado.</li>
+                    <li>Testes de Integração: Verificação da interação entre diferentes módulos ou sistemas</li>
+                    <li>Testes de Compatibilidade: Verificação do desempenho em diferentes navegadores, dispositivos e sistemas operacionais.</li>
+                    <li>Testes de Usabilidade: Avaliação da experiência do usuário.</li>
+                </details>
+                <br>
+                <details>
+                    <summary><i class="bi bi-braces"></i>  Plataformas e Ferramentas de Bug Tracking</summary>
+                    <li>ClickUp: Plataforma de gerenciamento de trabalho com funcionalidades de bug tracking.</li>
+                    <li>Azure DevOps: Registro de bugs, melhorias e user stories.</li>
+                </details>
+                <br>
+                <details>
+                    <summary><i class="bi bi-braces"></i>  Metodologias de Desenvolvimento</summary>
+                    <li>Scrum: Metodologia ágil, experiência como Scrum Master.</li>
+                    <li>Kanban: Controle de fluxo contínuo em projetos de QA.</li>
+                </details>
+                <br>
+                <details>
+                    <summary><i class="bi bi-braces"></i>  Ferramentas de Versionamento de Código</summary>
+                    <li>Git: Controle de versão distribuído.</li>
+                    <li>GitHub: Repositório de código e colaboração em projetos.</li>
+                </details>
+                <br>
+                <details>
+                    <summary><i class="bi bi-braces"></i>  Monitoramento e Análise de Logs</summary>
+                    <li>ElasticSearch/Kibana: Análise e visualização de logs.</li>
+                    <li>Grafana: Monitoramento de performance de sistemas.</li>
+                    <li>Elastic Stack (ELK): Utilização de Elasticsearch, Logstash e Kibana para monitoramento, pesquisa e análise de logs em tempo real.</li>
+                    <li>Weave Scope: Ferramenta para visualização e monitoramento em tempo real de contêineres e serviços distribuídos.</li>
+                    <li>CloudWatch (AWS): Serviço de monitoramento e gerenciamento de recursos e aplicativos na AWS.</li>
+                    <li>Dynatrace: Plataforma de monitoramento full-stack com foco em performance e análise de ambientes complexos.</li>
+                </details>
+                <br>
+                <details>
+                    <summary><i class="bi bi-braces"></i>  Infraestrutura e Redes</summary>
+                    <li>AWS (Amazon Web Services): Plataformas de nuvem para testes de desempenho, ambientes de teste e deploys.</li>
+                </details>
+                <br>
+                <details>
+                    <summary><i class="bi bi-braces"></i>  Consultas e Análise de Bancos de Dados</summary>
+                    Bancos Relacionais
+                    <li>MySQL: Conhecimento em criação de queries, manipulação e extração de dados de sistemas relacionais.</li>
+                    <li>PostgreSQL: Consultas avançadas, manipulação de dados, joins complexos e funções analíticas.</li>
+                    Bancos Não-Relacionais
+                    <li>DynamoDB (AWS): Banco de dados NoSQL gerenciado na AWS, com consultas e operações em tempo real.</li>
+                </details>
+                <br>
+                <details>
+                    <summary><i class="bi bi-braces"></i>  Design de Interface</summary>
+                    Bancos Relacionais
+                    <li>Habilidade em Canva e Figma para criar wireframes e protótipos, proporcionando uma visualização eficaz da experiência do usuário. Essa competência também permite a elaboração de relatórios visuais, diagramas de fluxos de processos e documentações mais acessíveis e organizadas. 
+                        Com isso, facilito a comunicação entre as equipes, melhorando a clareza na apresentação dos resultados de testes e bugs, e asseguro que a usabilidade e a funcionalidade sejam avaliadas de maneira eficiente e integrada.</li>
+                    <li>Capcut:  Edição de vídeos</li>
+                </details>
+                <br>
+                <hr>
+                <h3>Habilidades Comportamentais</h3>
+                <i class="bi bi-person-check-fill"></i> <strong>Comunicação Eficaz</strong>: Capacidade de expressar ideias de forma clara e ouvir feedback,
+                facilitando a colaboração em equipe.<br>
+                <i class="bi bi-person-check-fill"></i> <strong>Trabalho em Equipe</strong>: Colaboração ativa com diferentes stakeholders para
+                alcançar objetivos comuns, promovendo um ambiente de apoio.<br>
+                <i class="bi bi-person-check-fill"></i> <strong>Adaptabilidade</strong>: Flexibilidade para se ajustar a mudanças e novos
+                desafios em um ambiente dinâmico de desenvolvimento de software.<br>
+                <i class="bi bi-person-check-fill"></i> <strong>Resolução de Problemas</strong>: Habilidade para identificar, analisar e
+                propor soluções eficazes para desafios técnicos e operacionais.<br>
+                <i class="bi bi-person-check-fill"></i> <strong>Pensamento Crítico</strong>: Avaliação cuidadosa de informações
+                e processos para tomar decisões informadas e baseadas em dados.<br>
+                <i class="bi bi-person-check-fill"></i> <strong>Organização</strong>: Capacidade de gerenciar múltiplas
+                tarefas e prazos, garantindo a entrega eficiente de projetos.<br>
+                <i class="bi bi-person-check-fill"></i> <strong>Proatividade</strong>: Iniciativa para antecipar
+                problemas e buscar melhorias contínuas nos processos e produtos.<br>
+                <i class="bi bi-person-check-fill"></i> <strong>Empatia</strong>: Compreensão das necessidades e perspectivas dos usuários
+                e colegas, promovendo um ambiente de trabalho colaborativo.</div><br>
+        </section>
+
+        <section id="templates">
+            <h1>Templates</h1>
+            <p>Seção de templates... em breve</p>
+        </section>
+    </main>
+    <footer class="footer">© 2025 [QA] Lorena Santos</footer>
 
     <button onclick="topFunction()" id="myBtn" title="Voltar ao topo">↑</button>
-    <script>
-        // Código JavaScripts
-        // * Para botão de voltar ao topo
-        var mybutton = document.getElementById("myBtn");
 
-        // Quando o usuário rolar para baixo 20px a partir do topo do documento, mostra o botão
-        window.onscroll = function () {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        };
-
-        // Quando o usuário clicar no botão, retorna ao topo da página
-        function topFunction() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'  // Adiciona a rolagem suave
-            });
-        }
-
-        // * Código para funcionamento dos botões do menu
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.addEventListener('click', function () {
-                document.body.style.backgroundColor = this.getAttribute('data-color');
-            });
-        });
-    </script>
-
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 </body>
 
 </html>
