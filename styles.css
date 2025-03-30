@@ -129,7 +129,7 @@ body.dark-mode::before {
 
 /* Update ladybug manu for dark mode */
 body.dark-mode .ladybug-svg {
-  background-image: url("../-QA-Templates-main/images/ladybug-svgrepo-com.svg");
+  background-image: url("../images/ladybug-svgrepo-com.svg");
 
 }
 
@@ -208,7 +208,7 @@ body.dark-mode #themeToggle i {
   width: 30px;
   height: 30px;
   transition: all 0.3s ease-in-out;
-  background-image: url("../-QA-Templates-main/images/ladybug-svgrepo-com.svg");
+  background-image: url("../images/ladybug-svgrepo-com.svg");
 }
 
 /* Estilo do item do menu */
