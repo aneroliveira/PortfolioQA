@@ -147,3 +147,10 @@ toggleButtons.forEach(button => {
         }
     });
 });
+
+var typed6 = new Typed('.typed6', { // Corrigimos para usar uma CLASSE
+  strings: ['Quality Engineer', 'Analista de Qualidade de Software', 'Caçadora de bugs'],  // Texto que será digitado
+  typeSpeed: 50,  // Velocidade da digitação
+  backSpeed: 25,  // Velocidade ao apagar
+  loop: true  // Para repetir o efeito continuamente
+});
