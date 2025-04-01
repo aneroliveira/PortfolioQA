@@ -11,11 +11,12 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-
 </head>
 
 <body>
+    
     <header>
+        <div id="particles-js"></div>
         <div class="social-container">
             <div class="social-icons-left">
                 <a href="https://www.linkedin.com/in/lorena-oliveira-051996/" target="_blank" class="icon linkedin"
@@ -35,10 +36,9 @@
                     <i class="fa-solid fa-sun" id="sun-icon"></i>
                     <i class="fa-solid fa-moon" id="moon-icon" style="display: none;"></i>
                 </button>
-
             </div>
         </div>
-
+        
         <div class="profile">
             <img src="./images/foto_perfil_.jpeg" alt="Imagem de perfil">
             <br>
@@ -227,17 +227,17 @@
                 <br>
                 <details>
                     <summary><i class="bi bi-braces"></i>  Ferramentas de Integração Contínua</summary>
-                    <li>Azure DevOps: Gerenciamento de projetos e CI/CD.</li>
-                    <li>GitHub Actions: Gerenciamento de projetos e CI/CD.</li>
+                    <li>Azure DevOps - Pipeline: Gerenciamento de projetos e CI/CD.</li>
+                    <li>GitHub - Actions: Gerenciamento de projetos e CI/CD.</li>
                 </details>
                 <br>
                 <details>
-                    <summary><i class="bi bi-braces"></i>  Testes Funcionais e Não Funcionais "></progress></summary>
-                    <li>Testes de Regressão: Validação de funcionalidades em versões anteriores. "></progress></li>
-                    <li>Testes de Caixa Preta (Black Box): Validação de funcionalidades sem conhecimento da estrutura interna do sistema. "></progress></li>
-                    <li>Testes de Sistemas: Avaliação de todo o sistema em um ambiente integrado. "></progress></li>
-                    <li>Testes de Integração: Verificação da interação entre diferentes módulos ou sistemas. "></progress></li>
-                    <li>Testes de Compatibilidade: Verificação do desempenho em diferentes navegadores, dispositivos e sistemas operacionais. "></progress></li>
+                    <summary><i class="bi bi-braces"></i>  Testes Funcionais e Não Funcionais</progress></summary>
+                    <li>Testes de Regressão: Validação de funcionalidades em versões anteriores.</progress></li>
+                    <li>Testes de Caixa Preta (Black Box): Validação de funcionalidades sem conhecimento da estrutura interna do sistema.</progress></li>
+                    <li>Testes de Sistemas: Avaliação de todo o sistema em um ambiente integrado.</progress></li>
+                    <li>Testes de Integração: Verificação da interação entre diferentes módulos ou sistemas.</progress></li>
+                    <li>Testes de Compatibilidade: Verificação do desempenho em diferentes navegadores, dispositivos e sistemas operacionais.</progress></li>
                     <li>Testes de Usabilidade: Avaliação da experiência do usuário.</li>
                 </details>
                 <br>
@@ -312,33 +312,169 @@
         </section>
 
         <section id="templates">
-            <h1>Templates</h1>
-            <div class="template-container">
-                <!-- Exemplo de template -->
-                <div class="template">
-                  <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf" target="_blank">
-                    <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg" alt="Template 1">
-                  </a>
-                </div>
-
-                <div class="instructor-profile">
-                    <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg" alt="Template 1">
-                    <h2>Nome do Instrutor</h2>
-                    <p>Descrição ou biografia breve do instrutor.</p>
+    <h1>Templates</h1>
+    <div class="carousel-container">
+        <div class="carousel-wrapper">
+            <div class="carousel-track">
+                <!-- Template 1 -->
+                <div class="carousel-slide">
+                    <div class="template-card">
+                        <div class="template-thumbnail">
+                            <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg" alt="Template de Plano de Teste">
+                            <div class="pdf-overlay">PDF</div>
+                        </div>
+                        <div class="template-info">
+                            <h3>Plano de Teste</h3>
+                            <p>Template completo para documentação de planos de teste, incluindo objetivos, escopo, cronograma e recursos.</p>
+                            <div class="template-actions">
+                                <button class="preview-btn" data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf">
+                                    <i class="bi bi-eye-fill"></i> Visualizar
+                                </button>
+                                <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf" download class="download-btn">
+                                    <i class="bi bi-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Adicione mais templates aqui -->
-              </div>
-        </section>
+                <!-- Template 2 -->
+                <div class="carousel-slide">
+                    <div class="template-card">
+                        <div class="template-thumbnail">
+                            <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg" alt="Template de Casos de Teste">
+                            <div class="pdf-overlay">PDF</div>
+                        </div>
+                        <div class="template-info">
+                            <h3>Casos de Teste</h3>
+                            <p>Modelo estruturado para documentação de casos de teste, com pré-condições, passos, resultados esperados e status.</p>
+                            <div class="template-actions">
+                                <button class="preview-btn" data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf">
+                                    <i class="bi bi-eye-fill"></i> Visualizar
+                                </button>
+                                <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf" download class="download-btn">
+                                    <i class="bi bi-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 3 -->
+                <div class="carousel-slide">
+                    <div class="template-card">
+                        <div class="template-thumbnail">
+                            <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg" alt="Relatório de Bugs">
+                            <div class="pdf-overlay">PDF</div>
+                        </div>
+                        <div class="template-info">
+                            <h3>Relatório de Bugs</h3>
+                            <p>Template para documentação detalhada de bugs, incluindo severidade, prioridade, passos para reprodução e evidências.</p>
+                            <div class="template-actions">
+                                <button class="preview-btn" data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf">
+                                    <i class="bi bi-eye-fill"></i> Visualizar
+                                </button>
+                                <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf" download class="download-btn">
+                                    <i class="bi bi-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 4 -->
+                <div class="carousel-slide">
+                    <div class="template-card">
+                        <div class="template-thumbnail">
+                            <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg" alt="Checklist de QA">
+                            <div class="pdf-overlay">PDF</div>
+                        </div>
+                        <div class="template-info">
+                            <h3>Checklist de QA</h3>
+                            <p>Lista abrangente de verificações para garantir a qualidade do software antes da entrega, cobrindo funcionalidades, usabilidade e performance.</p>
+                            <div class="template-actions">
+                                <button class="preview-btn" data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf">
+                                    <i class="bi bi-eye-fill"></i> Visualizar
+                                </button>
+                                <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf" download class="download-btn">
+                                    <i class="bi bi-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation arrows -->
+        <button class="carousel-arrow carousel-prev">
+            <i class="bi bi-chevron-left"></i>
+        </button>
+        <button class="carousel-arrow carousel-next">
+            <i class="bi bi-chevron-right"></i>
+        </button>
+        
+        <!-- Carousel indicators -->
+        <div class="carousel-indicators">
+            <button class="indicator active" data-index="0"></button>
+            <button class="indicator" data-index="1"></button>
+            <button class="indicator" data-index="2"></button>
+            <button class="indicator" data-index="3"></button>
+        </div>
+    </div>
+    
+    <!-- PDF Preview Modal -->
+    <div id="pdfPreviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <iframe id="pdfFrame" src="/placeholder.svg" width="100%" height="500px"></iframe>
+        </div>
+    </div>
+</section>
     </main>
     <footer class="footer">© 2025 [QA] Lorena Santos</footer>
 
     <button onclick="topFunction()" id="myBtn" title="Voltar ao topo">↑</button>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
 
+        // PDF Preview Modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the modal
+            const modal = document.getElementById('pdfPreviewModal');
+            const pdfFrame = document.getElementById('pdfFrame');
+            const closeModal = document.querySelector('.close-modal');
+            
+            // Get all preview buttons
+            const previewBtns = document.querySelectorAll('.preview-btn');
+            
+            // Add click event to all preview buttons
+            previewBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const pdfUrl = this.getAttribute('data-url');
+                    pdfFrame.src = pdfUrl;
+                    modal.style.display = 'block';
+                });
+            });
+            
+            // Close modal when clicking on X
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+                pdfFrame.src = '';
+            });
+            
+            // Close modal when clicking outside of it
+            window.addEventListener('click', function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                    pdfFrame.src = '';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
+
