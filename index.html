@@ -5,16 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[QA] Portfólio</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="stylesheet" href="styles.css">
-    <script src="actions.js" defer></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Pré-conexão para fontes externas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="actions.js" defer></script>
 </head>
 
 <body>
-    
     <header>
         <div id="particles-js"></div>
         <div class="social-container">
@@ -23,8 +34,7 @@
                     title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="mailto:aneroliver@gmail.com" class="icon email"
-                    title="e-mail">
+                <a href="mailto:aneroliver@gmail.com" class="icon email" title="e-mail">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
             </div>
@@ -38,9 +48,9 @@
                 </button>
             </div>
         </div>
-        
+
         <div class="profile">
-            <img src="./images/foto_perfil_.jpeg" alt="Imagem de perfil">
+            <img src="./images/foto_perfil_.jpg" alt="Imagem de perfil">
             <br>
             <h2 class="typed6"></h2>
             <h1>Lorena Santos</h1>
@@ -71,7 +81,7 @@
                         <span class="ladybug-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="ladybug-svg"></svg>
                         </span>
-                        <span class="nav-text">Habilidades</span>
+                        <span class="nav-text"> Habilidades</span>
                     </a>
                 </li>
 
@@ -90,14 +100,17 @@
 
     <main>
         <section class="textHome active" id="home">
-            <p style="text-align: center;"><em>Sou a <strong>Lorena</strong>, uma <strong>geminiana</strong></em> ♊
-                <em>apaixonada por <strong>dogs</strong></em> 🐶<em>, desafios e por "caçar" bugs! </em>🐞<br></p>
+            <p style="text-align: center;">
+            <h3>Bem vindo(a) ao meu Universo!</h3><em>Sou a <strong>Lorena</strong>, uma <strong>geminiana</strong></em>
+            ♊
+            <em>apaixonada por <strong>dogs</strong></em> 🐶<em>, desafios e por "caçar" bugs! </em>🐞<br>
+            </p>
             Com mais de <strong>6</strong> anos de experiência em TI, iniciei minha carreira no suporte técnico, onde
             desenvolvi uma base sólida para minha
             transição para a área de <strong>Qualidade de Software</strong> (QA). <br>Hoje, procuro assegurar a entrega
             contínua de software de alta qualidade,
             combinando técnicas de testes, diversas metodologias e criatividade para garantir soluções robustas e
-            eficientes.</em>
+            eficientes.
 
             <table>
                 <tr class="header-row">
@@ -110,7 +123,7 @@
                 </tr>
 
                 <tr class="habilidades">
-                    <td><i class="bi bi-award-fill"></i> Habilidades</td>
+                    <td> <i class="bi bi-award-fill"> </i> Habilidades</td>
                     <td>Ferramentas, tecnologias e metodologias que domino e utilizo no meu cotidiano.</td>
                 </tr>
 
@@ -123,42 +136,43 @@
         </section>
 
         <section id="sobreMim">
-            <div><em>
-                    <h2>Oi!
-                </em> 🙋🏽‍♀️</h2><em>Me chamo <strong>Lorena</strong> (mas pode me chamar de Lori), sou formada em
-                    Análise e Desenvolvimento de Sistemas pela FATEC Mogi das Cruzes,
-                    com 6 anos de experiência na área de TI, com foco dedicado à <strong>Qualidade de Software</strong>
-                    (QA). Iniciei minha carreira em suporte técnico, onde desenvolvi
-                    habilidades essenciais em <strong>resolução de problemas</strong> e <strong>suporte a sistemas
-                        críticos</strong>, e depois migrei para QA,
-                    aproveitando essa base para garantir a <strong>excelência</strong> no desenvolvimento de software,
-                    com experiência em áreas diversas, incluindo comércio exterior,
-                    geolocalização governamental, gestão de frotas e tags de pedágio. <br>Ao longo da minha trajetória,
-                    contribui de forma significativa para a implementação
-                    de testes regressivos e automação de testes, com destaque para a criação de um case de testes
-                    <strong>E2E</strong> utilizando <strong>Cypress</strong> em um portal de Gestão de
-                    tags de estacionamento para Pessoa Jurídica. <br>Minha atuação abrange desde a validação de
-                    funcionalidades até a otimização de processos de qualidade,
-                    sempre com o objetivo de garantir a entrega de software de alta performance e a plena satisfação dos
-                    usuários.
-                    Tenho sólida experiência com metodologias ágeis (<strong>Scrum/Kanban</strong>), tendo familiaridade
-                    em conduzir cerimônias e prestado apoio às equipes na definição e
-                    cumprimento de objetivos de curto/longo prazo.</em>
+            <div>
+                <h2>Oi! 🙋🏽‍♀️</h2>
+                Me chamo <strong>Lorena</strong> (mas pode me chamar de Lori), sou formada em
+                Análise e Desenvolvimento de Sistemas pela FATEC Mogi das Cruzes,
+                com 6 anos de experiência na área de TI, com foco dedicado à <strong>Qualidade de Software</strong>
+                (QA). Iniciei minha carreira em suporte técnico, onde desenvolvi
+                habilidades essenciais em <strong>resolução de problemas</strong> e <strong>suporte a sistemas
+                    críticos</strong>, e depois migrei para QA,
+                aproveitando essa base para garantir a <strong>excelência</strong> no desenvolvimento de software,
+                com experiência em áreas diversas, incluindo comércio exterior,
+                geolocalização governamental, gestão de frotas e tags de pedágio. <br>Ao longo da minha trajetória,
+                contribui de forma significativa para a implementação
+                de testes regressivos e automação de testes, com destaque para a criação de um case de testes
+                <strong>E2E</strong> utilizando <strong>Cypress</strong> em um portal de Gestão de
+                tags de estacionamento para Pessoa Jurídica. <br>Minha atuação abrange desde a validação de
+                funcionalidades até a otimização de processos de qualidade,
+                sempre com o objetivo de garantir a entrega de software de alta performance e a plena satisfação dos
+                usuários.
+                Tenho sólida experiência com metodologias ágeis (<strong>Scrum/Kanban</strong>), tendo familiaridade
+                em conduzir cerimônias e prestado apoio às equipes na definição e
+                cumprimento de objetivos de curto/longo prazo.
             </div>
-            <div><em>Meu foco está em assegurar a entrega de software de alta qualidade por meio da combinação de testes
-                    manuais e automatizados, validação de funcionalidades,
-                    boa documentação (AMO!), e abordagens diferenciadas para testes. Em todos os processos, priorizo a
-                    colaboração estreita e eficaz com stakeholders e devs,
-                    promovendo um ambiente produtivo, sociável e alinhado.</em>
+            <div>Meu foco está em assegurar a entrega de software de alta qualidade por meio da combinação de testes
+                manuais e automatizados, validação de funcionalidades,
+                boa documentação (AMO!), e abordagens diferenciadas para testes. Em todos os processos, priorizo a
+                colaboração estreita e eficaz com stakeholders e devs,
+                promovendo um ambiente produtivo, sociável e alinhado.
             </div>
-            <div><em>Estou em constante busca por aprimoramento profissional, atualmente estudando para a certificação
-                    <strong>CTFL</strong> e me aprofundando em testes automatizados
-                    inicialmente com Cypress e Playwright, com o objetivo de expandir ainda mais minha expertise na
-                    área. Além da parte tech, sou apaixonada por explorar
-                    minha criatividade em <strong>design</strong>, onde gosto de experimentar com
-                    <strong>fontes</strong>, <strong>cores</strong> e <strong>elementos visuais</strong> para
-                    criar composições únicas.</em>
+            <div>Estou em constante busca por aprimoramento profissional, atualmente estudando para a certificação
+                <strong>CTFL</strong> e me aprofundando em testes automatizados
+                inicialmente com Cypress e Playwright, com o objetivo de expandir ainda mais minha expertise na
+                área. Além da parte tech, sou apaixonada por explorar
+                minha criatividade em <strong>design</strong>, onde gosto de experimentar com
+                <strong>fontes</strong>, <strong>cores</strong> e <strong>elementos visuais</strong> para
+                criar composições únicas.
             </div>
+            <div class="fancy-divider"></div>
             <div>
                 <h2>Experiências profissionais</h2>
                 <table class="career-table">
@@ -208,273 +222,277 @@
         <section id="habilidades">
             <h1>Habilidades Técnicas e Comportamentais</h1>
             <div>
-                Sou uma profissional com excelente habilidade de comunicação e forte espírito de trabalho em equipe, 
-                sempre disposta a me adaptar para superar desafios. Destaco-me pela capacidade de resolver problemas de 
-                forma eficaz, com pensamento crítico e abordagem proativa. Sou organizada e busco constantemente a 
+                Sou uma profissional com excelente habilidade de comunicação e forte espírito de trabalho em equipe,
+                sempre disposta a me adaptar para superar desafios. Destaco-me pela capacidade de resolver problemas de
+                forma eficaz, com pensamento crítico e abordagem proativa. Sou organizada e busco constantemente a
                 melhoria contínua em minhas atividades.
-                Tenho experiência sólida em automação de testes, análise de logs, consultas a bancos de dados e monitoramento de sistemas.
-                Utilizo ferramentas modernas e aplico metodologias ágeis para assegurar a qualidade do software, otimizando a entrega de 
+                Tenho experiência sólida em automação de testes, análise de logs, consultas a bancos de dados e
+                monitoramento de sistemas.
+                Utilizo ferramentas modernas e aplico metodologias ágeis para assegurar a qualidade do software,
+                otimizando a entrega de
                 projetos e garantindo a excelência em todas as fases do desenvolvimento.
                 <br>
-                
+
                 <h3>Habilidades Técnicas</h3>
                 <details>
                     <summary><i class="bi bi-braces"></i> Ferramentas de teste</summary>
-                    <li>Cypress: Automação de testes end-to-end.</li>
-                    <li>Selenium: Ferramenta para automação de testes de aplicações web.</li>
-                    <li>Postman: Testes de APIs.</li>
+                    <li><strong>Cypress</strong>: Automação de testes end-to-end.</li>
+                    <li><strong>Selenium</strong>: Ferramenta para automação de testes de aplicações web.</li>
+                    <li><strong>Postman</strong>: Testes de APIs.</li>
                 </details>
                 <br>
                 <details>
-                    <summary><i class="bi bi-braces"></i>  Ferramentas de Integração Contínua</summary>
-                    <li>Azure DevOps - Pipeline: Gerenciamento de projetos e CI/CD.</li>
-                    <li>GitHub - Actions: Gerenciamento de projetos e CI/CD.</li>
+                    <summary><i class="bi bi-braces"></i> Ferramentas de Integração Contínua</summary>
+                    <li><strong>Azure DevOps - Pipeline</strong>: Gerenciamento de projetos e CI/CD.</li>
+                    <li><strong>GitHub - Actions</strong>: Gerenciamento de projetos e CI/CD.</li>
                 </details>
                 <br>
                 <details>
-                    <summary><i class="bi bi-braces"></i>  Testes Funcionais e Não Funcionais</progress></summary>
-                    <li>Testes de Regressão: Validação de funcionalidades em versões anteriores.</progress></li>
-                    <li>Testes de Caixa Preta (Black Box): Validação de funcionalidades sem conhecimento da estrutura interna do sistema.</progress></li>
-                    <li>Testes de Sistemas: Avaliação de todo o sistema em um ambiente integrado.</progress></li>
-                    <li>Testes de Integração: Verificação da interação entre diferentes módulos ou sistemas.</progress></li>
-                    <li>Testes de Compatibilidade: Verificação do desempenho em diferentes navegadores, dispositivos e sistemas operacionais.</progress></li>
-                    <li>Testes de Usabilidade: Avaliação da experiência do usuário.</li>
+                    <summary><i class="bi bi-braces"></i> Testes Funcionais e Não Funcionais</summary>
+                    <li><strong>Testes de Regressão</strong>: Validação de funcionalidades em versões anteriores.</li>
+                    <li><strong>Testes de Caixa Preta (Black Box)</strong>: Validação de funcionalidades sem conhecimento da estrutura
+                        interna do sistema.</li>
+                    <li><strong>Testes de Sistemas</strong>: Avaliação de todo o sistema em um ambiente integrado.</li>
+                    <li><strong>Testes de Integração</strong>: Verificação da interação entre diferentes módulos ou sistemas.</li>
+                    <li><strong>Testes de Compatibilidade</strong>: Verificação do desempenho em diferentes navegadores, dispositivos e
+                        sistemas operacionais.</li>
+                    <li><strong>Testes de Usabilidade</strong>: Avaliação da experiência do usuário.</li>
                 </details>
                 <br>
                 <details>
-                    <summary><i class="bi bi-braces"></i>  Plataformas e Ferramentas de Bug Tracking</summary>
-                    <li>ClickUp: Plataforma de gerenciamento de trabalho com funcionalidades de bug tracking.</li>
-                    <li>Azure DevOps: Registro de bugs, melhorias e user stories.</li>
+                    <summary><i class="bi bi-braces"></i> Plataformas e Ferramentas de Bug Tracking</summary>
+                    <li><strong>ClickUp</strong>: Plataforma de gerenciamento de trabalho com funcionalidades de bug tracking.</li>
+                    <li><strong>Azure DevOps</strong>: Registro de bugs, melhorias e user stories.</li>
                 </details>
                 <br>
                 <details>
-                    <summary><i class="bi bi-braces"></i>  Metodologias de Desenvolvimento</summary>
-                    <li>Scrum: Metodologia ágil, experiência como Scrum Master.</li>
-                    <li>Kanban: Controle de fluxo contínuo em projetos de QA.</li>
+                    <summary><i class="bi bi-braces"></i> Metodologias de Desenvolvimento</summary>
+                    <li><strong>Scrum</strong>: Metodologia ágil, experiência como Scrum Master.</li>
+                    <li><strong>Kanban</strong>: Controle de fluxo contínuo em projetos de QA.</li>
                 </details>
                 <br>
                 <details>
-                    <summary><i class="bi bi-braces"></i>  Ferramentas de Versionamento de Código</summary>
-                    <li>Git: Controle de versão distribuído.</li>
-                    <li>GitHub: Repositório de código e colaboração em projetos.</li>
+                    <summary><i class="bi bi-braces"></i> Ferramentas de Versionamento de Código</summary>
+                    <li><strong>Git</strong>: Controle de versão distribuído.</li>
+                    <li><strong>GitHub</strong>: Repositório de código e colaboração em projetos.</li>
                 </details>
                 <br>
                 <details>
-                    <summary><i class="bi bi-braces"></i>  Monitoramento e Análise de Logs</summary>
-                    <li>ElasticSearch/Kibana: Análise e visualização de logs.</li>
-                    <li>Grafana: Monitoramento de performance de sistemas.</li>
-                    <li>Elastic Stack (ELK): Utilização de Elasticsearch, Logstash e Kibana para monitoramento, pesquisa e análise de logs em tempo real.</li>
-                    <li>Weave Scope: Ferramenta para visualização e monitoramento em tempo real de contêineres e serviços distribuídos.</li>
-                    <li>CloudWatch (AWS): Serviço de monitoramento e gerenciamento de recursos e aplicativos na AWS.</li>
-                    <li>Dynatrace: Plataforma de monitoramento full-stack com foco em performance e análise de ambientes complexos.</li>
+                    <summary><i class="bi bi-braces"></i> Monitoramento e Análise de Logs</summary>
+                    <li><strong>ElasticSearch/Kibana</strong>: Análise e visualização de logs.</li>
+                    <li><strong>Grafana</strong>: Monitoramento de performance de sistemas.</li>
+                    <li><strong>Elastic Stack (ELK)</strong>: Utilização de Elasticsearch, Logstash e Kibana para monitoramento, pesquisa
+                        e análise de logs em tempo real.</li>
+                    <li><strong>Weave Scope</strong>: Ferramenta para visualização e monitoramento em tempo real de contêineres e
+                        serviços distribuídos.</li>
+                    <li><strong>CloudWatch (AWS)</strong>: Serviço de monitoramento e gerenciamento de recursos e aplicativos na AWS.
+                    </li>
+                    <li><strong>Dynatrace</strong>: Plataforma de monitoramento full-stack com foco em performance e análise de ambientes
+                        complexos.</li>
                 </details>
                 <br>
                 <details>
-                    <summary><i class="bi bi-braces"></i>  Infraestrutura e Redes</summary>
-                    <li>AWS (Amazon Web Services): Plataformas de nuvem para testes de desempenho, ambientes de teste e deploys.</li>
+                    <summary><i class="bi bi-braces"></i> Infraestrutura e Redes</summary>
+                    <li><strong>AWS (Amazon Web Services)</strong>: Plataformas de nuvem para testes de desempenho, ambientes de teste e
+                        deploys.</li>
                 </details>
                 <br>
                 <details>
-                    <summary><i class="bi bi-braces"></i>  Consultas e Análise de Bancos de Dados</summary>
+                    <summary><i class="bi bi-braces"></i> Consultas e Análise de Bancos de Dados</summary>
                     Bancos Relacionais
-                    <li>MySQL: Conhecimento em criação de queries, manipulação e extração de dados de sistemas relacionais.</li>
-                    <li>PostgreSQL: Consultas avançadas, manipulação de dados, joins complexos e funções analíticas.</li>
+                    <li><strong>MySQL</strong>: Conhecimento em criação de queries, manipulação e extração de dados de sistemas
+                        relacionais.</li>
+                    <li><strong>PostgreSQL</strong>: Consultas avançadas, manipulação de dados, joins complexos e funções analíticas.
+                    </li>
                     Bancos Não-Relacionais
-                    <li>DynamoDB (AWS): Banco de dados NoSQL gerenciado na AWS, com consultas e operações em tempo real.</li>
+                    <li><strong>DynamoDB (AWS)</strong>: Banco de dados NoSQL gerenciado na AWS, com consultas e operações em tempo real.
+                    </li>
                 </details>
                 <br>
                 <details>
-                    <summary><i class="bi bi-braces"></i>  Design de Interface</summary>
-                    Bancos Relacionais
-                    <li>Habilidade em Canva e Figma para criar wireframes e protótipos, proporcionando uma visualização eficaz da experiência do usuário. Essa competência também permite a elaboração de relatórios visuais, diagramas de fluxos de processos e documentações mais acessíveis e organizadas. 
-                        Com isso, facilito a comunicação entre as equipes, melhorando a clareza na apresentação dos resultados de testes e bugs, e asseguro que a usabilidade e a funcionalidade sejam avaliadas de maneira eficiente e integrada.</li>
-                    <li>Capcut:  Edição de vídeos</li>
+                    <summary><i class="bi bi-braces"></i> Design de Interface</summary>
+                    <li>Habilidade em Canva e Figma para criar wireframes e protótipos, proporcionando uma visualização
+                        eficaz da experiência do usuário. Essa competência também permite a elaboração de relatórios
+                        visuais, diagramas de fluxos de processos e documentações mais acessíveis e organizadas.
+                        Com isso, facilito a comunicação entre as equipes, melhorando a clareza na apresentação dos
+                        resultados de testes e bugs, e asseguro que a usabilidade e a funcionalidade sejam avaliadas de
+                        maneira eficiente e integrada.</li>
+                    <li><strong>Capcut</strong>: Edição de vídeos</li>
                 </details>
-                <br>
-                <hr>
+                <div class="fancy-divider"></div>
                 <h3>Habilidades Comportamentais</h3>
-                <i class="bi bi-person-check-fill"></i> <strong>Comunicação Eficaz</strong>: Capacidade de expressar ideias de forma clara e ouvir feedback,
+                <i class="bi bi-person-check-fill"></i> <strong>Comunicação Eficaz</strong>: Capacidade de expressar
+                ideias de forma clara e ouvir feedback,
                 facilitando a colaboração em equipe.<br>
-                <i class="bi bi-person-check-fill"></i> <strong>Trabalho em Equipe</strong>: Colaboração ativa com diferentes stakeholders para
+                <i class="bi bi-person-check-fill"></i> <strong>Trabalho em Equipe</strong>: Colaboração ativa com
+                diferentes stakeholders para
                 alcançar objetivos comuns, promovendo um ambiente de apoio.<br>
-                <i class="bi bi-person-check-fill"></i> <strong>Adaptabilidade</strong>: Flexibilidade para se ajustar a mudanças e novos
+                <i class="bi bi-person-check-fill"></i> <strong>Adaptabilidade</strong>: Flexibilidade para se ajustar a
+                mudanças e novos
                 desafios em um ambiente dinâmico de desenvolvimento de software.<br>
-                <i class="bi bi-person-check-fill"></i> <strong>Resolução de Problemas</strong>: Habilidade para identificar, analisar e
+                <i class="bi bi-person-check-fill"></i> <strong>Resolução de Problemas</strong>: Habilidade para
+                identificar, analisar e
                 propor soluções eficazes para desafios técnicos e operacionais.<br>
-                <i class="bi bi-person-check-fill"></i> <strong>Pensamento Crítico</strong>: Avaliação cuidadosa de informações
+                <i class="bi bi-person-check-fill"></i> <strong>Pensamento Crítico</strong>: Avaliação cuidadosa de
+                informações
                 e processos para tomar decisões informadas e baseadas em dados.<br>
                 <i class="bi bi-person-check-fill"></i> <strong>Organização</strong>: Capacidade de gerenciar múltiplas
                 tarefas e prazos, garantindo a entrega eficiente de projetos.<br>
                 <i class="bi bi-person-check-fill"></i> <strong>Proatividade</strong>: Iniciativa para antecipar
                 problemas e buscar melhorias contínuas nos processos e produtos.<br>
-                <i class="bi bi-person-check-fill"></i> <strong>Empatia</strong>: Compreensão das necessidades e perspectivas dos usuários
-                e colegas, promovendo um ambiente de trabalho colaborativo.</div><br>
+                <i class="bi bi-person-check-fill"></i> <strong>Empatia</strong>: Compreensão das necessidades e
+                perspectivas dos usuários
+                e colegas, promovendo um ambiente de trabalho colaborativo.
+            </div><br>
         </section>
 
         <section id="templates">
-    <h1>Templates</h1>
-    <div class="carousel-container">
-        <div class="carousel-wrapper">
-            <div class="carousel-track">
-                <!-- Template 1 -->
-                <div class="carousel-slide">
-                    <div class="template-card">
-                        <div class="template-thumbnail">
-                            <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg" alt="Template de Plano de Teste">
-                            <div class="pdf-overlay">PDF</div>
+            <h1>Templates</h1>
+            <div>Aqui você encontra modelos e materiais que desenvolvi com base na minha experiência na área de QA.
+                <p><em>Os arquivos estão disponíveis para uso gratuito, desde que os devidos créditos sejam
+                        mantidos.</em></p>
+                Você pode utilizar, adaptar e compartilhar os conteúdos, mas lembre-se de valorizar quem criou —<strong>
+                    o reconhecimento fortalece a comunidade</strong>!
+                <p> Se algum material for útil pra você, me avisa! Vou adorar saber como está sendo usado.😊</p>
+            </div>
+            <div class="fancy-divider"></div>
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-track">
+                        <!-- Template 1 -->
+                        <div class="carousel-slide">
+                            <div class="template-card">
+                                <div class="template-thumbnail">
+                                    <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg"
+                                        alt="Template de Plano de Teste">
+                                    <div class="pdf-overlay">PDF</div>
+                                </div>
+                                <div class="template-info">
+                                    <h3>Plano de Teste</h3>
+                                    <p>Template completo para documentação de planos de teste, incluindo objetivos,
+                                        escopo, cronograma e recursos.</p>
+                                    <div class="template-actions">
+                                        <button class="preview-btn"
+                                            data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+DOCUMENTA%C3%87%C3%83O+DE+QUALIDADE.pdf">
+                                            <i class="bi bi-eye-fill"></i> Visualizar
+                                        </button>
+                                        <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+DOCUMENTA%C3%87%C3%83O+DE+QUALIDADE.docx"
+                                            download class="download-btn">
+                                            <i class="bi bi-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="template-info">
-                            <h3>Plano de Teste</h3>
-                            <p>Template completo para documentação de planos de teste, incluindo objetivos, escopo, cronograma e recursos.</p>
-                            <div class="template-actions">
-                                <button class="preview-btn" data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf">
-                                    <i class="bi bi-eye-fill"></i> Visualizar
-                                </button>
-                                <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf" download class="download-btn">
-                                    <i class="bi bi-download"></i> Download
-                                </a>
+
+                        <!-- Template 2 -->
+                        <div class="carousel-slide">
+                            <div class="template-card">
+                                <div class="template-thumbnail">
+                                    <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg"
+                                        alt="Template de Casos de Teste">
+                                    <div class="pdf-overlay">PDF</div>
+                                </div>
+                                <div class="template-info">
+                                    <h3>Casos de Teste</h3>
+                                    <p>Modelo estruturado para documentação de casos de teste, com pré-condições,
+                                        passos, resultados esperados e status.</p>
+                                    <div class="template-actions">
+                                        <button class="preview-btn"
+                                            data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf">
+                                            <i class="bi bi-eye-fill"></i> Visualizar
+                                        </button>
+                                        <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf"
+                                            download class="download-btn">
+                                            <i class="bi bi-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Template 3 -->
+                        <div class="carousel-slide">
+                            <div class="template-card">
+                                <div class="template-thumbnail">
+                                    <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg"
+                                        alt="Relatório de Bugs">
+                                    <div class="pdf-overlay">PDF</div>
+                                </div>
+                                <div class="template-info">
+                                    <h3>Relatório de Bugs</h3>
+                                    <p>Template para documentação detalhada de bugs, incluindo severidade, prioridade,
+                                        passos para reprodução e evidências.</p>
+                                    <div class="template-actions">
+                                        <button class="preview-btn"
+                                            data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf">
+                                            <i class="bi bi-eye-fill"></i> Visualizar
+                                        </button>
+                                        <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf"
+                                            download class="download-btn">
+                                            <i class="bi bi-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Template 4 -->
+                        <div class="carousel-slide">
+                            <div class="template-card">
+                                <div class="template-thumbnail">
+                                    <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg"
+                                        alt="Checklist de QA">
+                                    <div class="pdf-overlay">PDF</div>
+                                </div>
+                                <div class="template-info">
+                                    <h3>Checklist de QA</h3>
+                                    <p>Lista abrangente de verificações para garantir a qualidade do software antes da
+                                        entrega, cobrindo funcionalidades, usabilidade e performance.</p>
+                                    <div class="template-actions">
+                                        <button class="preview-btn"
+                                            data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf">
+                                            <i class="bi bi-eye-fill"></i> Visualizar
+                                        </button>
+                                        <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf"
+                                            download class="download-btn">
+                                            <i class="bi bi-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Template 2 -->
-                <div class="carousel-slide">
-                    <div class="template-card">
-                        <div class="template-thumbnail">
-                            <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg" alt="Template de Casos de Teste">
-                            <div class="pdf-overlay">PDF</div>
-                        </div>
-                        <div class="template-info">
-                            <h3>Casos de Teste</h3>
-                            <p>Modelo estruturado para documentação de casos de teste, com pré-condições, passos, resultados esperados e status.</p>
-                            <div class="template-actions">
-                                <button class="preview-btn" data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf">
-                                    <i class="bi bi-eye-fill"></i> Visualizar
-                                </button>
-                                <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf" download class="download-btn">
-                                    <i class="bi bi-download"></i> Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Template 3 -->
-                <div class="carousel-slide">
-                    <div class="template-card">
-                        <div class="template-thumbnail">
-                            <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg" alt="Relatório de Bugs">
-                            <div class="pdf-overlay">PDF</div>
-                        </div>
-                        <div class="template-info">
-                            <h3>Relatório de Bugs</h3>
-                            <p>Template para documentação detalhada de bugs, incluindo severidade, prioridade, passos para reprodução e evidências.</p>
-                            <div class="template-actions">
-                                <button class="preview-btn" data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf">
-                                    <i class="bi bi-eye-fill"></i> Visualizar
-                                </button>
-                                <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf" download class="download-btn">
-                                    <i class="bi bi-download"></i> Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Template 4 -->
-                <div class="carousel-slide">
-                    <div class="template-card">
-                        <div class="template-thumbnail">
-                            <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg" alt="Checklist de QA">
-                            <div class="pdf-overlay">PDF</div>
-                        </div>
-                        <div class="template-info">
-                            <h3>Checklist de QA</h3>
-                            <p>Lista abrangente de verificações para garantir a qualidade do software antes da entrega, cobrindo funcionalidades, usabilidade e performance.</p>
-                            <div class="template-actions">
-                                <button class="preview-btn" data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf">
-                                    <i class="bi bi-eye-fill"></i> Visualizar
-                                </button>
-                                <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf" download class="download-btn">
-                                    <i class="bi bi-download"></i> Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+
+                <!-- setas de navegação -->
+                <button class="carousel-arrow carousel-prev" aria-label="Slide anterior">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="carousel-arrow carousel-next" aria-label="Próximo slide">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+
+                <!-- Carousel -->
+                <div class="carousel-indicators">
+                    <button class="indicator active" data-index="0" aria-label="Slide 1"></button>
+                    <button class="indicator" data-index="1" aria-label="Slide 2"></button>
+                    <button class="indicator" data-index="2" aria-label="Slide 3"></button>
+                    <button class="indicator" data-index="3" aria-label="Slide 4"></button>
                 </div>
             </div>
-        </div>
-        
-        <!-- Navigation arrows -->
-        <button class="carousel-arrow carousel-prev">
-            <i class="bi bi-chevron-left"></i>
-        </button>
-        <button class="carousel-arrow carousel-next">
-            <i class="bi bi-chevron-right"></i>
-        </button>
-        
-        <!-- Carousel indicators -->
-        <div class="carousel-indicators">
-            <button class="indicator active" data-index="0"></button>
-            <button class="indicator" data-index="1"></button>
-            <button class="indicator" data-index="2"></button>
-            <button class="indicator" data-index="3"></button>
-        </div>
-    </div>
-    
-    <!-- PDF Preview Modal -->
-    <div id="pdfPreviewModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <iframe id="pdfFrame" src="/placeholder.svg" width="100%" height="500px"></iframe>
-        </div>
-    </div>
-</section>
+
+            <!-- modal de Preview PDF  -->
+            <div id="pdfPreviewModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal" aria-label="Fechar">&times;</span>
+                    <iframe id="pdfFrame" src="" width="100%" height="500px" title="Visualização do PDF"></iframe>
+                </div>
+            </div>
+        </section>
     </main>
     <footer class="footer">© 2025 [QA] Lorena Santos</footer>
-
-    <button onclick="topFunction()" id="myBtn" title="Voltar ao topo">↑</button>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script>
-
-        // PDF Preview Modal functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get the modal
-            const modal = document.getElementById('pdfPreviewModal');
-            const pdfFrame = document.getElementById('pdfFrame');
-            const closeModal = document.querySelector('.close-modal');
-            
-            // Get all preview buttons
-            const previewBtns = document.querySelectorAll('.preview-btn');
-            
-            // Add click event to all preview buttons
-            previewBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const pdfUrl = this.getAttribute('data-url');
-                    pdfFrame.src = pdfUrl;
-                    modal.style.display = 'block';
-                });
-            });
-            
-            // Close modal when clicking on X
-            closeModal.addEventListener('click', function() {
-                modal.style.display = 'none';
-                pdfFrame.src = '';
-            });
-            
-            // Close modal when clicking outside of it
-            window.addEventListener('click', function(event) {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                    pdfFrame.src = '';
-                }
-            });
-        });
-    </script>
+    <button onclick="topFunction()" id="myBtn" title="Voltar ao topo" aria-label="Voltar ao topo">↑</button>
 </body>
 
 </html>
-
