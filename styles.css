@@ -793,12 +793,12 @@ body.dark-mode .preview-btn:hover {
 .close-modal {
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
   cursor: pointer;
   position: absolute;
-  right: 11px;
-  top: 10px;
+  right: 8px;
+  top: -8px;
 }
 
 .close-modal:hover,
