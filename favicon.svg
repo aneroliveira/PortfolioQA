@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="250" fill="#f8f8f8" stroke="#d5838f" stroke-width="12"/>
+  
+  <!-- Magnifying glass -->
+  <g transform="translate(100, 100) scale(0.8)">
+    <circle cx="150" cy="150" r="100" fill="none" stroke="#333" stroke-width="20"/>
+    <line x1="220" y1="220" x2="320" y2="320" stroke="#333" stroke-width="25" stroke-linecap="round"/>
+    
+    <!-- Bug inside magnifying glass -->
+    <circle cx="150" cy="150" r="40" fill="#ff0000"/>
+    <circle cx="135" cy="135" r="8" fill="#333"/>
+    <circle cx="165" cy="135" r="8" fill="#333"/>
+    <path d="M130 165 Q150 180 170 165" fill="none" stroke="#333" stroke-width="5" stroke-linecap="round"/>
+    
+    <!-- Antennae -->
+    <line x1="135" y1="110" x2="125" y2="95" stroke="#333" stroke-width="5" stroke-linecap="round"/>
+    <line x1="165" y1="110" x2="175" y2="95" stroke="#333" stroke-width="5" stroke-linecap="round"/>
+    
+    <!-- Spots -->
+    <circle cx="130" cy="150" r="6" fill="#333"/>
+    <circle cx="170" cy="150" r="6" fill="#333"/>
+    <circle cx="150" cy="130" r="6" fill="#333"/>
+  </g>
+</svg>
