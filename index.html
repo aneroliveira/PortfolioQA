@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[QA] Portfólio</title>
-    <link rel="icon" type="image/svg+xml" href="./images/ladybug.png">
+    <link rel="icon" type="image/png" href="./images/ladybug.png">
 
     <!-- Pré-conexão para fontes externas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,38 +21,21 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="actions.js" defer></script>
 </head>
 
-<body>
+<body><!-- [x]: mudar cursor-->
     <header>
         <div id="particles-js"></div>
-        <div class="social-container">
-            <div class="social-icons-left">
-                <a href="https://www.linkedin.com/in/lorena-oliveira-051996/" target="_blank" class="icon linkedin"
-                    title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:aneroliver@gmail.com" class="icon email" title="e-mail">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
-            </div>
-            <div class="social-icons-right">
-                <a href="https://github.com/aneroliveira" class="icon github" target="_blank" title="Github">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <button id="themeToggle" class="icon" aria-label="Alternar tema" title="Trocar tema">
-                    <i class="fa-solid fa-sun" id="sun-icon"></i>
-                    <i class="fa-solid fa-moon" id="moon-icon" style="display: none;"></i>
-                </button>
-            </div>
-        </div>
 
-        <div class="profile">
-            <img src="./images/foto_perfil_.jpg" alt="Minha imagem de perfil">
+        <div class="profile"><!-- [x]: melhorar imagem de perfil (joguei no s3) -->
+            <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/foto_perfil_portfolio.jpg" alt="Minha imagem de perfil">
             <br>
-            <h2 class="typed6"></h2>
+            <h2 class="role-swap">
+                <span>Quality Engineer</span>
+                <span>Analista de Qualidade de Software</span>
+                <span>Caçadora de bugs</span>
+            </h2>
             <h1>Lorena Santos</h1>
         </div>
 
@@ -61,25 +44,34 @@
                 <li class="nav-item">
                     <a href="#home">
                         <span class="ladybug-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="ladybug-svg"></svg>
+                            <i class="bi bi-house-door-fill nav-icon"></i>
                         </span>
                         <span class="nav-text">Home</span>
                     </a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item"> <!-- [x]: melhorar o hover do menu -->
                     <a href="#sobreMim">
                         <span class="ladybug-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="ladybug-svg"></svg>
+                            <i class="bi bi-person-bounding-box nav-icon"></i>
                         </span>
                         <span class="nav-text">Sobre Mim</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
+                    <a href="#projetos">
+                        <span class="ladybug-icon">
+                            <i class="bi bi-kanban-fill nav-icon"></i>
+                        </span>
+                        <span class="nav-text">Projetos</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="#habilidades">
                         <span class="ladybug-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="ladybug-svg"></svg>
+                            <i class="bi bi-award-fill nav-icon"></i>
                         </span>
                         <span class="nav-text"> Habilidades</span>
                     </a>
@@ -88,59 +80,92 @@
                 <li class="nav-item">
                     <a href="#templates">
                         <span class="ladybug-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="ladybug-svg">
-                            </svg>
+                            <i class="bi bi-clipboard2-check-fill nav-icon"></i>
                         </span>
                         <span class="nav-text">Templates</span>
                     </a>
                 </li>
             </ul>
         </nav>
+
+        <!-- Recolhe/expande a sidebar em telas largas (≥900px); oculto no layout mobile -->
+        <button id="sidebarToggle" class="icon sidebar-toggle" aria-label="Recolher menu" title="Recolher menu">
+            <i class="bi bi-arrow-bar-left" id="collapse-icon"></i>
+            <i class="bi bi-arrow-bar-right" id="expand-icon" style="display: none;"></i>
+        </button>
     </header>
 
-    <main>
+    <div class="content-area">
+        <div class="topbar">
+            <div class="social-icons-left">
+                <a href="https://www.linkedin.com/in/lorena-santos-qa/" target="_blank" class="icon linkedin"
+                    title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:aneroliver@gmail.com" class="icon email" title="e-mail">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+            <div class="social-icons-right"> <!-- [x]: adicionar link da agenda de chamadas -->
+                <a href="https://app.simplymeet.me/lorena-santos-qa" class="icon agenda" target="_blank" title="Minha agenda">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </a>
+                <button id="themeToggle" class="icon" aria-label="Alternar tema" title="Trocar tema">
+                    <i class="fa-solid fa-sun" id="sun-icon"></i>
+                    <i class="fa-solid fa-moon" id="moon-icon" style="display: none;"></i>
+                </button>
+            </div>
+        </div>
+
+        <main>
         <section class="textHome active" id="home">
-            <p style="text-align: center;">
-            <h3>Bem vindo(a) ao meu Universo!</h3><em>Sou a <strong>Lorena</strong>, uma <strong>geminiana</strong></em>
+            <p style="text-align: center">
+
+            <h3>Bem vindo(a) ao meu Universo!</h3> 
+            <em>Sou a <strong>Lorena</strong>, uma <strong>geminiana</strong></em>
             ♊
             <em>apaixonada por <strong>dogs</strong></em> 🐶<em>, desafios e por "caçar" bugs! </em>🐞<br>
             </p>
-            Com mais de <strong>6</strong> anos de experiência em TI, iniciei minha carreira no suporte técnico, onde
-            desenvolvi uma base sólida para minha
-            transição para a área de <strong>Qualidade de Software</strong> (QA). <br>Hoje, procuro assegurar a entrega
+            Com mais de <strong>7</strong> anos de experiência em TI, iniciei minha carreira no suporte técnico, onde
+            desenvolvi uma base sólida para minha transição para a área de <strong>Qualidade de Software</strong> (QA). 
+            <br>Hoje, procuro assegurar a entrega
             contínua de software de alta qualidade,
             combinando técnicas de testes, diversas metodologias e criatividade para garantir soluções robustas e
             eficientes.
-
-            <table>
+            <table> <!-- [x]: queria um hover em cada linha -->
                 <tr class="header-row">
                     <td colspan="2">Aqui você encontrará:</td>
                 </tr>
 
                 <tr class="sobre-mim">
-                    <td><i class="bi bi-person-bounding-box"></i> Sobre mim</td>
+                    <td class="title"><i class="bi bi-person-bounding-box"></i> Sobre mim</td>
                     <td>Um pouco mais sobre minha formação, carreira, visão profissional e mais.</td>
                 </tr>
 
+                <tr class="projetos">
+                    <td class="title"><i class="bi bi-kanban-fill"></i> Projetos</td>
+                    <td>Uma seleção do que já construí e validei em QA, de plataformas a iniciativas autorais.</td>
+                </tr>
+
                 <tr class="habilidades">
-                    <td> <i class="bi bi-award-fill"> </i> Habilidades</td>
+                    <td class="title"><i class="bi bi-award-fill"> </i> Habilidades</td>
                     <td>Ferramentas, tecnologias e metodologias que domino e utilizo no meu cotidiano.</td>
                 </tr>
 
                 <tr class="templates">
-                    <td><i class="bi bi-clipboard2-check-fill"></i> Templates</td>
+                    <td class="title"><i class="bi bi-clipboard2-check-fill"></i> Templates</td>
                     <td>Todos os templates de documentação de QA que utilizo e feitos por mim</td>
                 </tr>
             </table>
-            <p style="text-align: center; font-size: 15px;">Navegue pelo menu acima</p>
+            <p style="text-align: center; font-size: 12px;">Navegue pelo menu</p>
         </section>
 
-        <section id="sobreMim">
+        <section id="sobreMim"> <!-- [x]: usar o transform para transição entre cada seção -->
             <div>
                 <h2>Oi! 🙋🏽‍♀️</h2>
                 Me chamo <strong>Lorena</strong> (mas pode me chamar de Lori), sou formada em
                 Análise e Desenvolvimento de Sistemas pela FATEC Mogi das Cruzes,
-                com 6 anos de experiência na área de TI, com foco dedicado à <strong>Qualidade de Software</strong>
+                com 7 anos de experiência na área de TI, com foco dedicado à <strong>Qualidade de Software</strong>
                 (QA). Iniciei minha carreira em suporte técnico, onde desenvolvi
                 habilidades essenciais em <strong>resolução de problemas</strong> e <strong>suporte a sistemas
                     críticos</strong>, e depois migrei para QA,
@@ -163,6 +188,15 @@
                 boa documentação (AMO!), e abordagens diferenciadas para testes. Em todos os processos, priorizo a
                 colaboração estreita e eficaz com stakeholders e devs,
                 promovendo um ambiente produtivo, sociável e alinhado.
+            </div><!-- [x]: adicionar parte da impulso -->
+
+            <div>Hoje, na <strong>Impulso</strong>, sou a única QA da empresa e estruturei todo o processo de
+                qualidade <strong>do zero</strong> — de critérios de aceitação e validação em múltiplos ambientes
+                até a automação e a integração dos testes no <strong>CI/CD</strong>. Esse trabalho reduziu o
+                <strong>retrabalho em 30%</strong> e o tempo dos testes regressivos em <strong>40%</strong>, com
+                <strong>Cypress</strong> cobrindo front-end e API. Atuo perto dos times de Produto e
+                Desenvolvimento, priorizando bugs pelo impacto real na experiência de quem usa e trazendo mais
+                previsibilidade para as entregas.
             </div>
             <div>Estou em constante busca por aprimoramento profissional, atualmente estudando para a certificação
                 <strong>CTFL</strong> e me aprofundando em testes automatizados
@@ -172,10 +206,12 @@
                 <strong>fontes</strong>, <strong>cores</strong> e <strong>elementos visuais</strong> para
                 criar composições únicas.
             </div>
+
             <div class="fancy-divider"></div>
+            
             <div>
                 <h2>Experiências profissionais</h2>
-                <table class="career-table">
+                <table class="career-table"> <!-- [x]: adicionado uma cor no hover -->
                     <thead>
                         <tr>
                             <th>Período</th>
@@ -184,37 +220,183 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>2024 - <strong>Atual</strong></td>
+                            <td  class="title-exp-profissional">2024 - <strong>Atual</strong></td>
                             <td><strong>Analista de Qualidade de Software na Impulso (Grupo RD Saúde)</strong> -
                                 Primeira profissional de QA da empresa, com foco na
                                 implantação de processos de qualidade e na estratégia de testes para garantir a
                                 excelência dos sistemas da organização.</td>
                         </tr>
                         <tr>
-                            <td>2021 - 2024</td>
+                            <td class="title-exp-profissional">2021 - 2024</td>
                             <td><strong>Transição de Carreira → Analista de Qualidade de Software na Muralis
                                     Tecnologia</strong></td>
                         </tr>
                         <tr>
-                            <td>2020 - 2021</td>
+                            <td class="title-exp-profissional">2020 - 2021</td>
                             <td><strong>Atendente de Suporte NOC na 76Telecom</strong> - Diagnóstico e resolução de
                                 problemas em redes e sistemas críticos,
                                 adquirindo experiência em ambientes de alta disponibilidade.</td>
                         </tr>
                         <tr>
-                            <td>2019 - 2020</td>
+                            <td class="title-exp-profissional">2019 - 2020</td>
                             <td><strong>Analista de Suporte Service Desk na Original Veículos</strong> - Suporte a
                                 sistemas e infraestrutura de TI, desenvolvimento
                                 de soluções para melhorias de processos internos.</td>
                         </tr>
                         <tr>
-                            <td>2018 - 2019</td>
+                            <td class="title-exp-profissional">2018 - 2019</td>
                             <td><strong>Auxiliar de Suporte de TI</strong> - Atendimento técnico e suporte a usuários,
                                 com foco em resolução de problemas
                                 e manutenção de sistemas.</td>
                         </tr>
                     </tbody>
                 </table>
+
+            </div>
+        </section>
+        <!-- [x]: adicionar seção de projetos como esta no LinkedIn -->
+        <!-- [ ]: adicionar os textos em arquivos externos para diminuir o html aqui -->
+
+        <section id="projetos">
+            <h1>Projetos</h1>
+            <div>Uma seleção do que já construí e validei — de plataformas de mobilidade e comércio exterior a
+                sistemas de informação geológica, além de iniciativas autorais de QA.
+                <p>Clique em <strong>Ver detalhes</strong> em cada card para abrir o escopo completo.</p>
+            </div>
+            <div class="fancy-divider"></div>
+
+            <div class="projects-grid">
+
+                <!-- Projeto 1 -->
+                <article class="project-card">
+                    <h3>Portfólio Web Profissional</h3>
+                    <p class="project-meta">jan 2025 - atual &middot; Projeto pessoal</p>
+                    <p>Este portfólio, conduzido como projeto ágil — com backlog, épicos, features e user stories —
+                        para consolidar minha identidade profissional como QA.</p>
+                    <details>
+                        <summary>Ver detalhes</summary>
+                        <li>Organização em <strong>Scrum</strong>: backlog, épicos, features, user stories e tarefas.</li>
+                        <li>Design da interface criado no <strong>Figma</strong>.</li>
+                        <li>Desenvolvimento em <strong>HTML</strong>, <strong>CSS</strong> e <strong>JavaScript</strong>,
+                            com atenção a responsividade, acessibilidade e otimizações de SEO.</li>
+                    </details>
+                </article>
+
+                <!-- Projeto 2 -->
+                <article class="project-card">
+                    <h3>Central de Qualidade <span class="project-badge">Projeto autoral</span></h3>
+                    <p class="project-meta">nov 2024 - atual &middot; Impulso</p>
+                    <p>Iniciativa que idealizei e desenvolvi como <strong>QA solo</strong>: consolida e documenta todo
+                        o processo de testes dos portais da organização, com foco em transparência e rastreabilidade.</p>
+                    <details>
+                        <summary>Ver detalhes</summary>
+                        <li>Reúne no <strong>Confluence</strong> a estratégia de testes, critérios de aceitação, casos
+                            rastreáveis, histórico de bugs, ferramentas e ambientes disponíveis — integrada ao ciclo de
+                            vida dos projetos.</li>
+                        <li>Elaborei um <strong>Plano de Testes</strong> completo, com objetivos, cronograma, riscos e
+                            próximos passos.</li>
+                        <li>Padronizei o uso de atributos para facilitar a automação com <strong>Cypress</strong> e
+                            documentei ciclos de teste, bugs e entregas no <strong>Jira</strong>.</li>
+                        <li>Registro de <strong>métricas trimestrais</strong>: bugs encontrados x corrigidos e evolução
+                            da cobertura de testes.</li>
+                        <li><strong>Resultado:</strong> redução significativa nos chamados de suporte por falhas
+                            reportadas pelos usuários, menos retrabalho em produção e mais alinhamento entre Produto e
+                            Desenvolvimento.</li>
+                    </details>
+                </article>
+
+                <!-- Projeto 3 -->
+                <article class="project-card">
+                    <h3>Vale Pedágio Obrigatório (VPO)</h3>
+                    <p class="project-meta">ago 2024 - out 2024 &middot; Muralis Tecnologia &middot; Veloe</p>
+                    <p>Solução integrada para gestão de pagamentos e frotas, voltada à experiência de transportadores
+                        e embarcadores.</p>
+                    <details>
+                        <summary>Ver detalhes</summary>
+                        <li>Planejamento, execução e documentação de cenários e casos de teste, com evidências e
+                            relatórios detalhados.</li>
+                        <li>Testes <strong>funcionais</strong>, de <strong>regressão</strong> e de <strong>API</strong>,
+                            com <strong>Postman</strong> para validação de requisições e <strong>Swagger</strong> para
+                            analisar a integração dos serviços.</li>
+                        <li>Participação ativa nas cerimônias <strong>Scrum</strong> — planning, dailies e
+                            retrospectivas — em alinhamento contínuo com desenvolvimento e análise.</li>
+                    </details>
+                </article>
+
+                <!-- Projeto 4 -->
+                <article class="project-card">
+                    <h3>SGB (antiga CPRM): Base PETRO &amp; Base LITO</h3>
+                    <p class="project-meta">jan 2024 - jul 2024 &middot; Muralis Tecnologia</p>
+                    <p>Modernização dos sistemas de informação geológica do Serviço Geológico do Brasil — análises
+                        petrográficas (PETRO) e unidades litoestratigráficas (LITO).</p>
+                    <details>
+                        <summary>Ver detalhes</summary>
+                        <li>Gerenciamento da execução, evidência e documentação de casos de teste no
+                            <strong>Azure DevOps</strong>, com a ferramenta de Test Cases.</li>
+                        <li>Testes manuais <strong>exploratórios</strong> e de <strong>regressão</strong>, incluindo a
+                            versão mobile via <strong>Android Studio</strong>.</li>
+                        <li>Validação detalhada de requisitos, regras de negócio e critérios de aceitação com base na
+                            documentação fornecida.</li>
+                        <li>Reporte e acompanhamento contínuo de bugs, garantindo a estabilidade do sistema.</li>
+                    </details>
+                </article>
+
+                <!-- Projeto 5 -->
+                <article class="project-card">
+                    <h3>Gestão de Tags (Pessoa Jurídica)</h3>
+                    <p class="project-meta">fev 2022 - dez 2023 &middot; Muralis Tecnologia &middot; Veloe</p>
+                    <p>Plataforma da Veloe — iniciativa conjunta do Banco do Brasil e Bradesco — com soluções digitais
+                        para pedágio, estacionamento, abastecimento, IPVA e gestão de frotas.</p>
+                    <details>
+                        <summary>Ver detalhes</summary>
+                        <li>Planejamento, execução e documentação de cenários e casos de teste, com geração de
+                            evidências e relatórios de qualidade.</li>
+                        <li>Implementação de testes automatizados <strong>end-to-end com Cypress</strong>, cobrindo as
+                            funcionalidades críticas da plataforma.</li>
+                        <li>Testes funcionais, de regressão e de API com <strong>Postman</strong> e
+                            <strong>Swagger</strong>.</li>
+                        <li>Colaboração na adoção de práticas <strong>DevOps</strong>, melhorando os ciclos de
+                            desenvolvimento e a integração contínua.</li>
+                    </details>
+                </article>
+
+                <!-- Projeto 6 -->
+                <article class="project-card">
+                    <h3>eCommerce de roupas femininas</h3>
+                    <p class="project-meta">jan 2021 - jun 2022 &middot; Fatec Mogi das Cruzes &middot; Acadêmico</p>
+                    <p>Projeto da disciplina de Laboratório de Engenharia de Software: aplicação web funcional e
+                        escalável em arquitetura <strong>MVC</strong> com diversos padrões de projeto.</p>
+                    <details>
+                        <summary>Ver detalhes</summary>
+                        <li>Padrões aplicados: <strong>ViewHelper</strong>, <strong>Strategy</strong>,
+                            <strong>Command</strong>, <strong>Factory</strong>, <strong>Facade</strong> e
+                            <strong>DAO</strong>.</li>
+                        <li>Front-end em <strong>HTML</strong>, <strong>CSS/SCSS</strong>, <strong>Bootstrap</strong> e
+                            <strong>JavaScript</strong>; back-end em <strong>JSP (Java Web)</strong> com Servlets e
+                            banco <strong>MySQL</strong>.</li>
+                        <li>Funcionalidades do cliente: login e cadastro, perfil, catálogo e detalhe de produto,
+                            carrinho, cadastro de endereço e cartão de crédito.</li>
+                        <li>Área administrativa: pedidos e vendas por período e cadastro de cupons de desconto.</li>
+                    </details>
+                </article>
+
+                <!-- Projeto 7 -->
+                <article class="project-card">
+                    <h3>QuickComex</h3>
+                    <p class="project-meta">jul 2021 - jan 2022 &middot; Muralis Tecnologia</p>
+                    <p>Solução para otimizar processos de comércio exterior, com foco em agenciamento de carga e
+                        desembaraço aduaneiro.</p>
+                    <details>
+                        <summary>Ver detalhes</summary>
+                        <li>Elaboração de <strong>Planos de Teste</strong> e manuais técnicos, detalhando as
+                            funcionalidades homologadas conforme os critérios de aceitação do cliente.</li>
+                        <li>Testes manuais exploratórios e de regressão na interface web.</li>
+                        <li>Implementação de testes automatizados com <strong>Selenium</strong>, ampliando a cobertura
+                            e otimizando os processos de QA.</li>
+                        <li>Criação de manuais de usuário e documentação técnica, facilitando o uso da plataforma por
+                            equipes internas e clientes finais.</li>
+                    </details>
+                </article>
 
             </div>
         </section>
@@ -233,7 +415,7 @@
                 projetos e garantindo a excelência em todas as fases do desenvolvimento.
                 <br>
 
-                <h3>Habilidades Técnicas</h3>
+                <h3>Habilidades Técnicas</h3> <!-- [x]: melhorar o mouse quando acessar a lista (mudar o pointer dele)-->
                 <details>
                     <summary><i class="bi bi-braces"></i> Ferramentas de teste</summary>
                     <li><strong>Cypress</strong>: Automação de testes end-to-end.</li>
@@ -347,9 +529,13 @@
         </section>
 
         <section id="templates">
+            <!-- [ ]: incluir uma miniatura (hoje é placeholder local; a real sai da 1a página de cada PDF) -->
+            <!-- [ ]: adicionar os demais templates (cards 2-4 estão em "Em breve" até os arquivos existirem) -->
+            <!-- [x]: verificar como adicionar docs em Word -> padrão do card 1: preview aponta pro .pdf, download aponta pro .docx
+                 (o modal usa iframe, que não renderiza .docx — então o Word fica só no download) -->
             <h1>Templates</h1>
-            <div>Aqui você encontra modelos e materiais que desenvolvi com base na minha experiência na área de QA.
-                <p><em>Os arquivos estão disponíveis para uso gratuito, desde que os devidos créditos sejam
+            <div>Aqui você encontra modelos e materiais que desenvolvi com base na minha experiência na área de QA e TI em geral.
+                <p><em>Os arquivos estão disponíveis para uso pessoal gratuitamente, desde que os devidos créditos sejam
                         mantidos.</em></p>
                 Você pode utilizar, adaptar e compartilhar os conteúdos, mas lembre-se de valorizar quem criou —<strong>
                     o reconhecimento fortalece a comunidade</strong>!
@@ -363,7 +549,7 @@
                         <div class="carousel-slide">
                             <div class="template-card">
                                 <div class="template-thumbnail">
-                                    <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg"
+                                    <img src="./images/ladybug-svg.svg"
                                         alt="Template de Plano de Teste">
                                     <div class="pdf-overlay">PDF</div>
                                 </div>
@@ -389,7 +575,7 @@
                         <div class="carousel-slide">
                             <div class="template-card">
                                 <div class="template-thumbnail">
-                                    <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg"
+                                    <img src="./images/ladybug-svg.svg"
                                         alt="Template de Casos de Teste">
                                     <div class="pdf-overlay">PDF</div>
                                 </div>
@@ -398,14 +584,9 @@
                                     <p>Modelo estruturado para documentação de casos de teste, com pré-condições,
                                         passos, resultados esperados e status.</p>
                                     <div class="template-actions">
-                                        <button class="preview-btn"
-                                            data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf">
-                                            <i class="bi bi-eye-fill"></i> Visualizar
-                                        </button>
-                                        <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf"
-                                            download class="download-btn">
-                                            <i class="bi bi-download"></i> Download
-                                        </a>
+                                        <span class="coming-soon">
+                                            <i class="bi bi-hourglass-split"></i> Em breve
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -415,7 +596,7 @@
                         <div class="carousel-slide">
                             <div class="template-card">
                                 <div class="template-thumbnail">
-                                    <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg"
+                                    <img src="./images/ladybug-svg.svg"
                                         alt="Relatório de Bugs">
                                     <div class="pdf-overlay">PDF</div>
                                 </div>
@@ -424,14 +605,9 @@
                                     <p>Template para documentação detalhada de bugs, incluindo severidade, prioridade,
                                         passos para reprodução e evidências.</p>
                                     <div class="template-actions">
-                                        <button class="preview-btn"
-                                            data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf">
-                                            <i class="bi bi-eye-fill"></i> Visualizar
-                                        </button>
-                                        <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf"
-                                            download class="download-btn">
-                                            <i class="bi bi-download"></i> Download
-                                        </a>
+                                        <span class="coming-soon">
+                                            <i class="bi bi-hourglass-split"></i> Em breve
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -441,7 +617,7 @@
                         <div class="carousel-slide">
                             <div class="template-card">
                                 <div class="template-thumbnail">
-                                    <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/favicon.svg"
+                                    <img src="./images/ladybug-svg.svg"
                                         alt="Checklist de QA">
                                     <div class="pdf-overlay">PDF</div>
                                 </div>
@@ -450,14 +626,9 @@
                                     <p>Lista abrangente de verificações para garantir a qualidade do software antes da
                                         entrega, cobrindo funcionalidades, usabilidade e performance.</p>
                                     <div class="template-actions">
-                                        <button class="preview-btn"
-                                            data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf">
-                                            <i class="bi bi-eye-fill"></i> Visualizar
-                                        </button>
-                                        <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%E2%80%9CIsso+%C3%A9+coisa+do+QA!%E2%80%9D+vs.+%E2%80%9CQualidade+%C3%A9+responsabilidade+de+todos%E2%80%9D.pdf"
-                                            download class="download-btn">
-                                            <i class="bi bi-download"></i> Download
-                                        </a>
+                                        <span class="coming-soon">
+                                            <i class="bi bi-hourglass-split"></i> Em breve
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -490,9 +661,11 @@
                 </div>
             </div>
         </section>
-    </main>
-    <footer class="footer">© 2025 [QA] Lorena Santos</footer>
-    <button onclick="topFunction()" id="myBtn" title="Voltar ao topo" aria-label="Voltar ao topo">↑</button>
+        </main>
+        <footer class="footer"><i class="fa-solid fa-copyright"></i> 2025 [QA] Lorena Santos</footer>
+    </div>
+
+    <button onclick="topFunction()" id="myBtn" title="Voltar ao topo" aria-label="Voltar ao topo"><i class="fa-solid fa-angle-up"></i></button>
 </body>
 
 </html>

@@ -16,6 +16,38 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// * Carrossel de frases do cargo (substitui a digitação do Typed.js) *
+// Mede a altura real de cada frase e fixa essa altura na caixa — em vez de
+// chutar "quantas linhas" ela ocupa (o que varia por navegador/zoom/fonte e
+// cortava a frase mais longa em algumas telas)
+function ajustarAlturaRoleSwap() {
+  const container = document.querySelector(".profile h2.role-swap");
+  if (!container) return;
+
+  let maiorAltura = 0;
+  container.querySelectorAll("span").forEach((span) => {
+    // Mede como texto normal (sem o position:absolute da animação),
+    // então a quebra de linha reflete a largura real da caixa
+    span.style.position = "static";
+    span.style.visibility = "hidden";
+    const altura = span.getBoundingClientRect().height;
+    span.style.position = "";
+    span.style.visibility = "";
+    if (altura > maiorAltura) maiorAltura = altura;
+  });
+
+  if (maiorAltura > 0) {
+    container.style.height = maiorAltura + "px";
+  }
+}
+
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(ajustarAlturaRoleSwap);
+} else {
+  window.addEventListener("load", ajustarAlturaRoleSwap);
+}
+window.addEventListener("resize", ajustarAlturaRoleSwap);
+
 // * Código das particles.js apenas no Header
 // Ativa o efeito visual de partículas no cabeçalho, se a biblioteca `particlesJS` estiver disponível
 if (typeof particlesJS !== "undefined") {
@@ -29,7 +61,7 @@ if (typeof particlesJS !== "undefined") {
         },
       },
       color: {
-        value: "#d5838f",
+        value: "#e2d8cf",
       },
       shape: {
         type: "circle",
@@ -127,43 +159,16 @@ function topFunction() {
   });
 }
 
-// * Código para funcionamento dos botões do menu
-// Altera a cor de fundo com base no botão clicado no menu (usando atributo `data-color`
-document.querySelectorAll(".nav-item").forEach((item) => {
-  item.addEventListener("click", function () {
-    document.body.style.backgroundColor = this.getAttribute("data-color");
-  });
-});
-
 // * Código para o comportamento de navegação do menu (entre abas)
-document.querySelectorAll(".nav-item a").forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault(); // Impede o comportamento padrão do link
-
-    const targetId = this.getAttribute("href").substring(1); // Obtém a ID do destino
-    const targetElement = document.getElementById(targetId); // Encontra o elemento correspondente à ID
-
-    // Rolagem suave
-    targetElement.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-
-    // Adiciona a classe de "ativo" no item de menu
-    document.querySelectorAll(".nav-item a").forEach((link) => {
-      link.classList.remove("active");
-    });
-    this.classList.add("active");
-  });
-});
-
-// Código para alternar entre seções do menu
+// Exibe a seção alvo e só então rola até ela — a ordem importa, porque as
+// seções inativas são `display: none` e não podem receber scroll
 document.querySelectorAll(".nav-item a").forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault(); // Impede o comportamento padrão do link
 
     // Obtém o ID da seção alvo (sem o #)
     const targetId = this.getAttribute("href").substring(1);
+    const targetSection = document.getElementById(targetId);
 
     // Oculta todas as seções
     document.querySelectorAll("section").forEach((section) => {
@@ -171,7 +176,6 @@ document.querySelectorAll(".nav-item a").forEach((anchor) => {
     });
 
     // Exibe a seção correspondente ao ID
-    const targetSection = document.getElementById(targetId);
     if (targetSection) {
       targetSection.classList.add("active");
     }
@@ -181,6 +185,14 @@ document.querySelectorAll(".nav-item a").forEach((anchor) => {
       link.classList.remove("active");
     });
     this.classList.add("active");
+
+    // Rolagem suave, agora que a seção já está visível
+    if (targetSection) {
+      targetSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   });
 });
 
@@ -214,41 +226,46 @@ themeToggleButton.addEventListener("click", () => {
   }
 });
 
+// * SIDEBAR RECOLHER/EXPANDIR *
+// Controla o estado da sidebar (só tem efeito visual em telas ≥900px) e salva a preferência
+const sidebarToggleButton = document.getElementById("sidebarToggle");
+const collapseIcon = document.getElementById("collapse-icon");
+const expandIcon = document.getElementById("expand-icon");
+
+// Aplica automaticamente o estado recolhido se o usuário já tiver escolhido antes
+if (localStorage.getItem("sidebarState") === "collapsed") {
+  document.body.classList.add("sidebar-collapsed");
+  collapseIcon.style.display = "none";
+  expandIcon.style.display = "inline-block";
+}
+
+sidebarToggleButton.addEventListener("click", () => {
+  document.body.classList.toggle("sidebar-collapsed");
+
+  if (document.body.classList.contains("sidebar-collapsed")) {
+    collapseIcon.style.display = "none";
+    expandIcon.style.display = "inline-block";
+    localStorage.setItem("sidebarState", "collapsed");
+  } else {
+    collapseIcon.style.display = "inline-block";
+    expandIcon.style.display = "none";
+    localStorage.setItem("sidebarState", "expanded");
+  }
+});
+
+//[x]:tentar tirar o botão direito tbm
 //* Código que não permite copiar para área de transferência
 // Impede que o conteúdo da página seja copiado (bloqueia Ctrl+C)
 document.addEventListener("copy", (e) => {
   e.preventDefault();
 });
+
+// Impede o menu de contexto (clique direito)
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+});
 window.addEventListener("load", function () {
   document.querySelector(".nav-menu ul").classList.add("show");
-});
-
-// Seleciona todos os botões de alternância
-const toggleButtons = document.querySelectorAll(".toggle-button");
-
-toggleButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    // Adiciona funcionalidade para expandir/ocultar listas associadas aos botões
-    const list = button.nextElementSibling;
-    if (list.style.display === "none" || list.style.display === "") {
-      list.style.display = "block";
-    } else {
-      list.style.display = "none";
-    }
-  });
-});
-
-// Código para efeito de digitação no Header
-// Ativa o efeito de digitação com frases alternadas (usando a biblioteca Typed.js)
-var typed6 = new Typed(".typed6", {
-  strings: [
-    "Quality Engineer",
-    "Analista de Qualidade de Software",
-    "Caçadora de bugs",
-  ],
-  typeSpeed: 50, // Velocidade da digitação
-  backSpeed: 25, // Velocidade ao apagar
-  loop: true, // Para repetir o efeito
 });
 
 // Código para funcionalidade de carrossel de slides
@@ -298,12 +315,11 @@ document.addEventListener("DOMContentLoaded", () => {
       currentIndex--;
       setPositionByIndex();
     } else {
-      // Opcional: volta ao primeiro se estiver no último
+      // volta ao primeiro se estiver no último
       currentIndex = slides.length - 1;
       setPositionByIndex();
     }
   }
-
   // Vai para o próximo slide
   function moveToNextSlide() {
     if (currentIndex < slides.length - 1) {

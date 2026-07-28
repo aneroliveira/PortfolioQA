@@ -1,21 +1,31 @@
 /* ===== Variáveis CSS ===== */
 :root {
+  /* Paleta "Inverno Profundo" */
+  --color-white: #fefefc;        /* Branco — fundo principal */
+  --color-indigo: #1e1e1e;       /* Neutro escuro — boxes de ícone e afins que sempre ficam escuros, independente do tema */
+  --color-deep-indigo: #28326f;  /* Índigo original — reaproveitado como cor de texto/destaque da sidebar no modo claro */
+  --color-raspberry: #af1958;    /* Framboesa — único destaque, reservado para CTA/botão */
+  --color-raspberry-hover: #8f1147;
+  --color-teal: #447a7c;         /* Verde petróleo — links e ícones */
+  --color-teal-hover: #365f61;
+  --color-greige: #e2d8cf;       /* Greige — fundo alternativo, mais quente que o branco puro */
+
+  /* Sidebar/footer — gradiente sutil, muda com o tema claro/escuro */
+  --sidebar-bg-light: linear-gradient(160deg, #eef0f7 0%, #e2d8cf 100%);
+  --sidebar-bg-dark: linear-gradient(160deg, #1a1a26 0%, #16161a 100%);
+
   /* Cores */
-  --main-pink: #d5838f;
-  --main-pink-hover: #c06f7b;
-  --accent-pink: #e61ecb;
-  --dark-pink: #db0b9d;
-  --light-bg: #f8f8f8;
+  --light-bg: var(--color-white);
   --dark-bg: #121212;
   --dark-bg-transparent: rgba(30, 30, 30, 0.8);
-  --light-bg-transparent: rgba(255, 255, 255, 0.8);
+  --light-bg-transparent: rgba(254, 254, 252, 0.85);
   --text-dark: #333;
   --text-light: #f0f0f0;
   --text-muted: #777;
-  --text-menu: #7b8a98;
+  --text-menu: var(--color-teal); /* modo claro: teal escuro. Modo escuro redefine (ver body.dark-mode) */
   --card-bg-light: #fff;
   --card-bg-dark: #2a2a2a;
-  --footer-bg: #333;
+  --footer-bg: #1e1e1e; /* fixo — só alimenta a thead da tabela de carreira, que sempre tem texto branco */
   --border-light: #ddd;
   --shadow-light: rgba(0, 0, 0, 0.1);
   --shadow-medium: rgba(0, 0, 0, 0.2);
@@ -56,19 +66,34 @@
   --z-footer: 10;
   --z-modal: 1000;
   --z-back-to-top: 99;
+
+  /* Cursores — seta padrão (clara) e seta de clique (framboesa) */
+  --cursor-arrow: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 24"><path fill="%23FFFFFF" stroke="%231E1E1E" stroke-width="1.25" d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z"></path></svg>');
+  --cursor-click: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 24"><path fill="%23AF1958" stroke="%23FFFFFF" stroke-width="1.25" d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z"></path></svg>');
+
+  /* Largura da sidebar (≥900px) — trocada por body.sidebar-collapsed */
+  --sidebar-width: 260px;
 }
 
 /* ===== Estilos base ===== */
 html,
-body {
+body{
   height: 100%;
   margin: 0;
   padding: 0;
+  cursor: var(--cursor-arrow), default;
 }
 
+/* ===== ESTILO DE CURSOR PARA BOTÕES, LISTAS & CIA ===== */
+a,
+button,
+.nav-item,
+#themeToggle,
+summary {
+  cursor: var(--cursor-click), pointer;
+}
 body {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23d5838f" d="M256 0c17.7 0 32 14.3 32 32l0 34.7C368.4 80.1 431.9 143.6 445.3 224l34.7 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-34.7 0C431.9 368.4 368.4 431.9 288 445.3l0 34.7c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-34.7C143.6 431.9 80.1 368.4 66.7 288L32 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l34.7 0C80.1 143.6 143.6 80.1 224 66.7L224 32c0-17.7 14.3-32 32-32zM128 256a128 128 0 1 0 256 0 128 128 0 1 0 -256 0zm128-80a80 80 0 1 1 0 160 80 80 0 1 1 0-160z"/></svg>'),
-    auto;
+
   position: relative;
   overflow-x: hidden;
   display: flex;
@@ -108,14 +133,14 @@ body::before {
   height: 100%;
   z-index: var(--z-background);
   background-color: var(--light-bg);
-  background-image: radial-gradient(circle at 10% 20%, rgba(252, 143, 199, 0.4) 0%, rgba(255, 131, 195, 0) 20%),
-    radial-gradient(circle at 85% 60%, rgba(100, 165, 255, 0.4) 0%, rgba(100, 165, 255, 0) 30%),
-    radial-gradient(circle at 40% 80%, rgba(245, 195, 88, 0.4) 0%, rgba(255, 206, 100, 0) 25%),
-    radial-gradient(circle at 60% 30%, rgba(175, 255, 160, 0.4) 0%, rgba(175, 255, 160, 0) 20%),
-    linear-gradient(45deg, rgba(230, 30, 203, 0.05) 0%, rgba(230, 30, 203, 0) 70%),
-    linear-gradient(135deg, rgba(100, 165, 255, 0.05) 0%, rgba(100, 165, 255, 0) 70%),
-    linear-gradient(225deg, rgba(255, 206, 100, 0.05) 0%, rgba(255, 206, 100, 0) 70%),
-    linear-gradient(315deg, rgba(175, 255, 160, 0.05) 0%, rgba(175, 255, 160, 0) 70%);
+  background-image: radial-gradient(circle at 10% 20%, rgba(175, 25, 88, 0.25) 0%, rgba(175, 25, 88, 0) 20%),
+    radial-gradient(circle at 85% 60%, rgba(68, 122, 124, 0.3) 0%, rgba(68, 122, 124, 0) 30%),
+    radial-gradient(circle at 40% 80%, rgba(226, 216, 207, 0.6) 0%, rgba(226, 216, 207, 0) 25%),
+    radial-gradient(circle at 60% 30%, rgba(40, 50, 111, 0.2) 0%, rgba(40, 50, 111, 0) 20%),
+    linear-gradient(45deg, rgba(175, 25, 88, 0.04) 0%, rgba(175, 25, 88, 0) 70%),
+    linear-gradient(135deg, rgba(68, 122, 124, 0.05) 0%, rgba(68, 122, 124, 0) 70%),
+    linear-gradient(225deg, rgba(40, 50, 111, 0.05) 0%, rgba(40, 50, 111, 0) 70%),
+    linear-gradient(315deg, rgba(226, 216, 207, 0.08) 0%, rgba(226, 216, 207, 0) 70%);
   background-size: 150% 200%;
   opacity: 0.8;
   transition: background-color var(--transition-normal);
@@ -129,8 +154,8 @@ body::after {
   width: 100%;
   height: 100%;
   z-index: var(--z-background-pattern);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpolygon points='50,15 85,50 50,85 15,50' fill='none' stroke='rgba(230, 30, 203, 0.1)' stroke-width='1'/%3E%3Ccircle cx='20' cy='20' r='10' fill='none' stroke='rgba(100, 165, 255, 0.1)' stroke-width='1'/%3E%3Crect x='70' y='60' width='20' height='20' fill='none' stroke='rgba(255, 206, 100, 0.1)' stroke-width='1'/%3E%3Ccircle cx='70' cy='30' r='15' fill='none' stroke='rgba(175, 255, 160, 0.1)' stroke-width='1'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cpolygon points='75,25 125,75 75,125 25,75' fill='none' stroke='rgba(230, 30, 203, 0.05)' stroke-width='1'/%3E%3Ccircle cx='35' cy='35' r='20' fill='none' stroke='rgba(100, 165, 255, 0.05)' stroke-width='1'/%3E%3Crect x='100' y='90' width='30' height='30' fill='none' stroke='rgba(255, 206, 100, 0.05)' stroke-width='1'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpolygon points='50,15 85,50 50,85 15,50' fill='none' stroke='rgba(175, 25, 88, 0.1)' stroke-width='1'/%3E%3Ccircle cx='20' cy='20' r='10' fill='none' stroke='rgba(68, 122, 124, 0.1)' stroke-width='1'/%3E%3Crect x='70' y='60' width='20' height='20' fill='none' stroke='rgba(40, 50, 111, 0.1)' stroke-width='1'/%3E%3Ccircle cx='70' cy='30' r='15' fill='none' stroke='rgba(226, 216, 207, 0.2)' stroke-width='1'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cpolygon points='75,25 125,75 75,125 25,75' fill='none' stroke='rgba(175, 25, 88, 0.05)' stroke-width='1'/%3E%3Ccircle cx='35' cy='35' r='20' fill='none' stroke='rgba(68, 122, 124, 0.05)' stroke-width='1'/%3E%3Crect x='100' y='90' width='30' height='30' fill='none' stroke='rgba(40, 50, 111, 0.05)' stroke-width='1'/%3E%3C/svg%3E");
   background-repeat: repeat;
   opacity: 0.7;
 }
@@ -139,16 +164,11 @@ body::after {
 body.dark-mode {
   background-color: var(--dark-bg);
   color: var(--text-light);
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23d5838f" d="M256 0c17.7 0 32 14.3 32 32l0 34.7C368.4 80.1 431.9 143.6 445.3 224l34.7 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-34.7 0C431.9 368.4 368.4 431.9 288 445.3l0 34.7c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-34.7C143.6 431.9 80.1 368.4 66.7 288L32 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l34.7 0C80.1 143.6 143.6 80.1 224 66.7L224 32c0-17.7 14.3-32 32-32zM128 256a128 128 0 1 0 256 0 128 128 0 1 0 -256 0zm128-80a80 80 0 1 1 0 160 80 80 0 1 1 0-160z"/></svg>'),
-    auto;
+  --text-menu: #6fa3a5; /* verde petróleo claro — legível sobre o fundo escuro da sidebar */
 }
 
 body.dark-mode::before {
   background-color: var(--dark-bg);
-}
-
-body.dark-mode header {
-  background-color: var(--dark-bg-transparent);
 }
 
 body.dark-mode section,
@@ -162,21 +182,20 @@ body.dark-mode table {
   background-color: var(--light-bg);
 }
 
-body.dark-mode .ladybug-svg {
-  background-image: url("./images/ladybug-svgrepo-com.svg");
-}
-
 body.dark-mode #themeToggle i {
   color: var(--text-light);
 }
 
-/* ===== ÍCONES DE REDE SOCIAL ===== */
-.social-container {
+/* ===== BARRA SUPERIOR (ícones de rede social + tema) ===== */
+.topbar {
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  top: var(--spacing-lg);
   width: 100%;
+  background-color: var(--light-bg-transparent);
+}
+
+body.dark-mode .topbar {
+  background-color: var(--dark-bg-transparent);
 }
 
 .social-icons-left,
@@ -193,7 +212,6 @@ body.dark-mode #themeToggle i {
   width: 50px;
   height: 50px;
   border-radius: var(--radius-sm);
-  color: white;
   font-size: 30px;
   text-decoration: none;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
@@ -206,8 +224,8 @@ body.dark-mode #themeToggle i {
 
 .linkedin,
 .email,
-.github {
-  background-color: var(--dark-bg);
+.agenda {
+  background-color: var(--color-indigo);
   color: #fff;
 }
 
@@ -216,15 +234,14 @@ body.dark-mode #themeToggle i {
   background: none;
   border: none;
   font-size: 24px;
-  cursor: pointer;
-  display: flex;
+ display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #themeToggle i {
   transition: color var(--transition-normal);
-  color: var(--dark-bg);
+  color: var(--color-indigo);
 }
 
 /* ===== PERFIL  ===== */
@@ -234,22 +251,95 @@ body.dark-mode #themeToggle i {
   border-radius: var(--radius-circle);
   margin: 60px 0 30px;
   box-shadow: 0 4px 8px var(--shadow-light);
-  border: dotted 4px var(--accent-pink);
+  border: dotted 4px var(--color-raspberry);
   object-fit: cover;
 }
 
+/* O header é sempre índigo (escuro), então o texto do perfil é sempre claro,
+   independente do tema claro/escuro do restante da página */
+/* Carrossel vertical de frases — substitui a digitação (Typed.js).
+   Cada <span> ocupa a mesma caixa e anima em sequência (entra por baixo,
+   sai por cima). A altura abaixo é só um FALLBACK (3 linhas, folgado) —
+   o actions.js mede a altura real de cada frase (varia por navegador/zoom/
+   fonte) e fixa o valor certo via JS assim que a fonte carrega, evitando
+   tanto o corte de texto quanto o menu abaixo pulando quando a frase muda. */
 .profile h2 {
   font-size: var(--font-size-base);
-  color: var(--text-muted);
+  color: rgba(40, 50, 111, 0.65); /* índigo original, suave — modo claro */
   letter-spacing: 5px;
-  text-shadow: 1px 2px 3px var(--shadow-light);
-  display: inline;
+  text-shadow: 1px 2px 3px var(--shadow-dark);
+  display: block;
+  position: relative;
+  height: calc(var(--font-size-base) * var(--line-height) * 3);
+  line-height: var(--line-height);
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.profile h2 span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transform: translateY(60%);
+  animation: roleSwap 9s ease-in-out infinite;
+}
+
+.profile h2 span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.profile h2 span:nth-child(2) {
+  animation-delay: 3s;
+}
+
+.profile h2 span:nth-child(3) {
+  animation-delay: 6s;
+}
+
+@keyframes roleSwap {
+  0%, 4% {
+    opacity: 0;
+    transform: translateY(60%);
+  }
+  10%, 26% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  32%, 100% {
+    opacity: 0;
+    transform: translateY(-60%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile h2 span {
+    animation: none;
+    opacity: 0;
+  }
+
+  .profile h2 span:first-child {
+    opacity: 1;
+  }
 }
 
 .profile h1 {
   font-size: var(--font-size-xxl);
   font-weight: bold;
+  color: var(--color-deep-indigo); /* índigo original, como texto — modo claro */
   margin: var(--spacing-lg) 0;
+}
+
+/* A sidebar troca de gradiente claro/escuro com o tema — o texto do perfil
+   acompanha, senão fica ilegível num dos dois lados */
+body.dark-mode .profile h1 {
+  color: var(--color-white);
+}
+
+body.dark-mode .profile h2 {
+  color: rgba(254, 254, 252, 0.75);
 }
 
 /* ===== MENU DE NAVEGAÇÃO ===== */
@@ -279,11 +369,10 @@ body.dark-mode #themeToggle i {
   z-index: 1;
 }
 
-.ladybug-svg {
-  width: 30px;
-  height: 30px;
+.nav-icon {
+  font-size: 22px;
+  color: inherit; /* segue a cor do link — herda hover/active/dark-mode sem regras extras */
   transition: all var(--transition-normal);
-  background-image: url("./images/ladybug-svgrepo-com.svg");
 }
 
 .nav-item {
@@ -293,7 +382,6 @@ body.dark-mode #themeToggle i {
   width: 40px;
   height: 40px;
   border-radius: var(--radius-circle);
-  cursor: pointer;
   transition: all var(--transition-normal);
   overflow: hidden;
   position: relative;
@@ -303,10 +391,8 @@ body.dark-mode #themeToggle i {
 .nav-text {
   position: absolute;
   opacity: 0;
-  transform: scale(0.8);
+  transform: scale(0.4);
   font-size: var(--font-size-small);
-  color: white;
-  font-weight: bold;
   transition: all var(--transition-normal);
   z-index: 2;
 }
@@ -315,13 +401,13 @@ body.dark-mode #themeToggle i {
   width: 140px;
   height: 40px;
   border-radius: 20px;
-  background-color: rgba(231, 37, 205, 0.1);
-  border: 2px solid var(--main-pink);
+  /* O header é sempre índigo (escuro), então não há variante "dark-mode" aqui */
+  background-color: rgba(111, 163, 165, 0.2);
+  border: 2px solid var(--color-teal);
 }
 
-.nav-item:hover .ladybug-svg {
-  width: 20px;
-  height: 20px;
+.nav-item:hover .nav-icon {
+  font-size: 18px;
   position: absolute;
   left: var(--spacing-sm);
 }
@@ -330,20 +416,17 @@ body.dark-mode #themeToggle i {
   opacity: 1;
   transform: scale(1);
   margin-left: 16px;
-  color: var(--main-pink);
-}
-
-body.dark-mode .nav-item:hover {
-  background-color: rgba(255, 79, 216, 0.2);
+  color: var(--color-deep-indigo);
 }
 
 body.dark-mode .nav-item:hover .nav-text {
-  color: var(--main-pink);
+  color: var(--color-white);
 }
 
 .nav-menu a {
   text-decoration: none;
-  color: inherit;
+  /* sem color:inherit aqui — uma classe sempre vence "nav ul li a" na especificidade,
+     então a cor do link (--text-menu) só se aplica de fato se esta regra não a disputar */
   width: 100%;
   height: 100%;
   display: flex;
@@ -368,18 +451,36 @@ nav ul li a {
 
 nav ul li a.active,
 nav ul li a:hover {
-  color: var(--main-pink);
+  color: var(--color-deep-indigo); /* modo claro — sidebar clara, texto escuro */
+}
+
+body.dark-mode nav ul li a.active,
+body.dark-mode nav ul li a:hover {
+  color: var(--color-white);
+}
+
+/* O contorno azul que aparecia ao clicar/tabular pelo menu era o outline
+   nativo do navegador acompanhando o border-radius:20px do link — nunca foi
+   estilizado por nós. Definimos um contorno próprio, em framboesa, no lugar. */
+nav ul li a:focus-visible {
+  outline: 2px solid var(--color-raspberry);
+  outline-offset: -2px;
 }
 
 /* ===== HEADER ===== */
 header {
-  background-color: var(--light-bg-transparent);
+  background: var(--sidebar-bg-light);
   padding: var(--spacing-lg) 0;
   border-radius: 0 0 var(--radius-md) var(--radius-md);
   margin-bottom: var(--spacing-lg);
   box-shadow: 0 2px 10px var(--shadow-light);
   position: relative;
   z-index: var(--z-header);
+  transition: background var(--transition-normal);
+}
+
+body.dark-mode header {
+  background: var(--sidebar-bg-dark);
 }
 
 /* ===== MAIN CONTENT ===== */
@@ -407,7 +508,11 @@ em {
 
 strong {
   font-weight: bold;
-  color: var(--main-pink);
+  color: var(--color-teal);
+}
+
+body.dark-mode strong {
+  color: #6fa3a5; /* verde petróleo mais claro, para contraste no fundo escuro */
 }
 
 /* ===== SECTIONS ===== */
@@ -419,13 +524,40 @@ section {
 
 section.active {
   display: block;
+  /* Animação em vez de transition: `display` não é animável, e a keyframe
+     dispara sozinha toda vez que a classe .active é adicionada */
+  animation: sectionIn var(--transition-normal) both;
+}
+
+@keyframes sectionIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  section.active {
+    animation: none;
+  }
 }
 
 section h1,
 section h2,
 section h3 {
-  color: var(--main-pink);
+  color: var(--color-indigo);
   margin-bottom: var(--spacing-md);
+}
+
+body.dark-mode section h1,
+body.dark-mode section h2,
+body.dark-mode section h3 {
+  color: var(--text-light); /* a base --color-indigo já é escura, não lê no fundo escuro do modo dark */
 }
 
 section h1 {
@@ -454,22 +586,56 @@ table {
   font-weight: bold;
   text-align: center;
   padding: var(--spacing-sm);
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-small); 
 }
 
+/* As 4 linhas usam tons derivados da paleta "Inverno Profundo" — não são
+   as próprias variáveis (que ficariam fortes demais como fundo de tabela),
+   mas tintas/tons na mesma família de cada cor */
 .sobre-mim td {
-  background-color: #c4b7eb;
+  background-color: #dde1f0; /* tinta de índigo */
+}
+
+.sobre-mim td:hover {
+  background-color: #6b74a8;
+  color: #fff;
+}
+
+.projetos td {
+  background-color: #cfe3e3; /* tinta de verde petróleo */
   padding: var(--spacing-sm);
+}
+
+.projetos td:hover {
+  background-color: var(--color-teal);
+  color: #fff;
+  padding: var(--spacing-sm);
+}
+
+.title {
+  text-align: center;
 }
 
 .habilidades td {
-  background-color: #f7a7c8;
+  background-color: #f0d4de; /* tinta de framboesa */
   padding: var(--spacing-sm);
 }
 
+.habilidades td:hover {
+  background-color: var(--color-raspberry);
+  color: #fff;
+  padding: var(--spacing-sm);
+}
+
+
 .templates td {
-  background-color: #f44336;
-  color: white;
+  background-color: var(--color-greige);
+  padding: var(--spacing-sm);
+}
+
+.templates td:hover {
+  background-color: #b8a692;
+  color: #fff;
   padding: var(--spacing-sm);
 }
 
@@ -488,7 +654,6 @@ td {
 
 .career-table thead {
   background-color: var(--footer-bg);
-  color: white;
 }
 
 .career-table th,
@@ -497,28 +662,36 @@ td {
   border: 1px solid var(--border-light);
 }
 
+.career-table th {
+  color: #fff;
+}
+
 .career-table tbody tr:nth-child(odd) {
   background-color: #f2f2f2;
 }
 
 .career-table tbody tr:hover {
-  background-color: #ddd;
+  background-color: #fcd0d0;
+}
+
+.title-exp-profissional {
+  text-align: center;
+  font-size: auto;
 }
 
 /* ===== DETALHES & TÓPICOS ===== */
 summary {
   display: inline-block;
-  background-color: var(--main-pink);
-  color: white;
+  background-color: var(--color-teal);
+  color: #fff;
   padding: 0 var(--spacing-sm);
   font-weight: bold;
   border-radius: var(--radius-sm);
-  cursor: pointer;
-  margin-bottom: var(--spacing-sm);
+ margin-bottom: var(--spacing-sm);
 }
 
 summary:hover {
-  color: var(--main-pink);
+  color: var(--color-teal);
   background-color: #495357;
 }
 
@@ -529,6 +702,8 @@ details {
 details li {
   margin-left: var(--spacing-xl);
   margin-bottom: var(--spacing-xs);
+  /* Conteúdo da lista não é clicável — volta para a seta padrão */
+  cursor: var(--cursor-arrow), default;
 }
 
 /* ===== ESTILO DO CAROUSEL  ===== */
@@ -577,15 +752,13 @@ details li {
   align-items: center;
   font-size: 20px;
   color: var(--text-dark);
-  cursor: pointer;
-  z-index: 10;
+ z-index: 10;
   box-shadow: 0 2px 5px var(--shadow-light);
   transition: all var(--transition-normal);
 }
 
 .carousel-arrow:hover {
-  background-color: var(--main-pink);
-  color: white;
+  background-color: var(--color-teal);
 }
 
 .carousel-prev {
@@ -609,12 +782,11 @@ details li {
   border-radius: var(--radius-circle);
   background-color: #ccc;
   border: none;
-  cursor: pointer;
   transition: all var(--transition-normal);
 }
 
 .indicator.active {
-  background-color: var(--main-pink);
+  background-color: var(--color-teal);
   transform: scale(1.2);
 }
 
@@ -624,7 +796,7 @@ body.dark-mode .carousel-arrow {
 }
 
 body.dark-mode .carousel-arrow:hover {
-  background-color: var(--main-pink);
+  background-color: var(--color-teal);
 }
 
 body.dark-mode .indicator {
@@ -632,7 +804,64 @@ body.dark-mode .indicator {
 }
 
 body.dark-mode .indicator.active {
-  background-color: var(--main-pink);
+  background-color: var(--color-teal);
+}
+
+/* ===== CARDS DOS PROJETOS ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.project-card {
+  background-color: var(--card-bg-light);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  box-shadow: 0 4px 8px var(--shadow-light);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  border-left: 3px solid var(--color-teal);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px var(--shadow-medium);
+}
+
+/* O h3 do card é menor que o das seções */
+.project-card h3 {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-xs);
+}
+
+.project-meta {
+  color: var(--text-muted);
+  font-size: var(--font-size-small);
+  margin: 0 0 var(--spacing-sm);
+}
+
+.project-badge {
+  display: inline-block;
+  background-color: var(--color-teal);
+  color: var(--card-bg-light);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+body.dark-mode .project-card {
+  background-color: var(--card-bg-dark);
+}
+
+body.dark-mode .project-card h3 {
+  color: var(--text-light);
+}
+
+body.dark-mode .project-meta {
+  color: #aaa;
 }
 
 /* ===== CARDS DOS TEMPLATES ===== */
@@ -656,7 +885,7 @@ body.dark-mode .indicator.active {
 
 .template-thumbnail {
   height: 180px;
-  background-color: #f5f5f5;
+  background-color: var(--color-greige);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -674,8 +903,8 @@ body.dark-mode .indicator.active {
   position: absolute;
   top: var(--spacing-sm);
   right: var(--spacing-sm);
-  background-color: var(--main-pink);
-  color: white;
+  background-color: var(--color-teal);
+  color: #fff;
   padding: 4px 8px;
   border-radius: var(--radius-sm);
   font-weight: bold;
@@ -713,7 +942,6 @@ body.dark-mode .indicator.active {
   border-radius: var(--radius-sm);
   font-weight: bold;
   font-size: var(--font-size-small);
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -722,23 +950,38 @@ body.dark-mode .indicator.active {
 }
 
 .preview-btn {
-  background-color: #f0f0f0;
+  background-color: var(--color-greige);
   color: var(--text-dark);
   border: none;
 }
 
 .download-btn {
-  background-color: var(--main-pink);
-  color: white;
+  background-color: var(--color-raspberry);
+  color: #fff;
   border: none;
 }
 
+/* Estado dos templates que ainda não têm arquivo — informativo, não clicável */
+.coming-soon {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-weight: bold;
+  font-size: var(--font-size-small);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-muted);
+  background-color: var(--color-greige);
+  border: 1px dashed var(--border-light);
+  cursor: var(--cursor-arrow), default;
+}
+
 .preview-btn:hover {
-  background-color: #e0e0e0;
+  background-color: #d8cabd;
 }
 
 .download-btn:hover {
-  background-color: var(--main-pink-hover);
+  background-color: var(--color-raspberry-hover);
 }
 
 body.dark-mode .template-card {
@@ -760,6 +1003,12 @@ body.dark-mode .template-info p {
 body.dark-mode .preview-btn {
   background-color: #444;
   color: var(--text-light);
+}
+
+body.dark-mode .coming-soon {
+  background-color: #3a3a3a;
+  border-color: #555;
+  color: #aaa;
 }
 
 body.dark-mode .preview-btn:hover {
@@ -795,7 +1044,6 @@ body.dark-mode .preview-btn:hover {
   float: right;
   font-size: 30px;
   font-weight: bold;
-  cursor: pointer;
   position: absolute;
   right: 8px;
   top: -8px;
@@ -832,15 +1080,14 @@ body.dark-mode .close-modal:hover {
   border-radius: var(--radius-lg);
   padding: var(--spacing-sm) var(--spacing-md);
   font-size: var(--font-size-large);
-  cursor: pointer;
   display: none;
   transition: background-color var(--transition-normal), transform var(--transition-normal);
   box-shadow: 0 2px 10px var(--shadow-light);
 }
 
 #myBtn:hover {
-  background-color: var(--dark-pink);
-  color: white;
+  background-color: var(--color-raspberry);
+  color: #fff;
   transform: translateY(-3px);
 }
 
@@ -853,19 +1100,12 @@ body.dark-mode #myBtn {
   color: var(--text-light);
 }
 
-/* ===== ESTILO DE CURSOR ===== */
-a,
-button,
-.nav-item,
-#themeToggle {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23d5838f" d="M256 0c17.7 0 32 14.3 32 32l0 34.7C368.4 80.1 431.9 143.6 445.3 224l34.7 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-34.7 0C431.9 368.4 368.4 431.9 288 445.3l0 34.7c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-34.7C143.6 431.9 80.1 368.4 66.7 288L32 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l34.7 0C80.1 143.6 143.6 80.1 224 66.7L224 32c0-17.7 14.3-32 32-32zM128 256a128 128 0 1 0 256 0 128 128 0 1 0 -256 0zm128-80a80 80 0 1 1 0 160 80 80 0 1 1 0-160z"/></svg>'),
-    pointer;
-}
 
 /* ===== RODAPÉ ===== */
+/* Acompanha o mesmo gradiente da sidebar — as duas compartilham identidade */
 footer {
-  background-color: var(--footer-bg);
-  color: white;
+  background: var(--sidebar-bg-light);
+  color: var(--color-deep-indigo);
   text-align: center;
   padding: var(--spacing-md) 0;
   font-size: var(--font-size-small);
@@ -874,7 +1114,13 @@ footer {
   position: sticky;
   bottom: 0;
   z-index: var(--z-footer);
-  border-top: solid 3px var(--main-pink);
+  border-top: solid 3px var(--color-raspberry);
+  transition: background var(--transition-normal);
+}
+
+body.dark-mode footer {
+  background: var(--sidebar-bg-dark);
+  color: var(--color-white);
 }
 
 /* ===== ESTILOS RESPONSIVOS ===== */
@@ -941,15 +1187,239 @@ footer {
   }
 
   .preview-btn,
-  .download-btn {
+  .download-btn,
+  .coming-soon {
     width: 100%;
     justify-content: center;
   }
 }
 
 .fancy-divider {
-  border-bottom: 2px solid var(--main-pink);
+  border-bottom: 2px solid var(--color-teal);
   height: 0;
   margin: 50px 0;
-  box-shadow: 0 2px 4px rgba(219, 11, 157, 0.3); /* sombra com dark-pink */
+  box-shadow: 0 2px 4px rgba(68, 122, 124, 0.3);
+}
+
+/* ===== BOTÃO DE RECOLHER/EXPANDIR A SIDEBAR ===== */
+/* Só existe no layout de sidebar (≥900px); no mobile a sidebar nem existe */
+.sidebar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--color-deep-indigo);
+  font-size: 20px;
+}
+
+.sidebar-toggle:hover {
+  color: var(--color-teal);
+}
+
+body.dark-mode .sidebar-toggle {
+  color: var(--color-white);
+}
+
+body.dark-mode .sidebar-toggle:hover {
+  color: var(--color-greige);
+}
+
+/* ===================================================================
+   SIDEBAR (≥900px) — camada aditiva por cima do layout empilhado atual.
+   Nenhuma regra acima desta é removida ou alterada; tudo abaixo de
+   900px continua exatamente como está hoje.
+   =================================================================== */
+@media (min-width: 900px) {
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    margin-bottom: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* o conteúdo cabe nos 100vh; scroll aqui só criava uma barra visível por poucos px de sobra */
+    padding: var(--spacing-lg) var(--spacing-sm);
+    /* Sem isso, o padding soma por fora dos 260px declarados (content-box é o
+       padrão), e a largura real do header destoa do margin-left/width do
+       .content-area, que só descontam --sidebar-width "puro" */
+    box-sizing: border-box;
+    transition: width var(--transition-normal);
+    z-index: var(--z-header);
+  }
+
+  /* Fundo de joaninhas repetidas na diagonal — atrás do conteúdo da sidebar.
+     Camada oversize + rotação, recortada pelo overflow:hidden do header acima.
+     z-index negativo: fica acima da cor de fundo do header, abaixo do conteúdo. */
+  /* Rastro de 3 joaninhas, tamanhos decrescentes, "caminhando" do canto
+     inferior direito em diagonal — cada uma com sua própria inclinação
+     (embutida no SVG, já que múltiplos background-image não aceitam
+     transform individual por camada) */
+  header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg transform='rotate(-10 20 20)'%3E%3Cellipse cx='20' cy='21' rx='8' ry='8.5' fill='rgb(231,27,63)'/%3E%3Cpath d='M20 12.5 A8 8.5 0 0 0 20 29.5 Z' fill='rgb(171,20,47)'/%3E%3Ccircle cx='20' cy='14' r='3.2' fill='rgb(33,25,21)'/%3E%3Ccircle cx='17' cy='19' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='15' cy='23' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='17' cy='27' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='23' cy='19' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='25' cy='23' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='23' cy='27' r='1' fill='rgb(33,25,21)'/%3E%3C/g%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg transform='rotate(18 20 20)'%3E%3Cellipse cx='20' cy='21' rx='8' ry='8.5' fill='rgb(231,27,63)'/%3E%3Cpath d='M20 12.5 A8 8.5 0 0 0 20 29.5 Z' fill='rgb(171,20,47)'/%3E%3Ccircle cx='20' cy='14' r='3.2' fill='rgb(33,25,21)'/%3E%3Ccircle cx='17' cy='19' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='15' cy='23' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='17' cy='27' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='23' cy='19' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='25' cy='23' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='23' cy='27' r='1' fill='rgb(33,25,21)'/%3E%3C/g%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg transform='rotate(-28 20 20)'%3E%3Cellipse cx='20' cy='21' rx='8' ry='8.5' fill='rgb(231,27,63)'/%3E%3Cpath d='M20 12.5 A8 8.5 0 0 0 20 29.5 Z' fill='rgb(171,20,47)'/%3E%3Ccircle cx='20' cy='14' r='3.2' fill='rgb(33,25,21)'/%3E%3Ccircle cx='17' cy='19' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='15' cy='23' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='17' cy='27' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='23' cy='19' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='25' cy='23' r='1' fill='rgb(33,25,21)'/%3E%3Ccircle cx='23' cy='27' r='1' fill='rgb(33,25,21)'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position:
+      bottom -15px right -15px,
+      bottom 55px right 30px,
+      bottom 100px right 15px;
+    background-size: 90px 90px, 55px 55px, 32px 32px;
+    opacity: 0.13;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .content-area {
+    margin-left: var(--sidebar-width);
+    /* Sem isso, .content-area herdava width:100% do flex-stretch do body
+       (que não desconta a margin-left), e o footer (width:100% dela)
+       acabava se estendendo por baixo da sidebar */
+    width: calc(100% - var(--sidebar-width));
+    transition: margin-left var(--transition-normal), width var(--transition-normal);
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-header);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    box-shadow: 0 2px 10px var(--shadow-light);
+  }
+
+  /* Sem isso, o scrollIntoView do clique no menu posicionaria a seção
+     bem embaixo da topbar fixa, cobrindo o início do conteúdo */
+  section {
+    scroll-margin-top: 90px;
+  }
+
+  /* --- Perfil, redimensionado para caber na coluna --- */
+  .profile {
+    /* Sem isso, o "align-items:center" do header encolhe o bloco do perfil
+       para o tamanho do próprio conteúdo (a foto/nome), e o h2 do cargo
+       (90% disso) fica bem mais estreito que a sidebar — quebrando a frase
+       mais longa em mais linhas do que o previsto */
+    width: 100%;
+  }
+
+  .profile img {
+    width: clamp(80px, 8vw, 120px);
+    height: clamp(80px, 8vw, 120px);
+    margin: 0 0 var(--spacing-md);
+  }
+
+  .profile h1 {
+    font-size: var(--font-size-large);
+    margin: var(--spacing-sm) 0;
+    text-align: center;
+  }
+
+  .profile h2 {
+    font-size: var(--font-size-small);
+    letter-spacing: 2px;
+    height: calc(var(--font-size-small) * var(--line-height) * 3);
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: auto;
+    width: 100%;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-lg) 0 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    margin: 0;
+  }
+
+  /* Remove o crescimento por hover do layout mobile — já ocupa 100% */
+  /* Sem fundo no hover — só a cor do texto/ícone muda (herdada de "nav ul li a:hover") */
+  .nav-item:hover {
+    width: 100%;
+    height: 44px;
+    border: none;
+    background-color: transparent;
+  }
+
+  .nav-menu a {
+    justify-content: flex-start;
+    padding: 0 var(--spacing-md);
+  }
+
+  .ladybug-icon {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+
+  .nav-item .nav-icon,
+  .nav-item:hover .nav-icon {
+    position: static;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .nav-text {
+    position: static;
+    opacity: 1;
+    transform: none;
+    margin-left: var(--spacing-sm);
+  }
+
+  .nav-item:hover .nav-text {
+    margin-left: var(--spacing-sm);
+  }
+
+  /* Marca o item ativo com uma barra lateral — funciona mesmo quando o
+     rótulo some (sidebar recolhida), diferente do destaque só de cor.
+     Sem fundo: um background aqui ficava com aparência quebrada quando
+     a sidebar estava recolhida. Framboesa nos dois temas. */
+  nav ul li a.active {
+    border-left: 3px solid var(--color-raspberry);
+  }
+
+  /* --- Botão de recolher/expandir, fixado na base da sidebar --- */
+  .sidebar-toggle {
+    display: inline-flex;
+    margin-top: auto;
+    width: 44px;
+    height: 44px;
+  }
+
+  /* --- Estado recolhido --- */
+  body.sidebar-collapsed {
+    --sidebar-width: 76px;
+  }
+
+  body.sidebar-collapsed .profile h1,
+  body.sidebar-collapsed .profile h2 {
+    display: none;
+  }
+
+  body.sidebar-collapsed .profile img {
+    width: 44px;
+    height: 44px;
+  }
+
+  body.sidebar-collapsed .nav-text {
+    display: none;
+  }
+
+  body.sidebar-collapsed .nav-menu a {
+    justify-content: center;
+    padding: 0;
+  }
 }
