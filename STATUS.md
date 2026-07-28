@@ -159,23 +159,22 @@ As referências aos dois arquivos com 403 já foram removidas do HTML, então **
 
 ---
 
-## ⚠️ Estado do repositório
+## ✅ Estado do repositório — publicado
 
-**Há trabalho local ainda não publicado** — o de outubro/2025 e o desta revisão.
+**Tudo publicado em 28/07/2026** — o trabalho de outubro/2025 (que estava preso nesta máquina desde antes desta sessão) e toda a redesign feita hoje foram commitados e enviados juntos.
 
 | | |
 |---|---|
-| Último commit no GitHub | 11/04/2025 — `7acc76f` |
+| Commit publicado | `e6bcbe4` — "Redesign layout with fixed sidebar and new 'Inverno Profundo' palette" |
+| Commit anterior no GitHub | 11/04/2025 — `7acc76f` |
 | Repositório | https://github.com/aneroliveira/PortfolioQA |
 | Site publicado | https://aneroliveira.github.io/PortfolioQA |
 
-O `.git` foi trazido para esta máquina em 28/07/2026. Nada divergiu: o local está estritamente à frente do remoto (conferido linha a linha — o único seletor CSS que existe no remoto e não no local é `.github`, removido de propósito quando o ícone do GitHub deu lugar ao da agenda).
-
-**Enquanto não for publicado, o site no ar continua servindo a versão de abril/2025** — ainda mostra "6 anos de experiência", o LinkedIn antigo e sem o link da agenda.
+O GitHub Pages rebuilda automaticamente a cada push na `main` — o site no ar deve refletir tudo isso em alguns minutos.
 
 *Nota:* `core.autocrlf` está como `true` e os arquivos locais usam LF. O conteúdo commitado fica normalizado em LF — só os arquivos no disco passam a CRLF em checkouts futuros. Não afeta o conteúdo.
 
-*Nota:* `.vscode/settings.json` não é rastreado pelo git. Decidir se entra no versionamento ou vai para um `.gitignore`.
+*Nota:* `.claude/launch.json` tem o caminho absoluto desta máquina (`C:/Users/Lorena/...`) hardcoded no comando do `npx serve`. Funciona aqui, mas quebraria se o repositório fosse clonado em outra máquina/caminho — ajustar para um caminho relativo (`.`) se for usar em outro lugar.
 
 *Nota:* hospedagem — avaliado ficar no GitHub Pages ou migrar para o Vercel. Para um site estático como este as duas se equivalem; o único ganho real do Vercel são os preview deployments por branch. Todos os caminhos do projeto são relativos (`./images/...`), então uma migração não quebraria nada. Recomendação registrada: manter o Pages como URL canônica e conectar o Vercel só para previews, sem escolher entre os dois.
 
