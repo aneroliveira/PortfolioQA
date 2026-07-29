@@ -249,19 +249,29 @@ body.dark-mode .topbar {
 
 .linkedin,
 .email,
-.agenda {
+.agenda,
+.lang-toggle {
   background-color: var(--color-raspberry);
   color: #fff;
-  width: 47px;
-  height: 47px;
-  font-size: 27px;
+  width: 34px;
+  height: 34px;
+  font-size: 16px;
+}
+
+.lang-toggle {
+  align-self: center;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 /* ===== TEMA CLARO/ESCURO ===== */
 #themeToggle {
   background: none;
   border: none;
-  font-size: 24px;
+  width: 34px;
+  height: 34px;
+  font-size: 16px;
  display: flex;
   align-items: center;
   justify-content: center;

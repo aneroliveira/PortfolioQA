@@ -31,6 +31,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="actions.js" defer></script>
+    <script src="content.js" defer></script>
 </head>
 
 <body><!-- [x]: mudar cursor-->
@@ -41,8 +42,8 @@
             <img src="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/foto_perfil_portfolio.jpg" alt="Minha imagem de perfil">
             <br>
             <h2 class="role-swap">
-                <span>Product Owner de Tecnologia</span>
-                <span>Ainda acho bugs</span>
+                <span data-i18n="header.role1">Product Owner de Tecnologia</span>
+                <span data-i18n="header.role2">Ainda acho bugs</span>
             </h2>
             <h1>Lorena Santos</h1>
         </div>
@@ -54,7 +55,7 @@
                         <span class="ladybug-icon">
                             <i class="bi bi-house-door-fill nav-icon"></i>
                         </span>
-                        <span class="nav-text">Home</span>
+                        <span class="nav-text" data-i18n="nav.home">Home</span>
                     </a>
                 </li>
 
@@ -63,7 +64,7 @@
                         <span class="ladybug-icon">
                             <i class="bi bi-person-bounding-box nav-icon"></i>
                         </span>
-                        <span class="nav-text">Sobre Mim</span>
+                        <span class="nav-text" data-i18n="nav.sobreMim">Sobre Mim</span>
                     </a>
                 </li>
 
@@ -72,7 +73,7 @@
                         <span class="ladybug-icon">
                             <i class="bi bi-kanban-fill nav-icon"></i>
                         </span>
-                        <span class="nav-text">Projetos</span>
+                        <span class="nav-text" data-i18n="nav.projetos">Projetos</span>
                     </a>
                 </li>
 
@@ -90,7 +91,7 @@
                         <span class="ladybug-icon">
                             <i class="bi bi-award-fill nav-icon"></i>
                         </span>
-                        <span class="nav-text"> Habilidades</span>
+                        <span class="nav-text" data-i18n="nav.habilidades">Habilidades</span>
                     </a>
                 </li>
 
@@ -106,7 +107,8 @@
         </nav>
 
         <!-- Recolhe/expande a sidebar em telas largas (≥900px); oculto no layout mobile -->
-        <button id="sidebarToggle" class="icon sidebar-toggle" aria-label="Recolher menu" title="Recolher menu">
+        <button id="sidebarToggle" class="icon sidebar-toggle" aria-label="Recolher menu" title="Recolher menu"
+            data-i18n-title="common.collapseMenu" data-i18n-aria-label="common.collapseMenu">
             <i class="bi bi-arrow-bar-left" id="collapse-icon"></i>
             <i class="bi bi-arrow-bar-right" id="expand-icon" style="display: none;"></i>
         </button>
@@ -119,15 +121,18 @@
                     title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="mailto:aneroliver@gmail.com" class="icon email" title="e-mail">
+                <a href="mailto:aneroliver@gmail.com" class="icon email" title="e-mail" data-i18n-title="common.email">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
             </div>
             <div class="social-icons-right"> <!-- [x]: adicionar link da agenda de chamadas -->
-                <a href="https://app.simplymeet.me/lorena-santos-qa" class="icon agenda" target="_blank" title="Minha agenda">
+                <a href="https://app.simplymeet.me/lorena-santos-qa" class="icon agenda" target="_blank" title="Minha agenda" data-i18n-title="common.schedule">
                     <i class="fa-solid fa-calendar-days"></i>
                 </a>
-                <button id="themeToggle" class="icon" aria-label="Alternar tema" title="Trocar tema">
+                <button id="langToggle" class="icon lang-toggle" aria-label="Mudar idioma" title="Mudar idioma / Change language">
+                    <i class="bi bi-translate"></i>
+                </button>
+                <button id="themeToggle" class="icon" aria-label="Alternar tema" title="Trocar tema" data-i18n-title="common.toggleTheme" data-i18n-aria-label="common.toggleTheme">
                     <i class="fa-solid fa-sun" id="sun-icon"></i>
                     <i class="fa-solid fa-moon" id="moon-icon" style="display: none;"></i>
                 </button>
@@ -138,48 +143,48 @@
         <section class="textHome active" id="home">
             <p style="text-align: center">
 
-            <h3>Bem vindo(a) ao meu Universo!</h3> 
-            <em>Sou a <strong>Lorena</strong>, uma <strong>geminiana</strong></em>
+            <h3 data-i18n="home.welcome">Bem vindo(a) ao meu Universo!</h3>
+            <span data-i18n="home.tagline"><em>Sou a <strong>Lorena</strong>, uma <strong>geminiana</strong></em>
             ♊
-            <em>apaixonada por <strong>dogs</strong></em> 🐶<em>, desafios e por "caçar" bugs! </em>🐞<br>
+            <em>apaixonada por <strong>dogs</strong></em> 🐶<em>, desafios e por "caçar" bugs! </em>🐞</span><br>
             </p>
-            Com mais de <strong>7</strong> anos de experiência em TI, iniciei minha carreira no suporte técnico, onde
+            <div data-i18n="home.bio">Com mais de <strong>7</strong> anos de experiência em TI, iniciei minha carreira no suporte técnico, onde
             desenvolvi uma base sólida para minha transição para a área de <strong>Qualidade de Software</strong> (QA).
             <br>Hoje, atuo como <strong>Product Owner de Tecnologia</strong>, unindo essa base técnica à visão de
             produto e negócio, com diversas metodologias e criatividade para evoluir soluções robustas e
-            eficientes.
+            eficientes.</div>
             <table> <!-- [x]: queria um hover em cada linha -->
                 <tr class="header-row">
-                    <td colspan="2">Aqui você encontrará:</td>
+                    <td colspan="2" data-i18n="home.tableHeader">Aqui você encontrará:</td>
                 </tr>
 
                 <tr class="sobre-mim">
-                    <td class="title"><i class="bi bi-person-bounding-box"></i> Sobre mim</td>
-                    <td>Um pouco mais sobre minha formação, carreira, visão profissional e mais.</td>
+                    <td class="title"><i class="bi bi-person-bounding-box"></i> <span data-i18n="home.rowSobreMimTitle">Sobre mim</span></td>
+                    <td data-i18n="home.rowSobreMimDesc">Um pouco mais sobre minha formação, carreira, visão profissional e mais.</td>
                 </tr>
 
                 <tr class="projetos">
-                    <td class="title"><i class="bi bi-kanban-fill"></i> Projetos</td>
-                    <td>Uma seleção do que já construí e validei em QA e Produto, de plataformas a iniciativas autorais.</td>
+                    <td class="title"><i class="bi bi-kanban-fill"></i> <span data-i18n="home.rowProjetosTitle">Projetos</span></td>
+                    <td data-i18n="home.rowProjetosDesc">Uma seleção do que já construí e validei em QA e Produto, de plataformas a iniciativas autorais.</td>
                 </tr>
 
                 <tr class="habilidades">
-                    <td class="title"><i class="bi bi-award-fill"> </i> Habilidades</td>
-                    <td>Ferramentas, tecnologias e metodologias que domino e utilizo no meu cotidiano.</td>
+                    <td class="title"><i class="bi bi-award-fill"> </i> <span data-i18n="home.rowHabilidadesTitle">Habilidades</span></td>
+                    <td data-i18n="home.rowHabilidadesDesc">Ferramentas, tecnologias e metodologias que domino e utilizo no meu cotidiano.</td>
                 </tr>
 
                 <tr class="templates">
-                    <td class="title"><i class="bi bi-clipboard2-check-fill"></i> Templates</td>
-                    <td>Todos os templates de documentação de QA que desenvolvi</td>
+                    <td class="title"><i class="bi bi-clipboard2-check-fill"></i> <span data-i18n="home.rowTemplatesTitle">Templates</span></td>
+                    <td data-i18n="home.rowTemplatesDesc">Todos os templates de documentação de QA que desenvolvi</td>
                 </tr>
             </table>
-            <p style="text-align: center; font-size: 12px;">Navegue pelo menu</p>
+            <p style="text-align: center; font-size: 12px;" data-i18n="home.hint">Navegue pelo menu</p>
         </section>
 
         <section id="sobreMim"> <!-- [x]: usar o transform para transição entre cada seção -->
             <div>
-                <h2>Oi! 🙋🏽‍♀️</h2>
-                Me chamo <strong>Lorena</strong> (mas pode me chamar de Lori), sou formada em
+                <h2 data-i18n="sobreMim.greeting">Oi! 🙋🏽‍♀️</h2>
+                <div data-i18n="sobreMim.bio1">Me chamo <strong>Lorena</strong> (mas pode me chamar de Lori), sou formada em
                 Análise e Desenvolvimento de Sistemas pela FATEC Mogi das Cruzes,
                 com 7 anos de experiência na área de TI, com foco dedicado à <strong>Qualidade de Software</strong>
                 (QA). Iniciei minha carreira em suporte técnico, onde desenvolvi
@@ -197,16 +202,16 @@
                 usuários.
                 Tenho sólida experiência com metodologias ágeis (<strong>Scrum/Kanban</strong>), tendo familiaridade
                 em conduzir cerimônias e prestado apoio às equipes na definição e
-                cumprimento de objetivos de curto/longo prazo.
+                cumprimento de objetivos de curto/longo prazo.</div>
             </div>
-            <div>Meu foco está em assegurar a entrega de software de alta qualidade por meio da combinação de testes
+            <div data-i18n="sobreMim.bio2">Meu foco está em assegurar a entrega de software de alta qualidade por meio da combinação de testes
                 manuais e automatizados, validação de funcionalidades,
                 boa documentação (AMO!), e abordagens diferenciadas para testes. Em todos os processos, priorizo a
                 colaboração estreita e eficaz com stakeholders e devs,
                 promovendo um ambiente produtivo, sociável e alinhado.
             </div><!-- [x]: adicionar parte da impulso -->
 
-            <div>Na <strong>Impulso</strong>, fui a única QA da empresa e estruturei todo o processo de
+            <div data-i18n="sobreMim.bio3">Na <strong>Impulso</strong>, fui a única QA da empresa e estruturei todo o processo de
                 qualidade <strong>do zero</strong> — de critérios de aceitação e validação em múltiplos ambientes
                 até a automação e a integração dos testes no <strong>CI/CD</strong>. Esse trabalho reduziu o
                 <strong>retrabalho em 30%</strong> e o tempo dos testes regressivos em <strong>40%</strong>, com
@@ -214,7 +219,7 @@
                 Desenvolvimento abriu caminho para a promoção a <strong>Product Owner de Tecnologia</strong>, em
                 2026.
             </div>
-            <div>Estou em constante busca por aprimoramento profissional — hoje, isso significa mergulhar na
+            <div data-i18n="sobreMim.bio4">Estou em constante busca por aprimoramento profissional — hoje, isso significa mergulhar na
                 mecânica do ecossistema <strong>Salesforce</strong> e me aprofundar em práticas de
                 <strong>gestão de produto</strong>, unindo a bagagem técnica de QA à visão de negócio. Além da
                 parte tech, sou apaixonada por explorar
@@ -224,50 +229,50 @@
             </div>
 
             <div class="fancy-divider"></div>
-            
+
             <div>
-                <h2>Experiências profissionais</h2>
+                <h2 data-i18n="sobreMim.experienceTitle">Experiências profissionais</h2>
                 <table class="career-table"> <!-- [x]: adicionado uma cor no hover -->
                     <thead>
                         <tr>
-                            <th>Período</th>
-                            <th>Descrição</th>
+                            <th data-i18n="sobreMim.periodHeader">Período</th>
+                            <th data-i18n="sobreMim.descHeader">Descrição</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="title-exp-profissional">2026 - <strong>Atual</strong></td>
-                            <td><strong>Product Owner de Tecnologia na Impulso (Grupo RD Saúde)</strong> - Responsável
+                            <td class="title-exp-profissional">2026 - <strong data-i18n="sobreMim.current">Atual</strong></td>
+                            <td data-i18n="sobreMim.exp1"><strong>Product Owner de Tecnologia na Impulso (Grupo RD Saúde)</strong> - Responsável
                                 pela evolução e melhoria contínua do <strong>Media Cloud</strong>, projeto core da
                                 empresa dentro do ecossistema Salesforce.</td>
                         </tr>
                         <tr>
                             <td class="title-exp-profissional">2024 - 2026</td>
-                            <td><strong>Analista de Qualidade de Software na Impulso (Grupo RD Saúde)</strong> -
+                            <td data-i18n="sobreMim.exp2"><strong>Analista de Qualidade de Software na Impulso (Grupo RD Saúde)</strong> -
                                 Primeira profissional de QA da empresa, com foco na
                                 implantação de processos de qualidade e na estratégia de testes para garantir a
                                 excelência dos sistemas da organização.</td>
                         </tr>
                         <tr>
                             <td class="title-exp-profissional">2021 - 2024</td>
-                            <td><strong>Transição de Carreira → Analista de Qualidade de Software na Muralis
+                            <td data-i18n="sobreMim.exp3"><strong>Transição de Carreira → Analista de Qualidade de Software na Muralis
                                     Tecnologia</strong></td>
                         </tr>
                         <tr>
                             <td class="title-exp-profissional">2020 - 2021</td>
-                            <td><strong>Atendente de Suporte NOC na 76Telecom</strong> - Diagnóstico e resolução de
+                            <td data-i18n="sobreMim.exp4"><strong>Atendente de Suporte NOC na 76Telecom</strong> - Diagnóstico e resolução de
                                 problemas em redes e sistemas críticos,
                                 adquirindo experiência em ambientes de alta disponibilidade.</td>
                         </tr>
                         <tr>
                             <td class="title-exp-profissional">2019 - 2020</td>
-                            <td><strong>Analista de Suporte Service Desk na Original Veículos</strong> - Suporte a
+                            <td data-i18n="sobreMim.exp5"><strong>Analista de Suporte Service Desk na Original Veículos</strong> - Suporte a
                                 sistemas e infraestrutura de TI, desenvolvimento
                                 de soluções para melhorias de processos internos.</td>
                         </tr>
                         <tr>
                             <td class="title-exp-profissional">2018 - 2019</td>
-                            <td><strong>Auxiliar de Suporte de TI</strong> - Atendimento técnico e suporte a usuários,
+                            <td data-i18n="sobreMim.exp6"><strong>Auxiliar de Suporte de TI</strong> - Atendimento técnico e suporte a usuários,
                                 com foco em resolução de problemas
                                 e manutenção de sistemas.</td>
                         </tr>
@@ -280,8 +285,8 @@
         <!-- [ ]: adicionar os textos em arquivos externos para diminuir o html aqui -->
 
         <section id="projetos">
-            <h1>Projetos</h1>
-            <div>Uma seleção do que já construí e validei — de plataformas de mobilidade e comércio exterior a
+            <h1 data-i18n="nav.projetos">Projetos</h1>
+            <div data-i18n="projetos.intro">Uma seleção do que já construí e validei — de plataformas de mobilidade e comércio exterior a
                 sistemas de informação geológica, além de iniciativas autorais de QA e Produto.
                 <p>Clique em <strong>Ver detalhes</strong> em cada card para abrir o escopo completo.</p>
             </div>
@@ -291,12 +296,12 @@
 
                 <!-- Projeto 0 -->
                 <article class="project-card">
-                    <h3>Media Cloud <span class="project-badge">Product Owner de Tecnologia</span></h3>
-                    <p class="project-meta">jun 2026 - atual &middot; Impulso (Grupo RD Saúde)</p>
-                    <p>Atuação como <strong>Product Owner de Tecnologia</strong> do <strong>Media Cloud</strong>,
+                    <h3>Media Cloud <span class="project-badge" data-i18n="header.role1">Product Owner de Tecnologia</span></h3>
+                    <p class="project-meta"><span data-i18n="projetos.card0Date">jun 2026 - atual</span> &middot; Impulso (Grupo RD Saúde)</p>
+                    <p data-i18n="projetos.card0Desc">Atuação como <strong>Product Owner de Tecnologia</strong> do <strong>Media Cloud</strong>,
                         projeto core da Impulso dentro do ecossistema <strong>Salesforce</strong>, com foco em
                         evolução contínua, backlog e roadmap trimestral.</p>
-                    <details>
+                    <details data-i18n="projetos.card0Details">
                         <summary>Ver detalhes</summary>
                         <li>Priorização, criação de cards, gestão de <strong>backlog</strong> e roadmap trimestral no
                             <strong>Azure DevOps</strong>.</li>
@@ -308,11 +313,11 @@
 
                 <!-- Projeto 1 -->
                 <article class="project-card">
-                    <h3>Portfólio Web Profissional</h3>
-                    <p class="project-meta">jan 2025 - atual &middot; Projeto pessoal</p>
-                    <p>Este portfólio, conduzido como projeto ágil — com backlog, épicos, features e user stories —
+                    <h3 data-i18n="projetos.card1Title">Portfólio Web Profissional</h3>
+                    <p class="project-meta"><span data-i18n="projetos.card1Date">jan 2025 - atual</span> &middot; <span data-i18n="projetos.card1Pessoal">Projeto pessoal</span></p>
+                    <p data-i18n="projetos.card1Desc">Este portfólio, conduzido como projeto ágil — com backlog, épicos, features e user stories —
                         para consolidar minha identidade profissional em QA e, mais recentemente, Produto.</p>
-                    <details>
+                    <details data-i18n="projetos.card1Details">
                         <summary>Ver detalhes</summary>
                         <li>Organização em <strong>Scrum</strong>: backlog, épicos, features, user stories e tarefas.</li>
                         <li>Design da interface criado no <strong>Figma</strong>.</li>
@@ -323,11 +328,11 @@
 
                 <!-- Projeto 2 -->
                 <article class="project-card">
-                    <h3>Central de Qualidade <span class="project-badge">Projeto autoral</span></h3>
-                    <p class="project-meta">nov 2024 - atual &middot; Impulso</p>
-                    <p>Iniciativa que idealizei e desenvolvi como <strong>QA solo</strong>: consolida e documenta todo
+                    <h3><span data-i18n="projetos.card2Title">Central de Qualidade</span> <span class="project-badge" data-i18n="projetos.card2Badge">Projeto autoral</span></h3>
+                    <p class="project-meta"><span data-i18n="projetos.card2Date">nov 2024 - atual</span> &middot; Impulso</p>
+                    <p data-i18n="projetos.card2Desc">Iniciativa que idealizei e desenvolvi como <strong>QA solo</strong>: consolida e documenta todo
                         o processo de testes dos portais da organização, com foco em transparência e rastreabilidade.</p>
-                    <details>
+                    <details data-i18n="projetos.card2Details">
                         <summary>Ver detalhes</summary>
                         <li>Reúne no <strong>Confluence</strong> a estratégia de testes, critérios de aceitação, casos
                             rastreáveis, histórico de bugs, ferramentas e ambientes disponíveis — integrada ao ciclo de
@@ -347,10 +352,10 @@
                 <!-- Projeto 3 -->
                 <article class="project-card">
                     <h3>Vale Pedágio Obrigatório (VPO)</h3>
-                    <p class="project-meta">ago 2024 - out 2024 &middot; Muralis Tecnologia &middot; Veloe</p>
-                    <p>Solução integrada para gestão de pagamentos e frotas, voltada à experiência de transportadores
+                    <p class="project-meta"><span data-i18n="projetos.card3Date">ago 2024 - out 2024</span> &middot; Muralis Tecnologia &middot; Veloe</p>
+                    <p data-i18n="projetos.card3Desc">Solução integrada para gestão de pagamentos e frotas, voltada à experiência de transportadores
                         e embarcadores.</p>
-                    <details>
+                    <details data-i18n="projetos.card3Details">
                         <summary>Ver detalhes</summary>
                         <li>Planejamento, execução e documentação de cenários e casos de teste, com evidências e
                             relatórios detalhados.</li>
@@ -364,11 +369,11 @@
 
                 <!-- Projeto 4 -->
                 <article class="project-card">
-                    <h3>SGB (antiga CPRM): Base PETRO &amp; Base LITO</h3>
-                    <p class="project-meta">jan 2024 - jul 2024 &middot; Muralis Tecnologia</p>
-                    <p>Modernização dos sistemas de informação geológica do Serviço Geológico do Brasil — análises
+                    <h3 data-i18n="projetos.card4Title">SGB (antiga CPRM): Base PETRO &amp; Base LITO</h3>
+                    <p class="project-meta"><span data-i18n="projetos.card4Date">jan 2024 - jul 2024</span> &middot; Muralis Tecnologia</p>
+                    <p data-i18n="projetos.card4Desc">Modernização dos sistemas de informação geológica do Serviço Geológico do Brasil — análises
                         petrográficas (PETRO) e unidades litoestratigráficas (LITO).</p>
-                    <details>
+                    <details data-i18n="projetos.card4Details">
                         <summary>Ver detalhes</summary>
                         <li>Gerenciamento da execução, evidência e documentação de casos de teste no
                             <strong>Azure DevOps</strong>, com a ferramenta de Test Cases.</li>
@@ -382,11 +387,11 @@
 
                 <!-- Projeto 5 -->
                 <article class="project-card">
-                    <h3>Gestão de Tags (Pessoa Jurídica)</h3>
-                    <p class="project-meta">fev 2022 - dez 2023 &middot; Muralis Tecnologia &middot; Veloe</p>
-                    <p>Plataforma da Veloe — iniciativa conjunta do Banco do Brasil e Bradesco — com soluções digitais
+                    <h3 data-i18n="projetos.card5Title">Gestão de Tags (Pessoa Jurídica)</h3>
+                    <p class="project-meta"><span data-i18n="projetos.card5Date">fev 2022 - dez 2023</span> &middot; Muralis Tecnologia &middot; Veloe</p>
+                    <p data-i18n="projetos.card5Desc">Plataforma da Veloe — iniciativa conjunta do Banco do Brasil e Bradesco — com soluções digitais
                         para pedágio, estacionamento, abastecimento, IPVA e gestão de frotas.</p>
-                    <details>
+                    <details data-i18n="projetos.card5Details">
                         <summary>Ver detalhes</summary>
                         <li>Planejamento, execução e documentação de cenários e casos de teste, com geração de
                             evidências e relatórios de qualidade.</li>
@@ -401,11 +406,11 @@
 
                 <!-- Projeto 6 -->
                 <article class="project-card">
-                    <h3>eCommerce de roupas femininas</h3>
-                    <p class="project-meta">jan 2021 - jun 2022 &middot; Fatec Mogi das Cruzes &middot; Acadêmico</p>
-                    <p>Projeto da disciplina de Laboratório de Engenharia de Software: aplicação web funcional e
+                    <h3 data-i18n="projetos.card6Title">eCommerce de roupas femininas</h3>
+                    <p class="project-meta"><span data-i18n="projetos.card6Date">jan 2021 - jun 2022</span> &middot; Fatec Mogi das Cruzes &middot; <span data-i18n="projetos.card6Academico">Acadêmico</span></p>
+                    <p data-i18n="projetos.card6Desc">Projeto da disciplina de Laboratório de Engenharia de Software: aplicação web funcional e
                         escalável em arquitetura <strong>MVC</strong> com diversos padrões de projeto.</p>
-                    <details>
+                    <details data-i18n="projetos.card6Details">
                         <summary>Ver detalhes</summary>
                         <li>Padrões aplicados: <strong>ViewHelper</strong>, <strong>Strategy</strong>,
                             <strong>Command</strong>, <strong>Factory</strong>, <strong>Facade</strong> e
@@ -422,10 +427,10 @@
                 <!-- Projeto 7 -->
                 <article class="project-card">
                     <h3>QuickComex</h3>
-                    <p class="project-meta">jul 2021 - jan 2022 &middot; Muralis Tecnologia</p>
-                    <p>Solução para otimizar processos de comércio exterior, com foco em agenciamento de carga e
+                    <p class="project-meta"><span data-i18n="projetos.card7Date">jul 2021 - jan 2022</span> &middot; Muralis Tecnologia</p>
+                    <p data-i18n="projetos.card7Desc">Solução para otimizar processos de comércio exterior, com foco em agenciamento de carga e
                         desembaraço aduaneiro.</p>
-                    <details>
+                    <details data-i18n="projetos.card7Details">
                         <summary>Ver detalhes</summary>
                         <li>Elaboração de <strong>Planos de Teste</strong> e manuais técnicos, detalhando as
                             funcionalidades homologadas conforme os critérios de aceitação do cliente.</li>
@@ -442,7 +447,7 @@
 
         <section id="productOwner">
             <h1>Product Owner</h1>
-            <div>Depois de estruturar o processo de QA do zero na <strong>Impulso</strong>, hoje sou
+            <div data-i18n="productOwner.intro">Depois de estruturar o processo de QA do zero na <strong>Impulso</strong>, hoje sou
                 <strong>Product Owner de Tecnologia</strong> do <strong>Media Cloud</strong> — o projeto core da
                 empresa dentro do ecossistema <strong>Salesforce</strong>, responsável por toda a operação de mídia,
                 do planejamento à entrega das campanhas. Comecei como ponto focal, ajudando a organizar treinamentos
@@ -453,13 +458,13 @@
 
             <div class="projects-grid">
                 <article class="project-card">
-                    <h3>Media Cloud <span class="project-badge">Product Owner de Tecnologia</span></h3>
-                    <p class="project-meta">jun 2026 - atual &middot; Impulso (Grupo RD Saúde)</p>
-                    <p>Responsável pela evolução e melhoria contínua do <strong>Media Cloud</strong>, projeto core da
+                    <h3>Media Cloud <span class="project-badge" data-i18n="header.role1">Product Owner de Tecnologia</span></h3>
+                    <p class="project-meta"><span data-i18n="projetos.card0Date">jun 2026 - atual</span> &middot; Impulso (Grupo RD Saúde)</p>
+                    <p data-i18n="productOwner.cardDesc">Responsável pela evolução e melhoria contínua do <strong>Media Cloud</strong>, projeto core da
                         Impulso dentro do ecossistema <strong>Salesforce</strong> — da operação de mídia como um
                         todo, do planejamento à entrega e faturamento das campanhas. Ainda em curva de aprendizado
                         ativa, apoiando os times enquanto evoluo o processo no dia a dia.</p>
-                    <details>
+                    <details data-i18n="productOwner.cardDetails">
                         <summary>Ver detalhes</summary>
                         <li>Priorização, criação de cards e gestão de <strong>backlog</strong>, com roadmap definido
                             por trimestre.</li>
@@ -474,9 +479,9 @@
         </section>
 
         <section id="habilidades">
-            <h1>Habilidades Técnicas e Comportamentais</h1>
+            <h1 data-i18n="habilidades.pageTitle">Habilidades Técnicas e Comportamentais</h1>
             <div>
-                Sou uma profissional com excelente habilidade de comunicação e forte espírito de trabalho em equipe,
+                <span data-i18n="habilidades.intro">Sou uma profissional com excelente habilidade de comunicação e forte espírito de trabalho em equipe,
                 sempre disposta a me adaptar para superar desafios. Destaco-me pela capacidade de resolver problemas de
                 forma eficaz, com pensamento crítico e abordagem proativa. Sou organizada e busco constantemente a
                 melhoria contínua em minhas atividades.
@@ -484,11 +489,11 @@
                 construí em Quality Engineering — automação de testes, análise de logs, consultas a bancos de dados e
                 monitoramento de sistemas.
                 Utilizo ferramentas modernas e aplico metodologias ágeis para conectar backlog, prioridades e
-                qualidade técnica em todas as fases do desenvolvimento.
+                qualidade técnica em todas as fases do desenvolvimento.</span>
                 <br>
 
-                <h3>Habilidades Técnicas</h3> <!-- [x]: melhorar o mouse quando acessar a lista (mudar o pointer dele)-->
-                <details>
+                <h3 data-i18n="habilidades.technicalTitle">Habilidades Técnicas</h3> <!-- [x]: melhorar o mouse quando acessar a lista (mudar o pointer dele)-->
+                <details data-i18n="habilidades.d1">
                     <summary><i class="bi bi-braces"></i> Gestão de Produto</summary>
                     <li><strong>Priorização e Backlog</strong>: Criação de cards, priorização e definição de roadmap trimestral.</li>
                     <li><strong>Azure DevOps (Boards)</strong>: Gestão de backlog, demandas e chamados de manutenção.</li>
@@ -496,26 +501,26 @@
                     <li><strong>Salesforce (Media Cloud)</strong>: Evolução e melhoria contínua do projeto core da empresa, em curva de aprendizado ativa.</li>
                 </details>
                 <br>
-                <details>
+                <details data-i18n="habilidades.d2">
                     <summary><i class="bi bi-braces"></i> Metodologias de Desenvolvimento</summary>
                     <li><strong>Scrum</strong>: Metodologia ágil, experiência como Scrum Master.</li>
                     <li><strong>Kanban</strong>: Controle de fluxo contínuo em projetos ágeis.</li>
                 </details>
                 <br>
-                <details>
+                <details data-i18n="habilidades.d3">
                     <summary><i class="bi bi-braces"></i> Ferramentas de teste</summary>
                     <li><strong>Cypress</strong>: Automação de testes end-to-end.</li>
                     <li><strong>Selenium</strong>: Ferramenta para automação de testes de aplicações web.</li>
                     <li><strong>Postman</strong>: Testes de APIs.</li>
                 </details>
                 <br>
-                <details>
+                <details data-i18n="habilidades.d4">
                     <summary><i class="bi bi-braces"></i> Ferramentas de Integração Contínua</summary>
                     <li><strong>Azure DevOps - Pipeline</strong>: Gerenciamento de projetos e CI/CD.</li>
                     <li><strong>GitHub - Actions</strong>: Gerenciamento de projetos e CI/CD.</li>
                 </details>
                 <br>
-                <details>
+                <details data-i18n="habilidades.d5">
                     <summary><i class="bi bi-braces"></i> Testes Funcionais e Não Funcionais</summary>
                     <li><strong>Testes de Regressão</strong>: Validação de funcionalidades em versões anteriores.</li>
                     <li><strong>Testes de Caixa Preta (Black Box)</strong>: Validação de funcionalidades sem conhecimento da estrutura
@@ -527,19 +532,19 @@
                     <li><strong>Testes de Usabilidade</strong>: Avaliação da experiência do usuário.</li>
                 </details>
                 <br>
-                <details>
+                <details data-i18n="habilidades.d6">
                     <summary><i class="bi bi-braces"></i> Plataformas e Ferramentas de Bug Tracking</summary>
                     <li><strong>ClickUp</strong>: Plataforma de gerenciamento de trabalho com funcionalidades de bug tracking.</li>
                     <li><strong>Azure DevOps</strong>: Registro de bugs, melhorias e user stories.</li>
                 </details>
                 <br>
-                <details>
+                <details data-i18n="habilidades.d7">
                     <summary><i class="bi bi-braces"></i> Ferramentas de Versionamento de Código</summary>
                     <li><strong>Git</strong>: Controle de versão distribuído.</li>
                     <li><strong>GitHub</strong>: Repositório de código e colaboração em projetos.</li>
                 </details>
                 <br>
-                <details>
+                <details data-i18n="habilidades.d8">
                     <summary><i class="bi bi-braces"></i> Monitoramento e Análise de Logs</summary>
                     <li><strong>ElasticSearch/Kibana</strong>: Análise e visualização de logs.</li>
                     <li><strong>Grafana</strong>: Monitoramento de performance de sistemas.</li>
@@ -553,13 +558,13 @@
                         complexos.</li>
                 </details>
                 <br>
-                <details>
+                <details data-i18n="habilidades.d9">
                     <summary><i class="bi bi-braces"></i> Infraestrutura e Redes</summary>
                     <li><strong>AWS (Amazon Web Services)</strong>: Plataformas de nuvem para testes de desempenho, ambientes de teste e
                         deploys.</li>
                 </details>
                 <br>
-                <details>
+                <details data-i18n="habilidades.d10">
                     <summary><i class="bi bi-braces"></i> Consultas e Análise de Bancos de Dados</summary>
                     Bancos Relacionais
                     <li><strong>MySQL</strong>: Conhecimento em criação de queries, manipulação e extração de dados de sistemas
@@ -571,7 +576,7 @@
                     </li>
                 </details>
                 <br>
-                <details>
+                <details data-i18n="habilidades.d11">
                     <summary><i class="bi bi-braces"></i> Design de Interface</summary>
                     <li>Habilidade em Canva e Figma para criar wireframes e protótipos, proporcionando uma visualização
                         eficaz da experiência do usuário. Essa competência também permite a elaboração de relatórios
@@ -582,7 +587,8 @@
                     <li><strong>Capcut</strong>: Edição de vídeos</li>
                 </details>
                 <div class="fancy-divider"></div>
-                <h3>Habilidades Comportamentais</h3>
+                <h3 data-i18n="habilidades.behavioralTitle">Habilidades Comportamentais</h3>
+                <span data-i18n="habilidades.behavioral">
                 <i class="bi bi-person-check-fill"></i> <strong>Comunicação Eficaz</strong>: Capacidade de expressar
                 ideias de forma clara e ouvir feedback,
                 facilitando a colaboração em equipe.<br>
@@ -604,13 +610,13 @@
                 problemas e buscar melhorias contínuas nos processos e produtos.<br>
                 <i class="bi bi-person-check-fill"></i> <strong>Empatia</strong>: Compreensão das necessidades e
                 perspectivas dos usuários
-                e colegas, promovendo um ambiente de trabalho colaborativo.
+                e colegas, promovendo um ambiente de trabalho colaborativo.</span>
             </div><br>
         </section>
 
         <section id="templates">
-            <h1>Templates</h1>
-            <div>Aqui você encontra modelos e materiais que desenvolvi com base na minha experiência na área de QA e TI em geral.
+            <h1 data-i18n="nav.templates">Templates</h1>
+            <div data-i18n="templates.intro">Aqui você encontra modelos e materiais que desenvolvi com base na minha experiência na área de QA e TI em geral.
                 <p><em>Os arquivos estão disponíveis para uso pessoal gratuitamente, desde que os devidos créditos sejam
                         mantidos.</em></p>
                 Você pode utilizar, adaptar e compartilhar os conteúdos, mas lembre-se de valorizar quem criou —<strong>
@@ -623,20 +629,20 @@
                 <!-- Template 1 -->
                 <div class="template-card">
                     <div class="template-thumbnail">
-                        <img src="./images/thumb-plano-de-teste.svg" alt="Miniatura do template Plano de Teste">
+                        <img src="./images/thumb-plano-de-teste.svg" alt="Miniatura do template Plano de Teste" data-i18n-alt="templates.card1Alt">
                         <div class="pdf-overlay">PDF</div>
                     </div>
                     <div class="template-info">
-                        <h3>Plano de Teste</h3>
-                        <p>Template completo para documentação de planos de teste, incluindo objetivos,
+                        <h3 data-i18n="templates.card1Title">Plano de Teste</h3>
+                        <p data-i18n="templates.card1Desc">Template completo para documentação de planos de teste, incluindo objetivos,
                             escopo, cronograma e recursos.</p>
                         <div class="template-actions">
-                            <button class="preview-btn"
+                            <button class="preview-btn" data-i18n="common.visualizarBtn"
                                 data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+DOCUMENTA%C3%87%C3%83O+DE+QUALIDADE.pdf">
                                 <i class="bi bi-eye-fill"></i> Visualizar
                             </button>
                             <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+DOCUMENTA%C3%87%C3%83O+DE+QUALIDADE.docx"
-                                download class="download-btn">
+                                download class="download-btn" data-i18n="common.downloadBtn">
                                 <i class="bi bi-download"></i> Download
                             </a>
                         </div>
@@ -646,20 +652,20 @@
                 <!-- Template 2 -->
                 <div class="template-card">
                     <div class="template-thumbnail">
-                        <img src="./images/thumb-casos-de-teste.svg" alt="Miniatura do template Casos de Teste">
+                        <img src="./images/thumb-casos-de-teste.svg" alt="Miniatura do template Casos de Teste" data-i18n-alt="templates.card2Alt">
                         <div class="pdf-overlay">PDF</div>
                     </div>
                     <div class="template-info">
-                        <h3>Casos de Teste</h3>
-                        <p>Modelo estruturado para documentação de casos de teste, com pré-condições,
+                        <h3 data-i18n="templates.card2Title">Casos de Teste</h3>
+                        <p data-i18n="templates.card2Desc">Modelo estruturado para documentação de casos de teste, com pré-condições,
                             passos, resultados esperados e status.</p>
                         <div class="template-actions">
-                            <button class="preview-btn"
+                            <button class="preview-btn" data-i18n="common.visualizarBtn"
                                 data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+CASOS+DE+TESTE.pdf">
                                 <i class="bi bi-eye-fill"></i> Visualizar
                             </button>
                             <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+CASOS+DE+TESTE.docx"
-                                download class="download-btn">
+                                download class="download-btn" data-i18n="common.downloadBtn">
                                 <i class="bi bi-download"></i> Download
                             </a>
                         </div>
@@ -669,20 +675,20 @@
                 <!-- Template 3 -->
                 <div class="template-card">
                     <div class="template-thumbnail">
-                        <img src="./images/thumb-relatorio-de-bugs.svg" alt="Miniatura do template Relatório de Bugs">
+                        <img src="./images/thumb-relatorio-de-bugs.svg" alt="Miniatura do template Relatório de Bugs" data-i18n-alt="templates.card3Alt">
                         <div class="pdf-overlay">PDF</div>
                     </div>
                     <div class="template-info">
-                        <h3>Relatório de Bugs</h3>
-                        <p>Template para documentação detalhada de bugs, incluindo severidade, prioridade,
+                        <h3 data-i18n="templates.card3Title">Relatório de Bugs</h3>
+                        <p data-i18n="templates.card3Desc">Template para documentação detalhada de bugs, incluindo severidade, prioridade,
                             passos para reprodução e evidências.</p>
                         <div class="template-actions">
-                            <button class="preview-btn"
+                            <button class="preview-btn" data-i18n="common.visualizarBtn"
                                 data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+RELATORIO+DE+BUGS.pdf">
                                 <i class="bi bi-eye-fill"></i> Visualizar
                             </button>
                             <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+RELATORIO+DE+BUGS.docx"
-                                download class="download-btn">
+                                download class="download-btn" data-i18n="common.downloadBtn">
                                 <i class="bi bi-download"></i> Download
                             </a>
                         </div>
@@ -692,20 +698,20 @@
                 <!-- Template 4 -->
                 <div class="template-card">
                     <div class="template-thumbnail">
-                        <img src="./images/thumb-checklist-de-qa.svg" alt="Miniatura do template Checklist de QA">
+                        <img src="./images/thumb-checklist-de-qa.svg" alt="Miniatura do template Checklist de QA" data-i18n-alt="templates.card4Alt">
                         <div class="pdf-overlay">PDF</div>
                     </div>
                     <div class="template-info">
-                        <h3>Checklist de QA</h3>
-                        <p>Lista abrangente de verificações para garantir a qualidade do software antes da
+                        <h3 data-i18n="templates.card4Title">Checklist de QA</h3>
+                        <p data-i18n="templates.card4Desc">Lista abrangente de verificações para garantir a qualidade do software antes da
                             entrega, cobrindo funcionalidades, usabilidade e performance.</p>
                         <div class="template-actions">
-                            <button class="preview-btn"
+                            <button class="preview-btn" data-i18n="common.visualizarBtn"
                                 data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+CHECKLIST+DE+QA.pdf">
                                 <i class="bi bi-eye-fill"></i> Visualizar
                             </button>
                             <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+CHECKLIST+DE+QA.docx"
-                                download class="download-btn">
+                                download class="download-btn" data-i18n="common.downloadBtn">
                                 <i class="bi bi-download"></i> Download
                             </a>
                         </div>
@@ -716,8 +722,8 @@
             <!-- modal de Preview PDF  -->
             <div id="pdfPreviewModal" class="modal">
                 <div class="modal-content">
-                    <span class="close-modal" aria-label="Fechar">&times;</span>
-                    <iframe id="pdfFrame" src="" width="100%" height="500px" title="Visualização do PDF"></iframe>
+                    <span class="close-modal" aria-label="Fechar" data-i18n-aria-label="common.closeModal">&times;</span>
+                    <iframe id="pdfFrame" src="" width="100%" height="500px" title="Visualização do PDF" data-i18n-title="templates.pdfViewTitle"></iframe>
                 </div>
             </div>
         </section>
@@ -725,7 +731,7 @@
         <footer class="footer"><i class="fa-solid fa-copyright"></i> 2025 [PO] Lorena Santos</footer>
     </div>
 
-    <button onclick="topFunction()" id="myBtn" title="Voltar ao topo" aria-label="Voltar ao topo"><i class="fa-solid fa-angle-up"></i></button>
+    <button onclick="topFunction()" id="myBtn" title="Voltar ao topo" aria-label="Voltar ao topo" data-i18n-title="common.backToTop" data-i18n-aria-label="common.backToTop"><i class="fa-solid fa-angle-up"></i></button>
 </body>
 
 </html>
