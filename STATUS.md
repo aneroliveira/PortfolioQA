@@ -4,13 +4,15 @@
 >
 > **Convenção:** os itens de trabalho ficam como comentários no próprio código, marcados `[ ]` (pendente) e `[x]` (feito), e aparecem no painel da extensão **todo-tree** do VS Code (configurada em `.vscode/settings.json`). Os comentários são a fonte da verdade — este arquivo é só uma visão consolidada por cima deles.
 
-*Última revisão: 28/07/2026 — 1 pendente, 14 concluídos*
+*Última revisão: 28/07/2026 — 1 pendente, 15 concluídos*
 
 ---
 
 ## 🎯 Onde parei
 
 **Templates concluído: grid, 3 documentos novos e miniaturas.** Único passo que falta é manual, fora do meu alcance neste ambiente: **subir os 6 arquivos no bucket S3** (ver *"Templates completos: grid, 3 documentos novos e miniaturas"* em Concluído, com os nomes exatos a preservar).
+
+**Rodada de polimento visual concluída** (topbar, ícones de contato, footer e scroll da Home) — ver *"Topbar, ícones de contato, footer e scroll da Home"* em Concluído.
 
 Mais duas decisões suas registradas em *Decisões abertas*, e a externalização dos textos, deliberadamente postergada.
 
@@ -237,6 +239,22 @@ A pendência que ficava em aberto neste arquivo há algumas revisões foi resolv
 | `[QA - Modelo] CASOS DE TESTE.pdf` / `.docx` | `.../%5BQA+-+Modelo%5D+CASOS+DE+TESTE.pdf` / `.docx` |
 | `[QA - Modelo] RELATORIO DE BUGS.pdf` / `.docx` | `.../%5BQA+-+Modelo%5D+RELATORIO+DE+BUGS.pdf` / `.docx` |
 | `[QA - Modelo] CHECKLIST DE QA.pdf` / `.docx` | `.../%5BQA+-+Modelo%5D+CHECKLIST+DE+QA.pdf` / `.docx` |
+
+### Topbar, ícones de contato, footer e scroll da Home (28/07/2026)
+
+Depois de ver o site publicado, a Lorena reportou mais uma leva de ajustes finos — todos em `styles.css`, commit `d39894e`:
+
+| Reportado | Causa | Correção |
+|---|---|---|
+| Ícones de contato (LinkedIn, e-mail, agenda) e o de tema (sol/lua) em preto | Usavam `--color-indigo` (o neutro escuro) | Trocados para `--color-raspberry` (framboesa), nos dois temas |
+| Ícones de contato "grandes demais" | — | Reduzidos ~3px: caixa 50px → 47px, glifo 30px → 27px (só `.linkedin`/`.email`/`.agenda` — o de tema manteve o tamanho, ela só pediu a cor) |
+| "Desenho" ao lado do ícone ativo com a sidebar recolhida (print dela mostrando um parêntese solto) | A barra lateral do item ativo (`border-left: 3px solid`) só tem borda de um lado; com `border-radius:20px` do link, essa borda isolada arredonda numa curva que, sem o rótulo ao lado pra dar contexto (sidebar recolhida), lê como um parêntese solto | Removida a borda **só** no estado `body.sidebar-collapsed` — o ícone sozinho já indica a seção ativa |
+| Scroll aparecendo na Home | A seção é curta, mas `main` carregava um padding-bottom de 50px e a tabela "Aqui você encontrará" tinha margem/espaçamento generosos — passando de ~700-800px de altura de viewport | Padding do `main` reduzido (50px → 20px, global) e a tabela da Home especificamente compactada (`#home table`, margem e padding de célula menores). Testado até 1280×720 sem scroll; só reaparece em alturas bem incomuns (~650px) |
+| Footer "flutuando" no meio da tela em vez de grudado embaixo (consequência direta do ajuste acima — a Home ficou curta demais pro `.content-area` preencher a tela) | `header` vira `position:fixed` no layout de sidebar (≥900px), saindo do fluxo normal — sem ele, `.content-area` (que embrulha topbar+main+footer) era o único elemento contando pra altura do `body`, e não tinha `min-height:100vh` nem era ela mesma um flex container, então `main{flex:1}` (que já existia!) nunca tinha efeito | `.content-area` ganhou `min-height:100vh; display:flex; flex-direction:column` — agora `main{flex:1}` funciona de verdade, empurrando o footer pro fim da tela quando sobra espaço, sem travar o scroll normal em seções longas (testado na Sobre Mim: ainda rola, 854px de conteúdo excedente) |
+| Ela reparou que os ícones da direita da topbar (calendário, tema) pareciam mais deslocados que os da esquerda | `.topbar` tinha `width:100%` sem `box-sizing:border-box`; o padding de 20px de cada lado (só existe no layout ≥900px) somava por fora, deixando a topbar **40px mais larga que o próprio container** — o grupo de ícones da direita ficava efetivamente espremido/vazando pra fora da área visível, enquanto o da esquerda tinha o respiro correto | `box-sizing:border-box` na `.topbar` — os dois lados agora têm exatamente 20px de espaço, confirmado via `getBoundingClientRect` (antes: direita vazava 20px além do limite visível; depois: 20px dos dois lados) |
+| Barra de rolagem cinza padrão do navegador, destoando da paleta | — | Estilizada em greige (`--color-greige`, `#e2d8cf`) via `scrollbar-color`/`scrollbar-width` (Firefox) e `::-webkit-scrollbar*` (Chrome/Edge/Safari) |
+
+Todos os itens testados localmente pelo servidor de preview (`npx serve`, porta 5000) — importante ter usado ele e não `file://` direto, porque o cache do `file://` mascarou os primeiros testes das mudanças de espaçamento (mostrava valores antigos mesmo depois de editar o CSS; só o fetch com `cache:'no-store'` revelava o arquivo real). Testado em claro/escuro e em larguras de sidebar recolhida/expandida.
 
 ### Redesenho da tela inicial — sidebar fixa à esquerda (28/07/2026)
 
