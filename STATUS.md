@@ -4,16 +4,13 @@
 >
 > **Convenção:** os itens de trabalho ficam como comentários no próprio código, marcados `[ ]` (pendente) e `[x]` (feito), e aparecem no painel da extensão **todo-tree** do VS Code (configurada em `.vscode/settings.json`). Os comentários são a fonte da verdade — este arquivo é só uma visão consolidada por cima deles.
 
-*Última revisão: 28/07/2026 — 3 pendentes, 12 concluídos*
+*Última revisão: 28/07/2026 — 1 pendente, 14 concluídos*
 
 ---
 
 ## 🎯 Onde parei
 
-**A sidebar nova está pronta.** Os únicos itens realmente pendentes agora são os Templates, que dependem de você criar os arquivos:
-
-1. **Os 3 templates** (Casos de Teste, Relatório de Bugs, Checklist de QA) precisam ser criados e subidos no S3. Os cards estão em estado "Em breve", sem link quebrado.
-2. **As miniaturas reais** dos 4 cards — hoje é um placeholder local (a joaninha).
+**Templates concluído: grid, 3 documentos novos e miniaturas.** Único passo que falta é manual, fora do meu alcance neste ambiente: **subir os 6 arquivos no bucket S3** (ver *"Templates completos: grid, 3 documentos novos e miniaturas"* em Concluído, com os nomes exatos a preservar).
 
 Mais duas decisões suas registradas em *Decisões abertas*, e a externalização dos textos, deliberadamente postergada.
 
@@ -21,8 +18,7 @@ Mais duas decisões suas registradas em *Decisões abertas*, e a externalizaçã
 
 - **Promoção para Product Owner** — a Lorena vai atualizar tanto o portfólio quanto o LinkedIn quando a mudança for formalizada. *Só nota por enquanto, aguardando ela avisar.*
 - **App de agenda próprio** — hoje o botão de agenda ([index.html:42](index.html:42)) aponta pro SimplyMeet (`app.simplymeet.me/lorena-santos-qa`). Ideia de criar uma aplicação própria depois; se não for viável, mantém o SimplyMeet.
-- **Carrossel de Templates → grid** — a Lorena perguntou se o carrossel é a forma mais intuitiva de exibir os templates. Minha avaliação: não é o ideal. Os 4 cards são comparáveis entre si (mesma estrutura, mesmo tipo de conteúdo) — esse é o caso onde grid bate carrossel, porque comparação pede ver tudo de uma vez, não navegação sequencial. Hoje o carrossel também esconde que só 1 dos 4 cards está pronto — com grid isso fica visível de cara. Recomendo migrar Templates para o mesmo grid usado em Projetos ([styles.css](styles.css), `.projects-grid`) quando for mexer nos templates novos.
-- **Templates com campos preenchíveis** — ideia para quando forem criados os 3 templates que faltam: gerar `.docx` com campos de formulário, uma visão em PDF fiel ao layout para preview, e no download deixar só os campos abertos para o usuário preencher — sem alterar o layout do documento. A Lorena marcou como "faremos juntos", ainda sem trabalho iniciado.
+- **Templates com campos preenchíveis** — ideia registrada por ela para uma próxima rodada: gerar `.docx` com campos de formulário de verdade, uma visão em PDF fiel ao layout para preview, e no download deixar só os campos abertos para o usuário preencher — sem alterar o layout do documento. Os 3 templates novos criados nesta rodada (ver Concluído) ainda são só texto comum, não campos de formulário — essa ideia continua de pé para depois.
 
 ## 🎨 Paleta "Inverno Profundo" (28/07/2026)
 
@@ -90,7 +86,7 @@ A pedido da Lorena ("ajuste as cores por paleta que me surpreenda"), não foi um
 | Fundo da sidebar/footer | `linear-gradient(160deg, #eef0f7, #e2d8cf)` — gelo lavanda para greige | `linear-gradient(160deg, #1a1a26, #16161a)` — quase preto com sombra de índigo |
 | Nome / título | Índigo original (`#28326f`) | Branco |
 | Cargo (texto digitado/carrossel) | Índigo original, 65% opacidade | Branco, 75% opacidade |
-| Menu (inativo) | Verde petróleo escuro (`--color-teal`) | Verde petróleo claro (`#6fa3a5`) |
+| Menu (inativo) | Verde petróleo escuro (`--color-teal`, na época — variável renomeada depois para `--color-wine`, ver seção de troca de cor) | Verde petróleo claro (`#6fa3a5`, idem) |
 | Menu (ativo/hover) | Índigo original | Branco |
 | **Barra do item ativo** | **Framboesa** — único uso da framboesa fora de um CTA, como destaque | Verde petróleo |
 | Botão de recolher | Índigo original | Branco |
@@ -126,7 +122,7 @@ Detalhe de verificação: `:focus-visible` só ativa em interação real de tecl
 | Linha | Fundo (tinta clara) | Hover |
 |---|---|---|
 | Sobre mim | `#dde1f0` (índigo) | `#6b74a8` |
-| Projetos | `#cfe3e3` (verde petróleo) | `var(--color-teal)` |
+| Projetos | `#f0dbe0` (vinho — era verde petróleo, ver seção de troca de cor abaixo) | `var(--color-wine)` |
 | Habilidades | `#f0d4de` (framboesa) | `var(--color-raspberry)` |
 | Templates | `var(--color-greige)` | `#b8a692` |
 
@@ -136,16 +132,16 @@ Verificado nos dois temas — como a tabela sempre tem fundo branco fixo (`body.
 
 | Card | Miniatura | Preview | Download |
 |---|---|---|---|
-| 1. Plano de Teste | placeholder local | ✅ `.pdf` (200) | ✅ `.docx` (200) |
-| 2. Casos de Teste | placeholder local | — Em breve | — Em breve |
-| 3. Relatório de Bugs | placeholder local | — Em breve | — Em breve |
-| 4. Checklist de QA | placeholder local | — Em breve | — Em breve |
+| 1. Plano de Teste | ✅ SVG própria | ✅ `.pdf` (200, já no S3) | ✅ `.docx` (200, já no S3) |
+| 2. Casos de Teste | ✅ SVG própria | ⏳ aponta pra URL esperada, aguardando upload | ⏳ idem |
+| 3. Relatório de Bugs | ✅ SVG própria | ⏳ aponta pra URL esperada, aguardando upload | ⏳ idem |
+| 4. Checklist de QA | ✅ SVG própria | ⏳ aponta pra URL esperada, aguardando upload | ⏳ idem |
 
-**Padrão definido para Word:** o card 1 já estabelece a convenção — o `preview-btn` aponta para o `.pdf` (o modal usa `<iframe>`, que não renderiza `.docx`) e o `download-btn` aponta para o `.docx`. Seguir esse mesmo par nos próximos cards.
+**Padrão definido para Word:** o card 1 já estabelece a convenção — o `preview-btn` aponta para o `.pdf` (o modal usa `<iframe>`, que não renderiza `.docx`) e o `download-btn` aponta para o `.docx`. Os 3 cards novos seguem o mesmo par, com URLs no mesmo bucket/padrão de nome — só falta ela subir os arquivos (ver seção de Concluído com os nomes exatos).
 
 ### ⚠️ Sobre o bucket S3
 
-Os arquivos que faltam davam **403**. Verificado em 28/07/2026:
+Os arquivos que faltavam davam **403**. Verificado em 28/07/2026:
 
 | Arquivo | Status |
 |---|---|
@@ -155,7 +151,7 @@ Os arquivos que faltam davam **403**. Verificado em 28/07/2026:
 | `favicon.svg` (era usado nas miniaturas) | ❌ 403 |
 | `"Isso é coisa do QA!"...pdf` (era usado nos cards 2-4) | ❌ 403 |
 
-As referências aos dois arquivos com 403 já foram removidas do HTML, então **o site não tem mais link nem imagem quebrada**. Mas vale investigar a causa ao subir os templates novos: como os outros objetos respondem 200, o bucket serve conteúdo público — o mais provável é que esses dois estejam privados ou não existam.
+As referências aos dois arquivos com 403 já foram removidas do HTML havia tempo, e as miniaturas dos 4 cards agora são SVGs próprias no repositório (não dependem mais de nada no S3) — ver seção de Concluído. Os 3 documentos novos (Casos de Teste, Relatório de Bugs, Checklist de QA) ainda precisam ser enviados ao bucket para os links de preview/download funcionarem.
 
 ---
 
@@ -182,13 +178,6 @@ O GitHub Pages rebuilda automaticamente a cada push na `main` — o site no ar d
 
 ## ⏳ Pendente
 
-### Templates — depende de você criar os arquivos
-
-- `[ ]` **Adicionar os demais templates** — [index.html:356](index.html:356)
-  Criar os 3 documentos, subir no S3 e trocar o `<span class="coming-soon">` dos cards 2-4 pelo par `preview-btn` (`.pdf`) + `download-btn` (`.docx`), seguindo o card 1.
-- `[ ]` **Incluir uma miniatura** — [index.html:355](index.html:355)
-  Gerar a prévia da 1ª página de cada documento e substituir o placeholder `./images/ladybug-svg.svg` nos 4 cards.
-
 ### Decisões abertas
 
 - **Divergências entre o site e o LinkedIn** na tabela de experiências ([index.html:190](index.html:190) em diante). Não foram alteradas — são duas fontes que você controla, e o site pode estar certo com o LinkedIn abreviado:
@@ -212,6 +201,42 @@ O GitHub Pages rebuilda automaticamente a cada push na `main` — o site no ar d
 ---
 
 ## ✅ Concluído
+
+### Frases da sidebar: sombreado, fonte e troca de cor (28/07/2026)
+
+A Lorena pediu três ajustes na sidebar depois de ver o redesenho:
+
+- **Removido o `text-shadow`** das frases de cargo (`Quality Engineer` / `Analista de Qualidade de Software` / `Caçadora de bugs`) — único `text-shadow` do arquivo inteiro, então fácil de isolar.
+- **Fonte reduzida** dessas frases na visão de sidebar (≥900px): nova variável `--font-size-xs` (`clamp(11px, 0.6vw + 8px, 13px)`), substituindo `--font-size-small` só nesse contexto.
+- **Verde petróleo → Vinho/Bordô** (`#6b2737`, hover `#521e2a`, variante clara `#be6e82` para o modo escuro): ela não gostou do teal como segunda cor de destaque. Tentei primeiro um verde esmeralda como substituto (ela pediu "me surpreenda"); ela não gostou e pediu pra reverter — o índigo **não foi tocado** nesse meio-tempo, só a cor que ocupava o lugar do teal. Depois preferiu um vinho/bordô, no mesmo espírito de "mesma família do vermelho, tom diferente da framboesa" (framboesa continua exclusiva do CTA). A variável foi **renomeada** de `--color-teal`/`--color-teal-hover` para `--color-wine`/`--color-wine-hover` (+ `--color-wine-light` nova, para contraste no modo escuro) — não é só uma troca de valor, então qualquer busca futura por `--color-teal` no código não vai encontrar nada (isso já está refletido nas tabelas acima, que citavam a variável antiga).
+- **Hover cinza escuro (`#495357`) dos botões `summary`** ("Ver detalhes" dos projetos, categorias de Habilidades) trocado por **prateado** (`#c0c0c0`), a pedido dela — o texto no hover continua vinho, sem trocar de cor.
+
+Commit isolado dessas mudanças: `652599c`.
+
+### Templates completos: grid, 3 documentos novos e miniaturas (28/07/2026)
+
+A pendência que ficava em aberto neste arquivo há algumas revisões foi resolvida nesta sessão:
+
+**Carrossel → grid.** Confirmado com ela que era essa a direção (ideia já registrada aqui antes) — reaproveitei literalmente a classe `.projects-grid` (usada em Projetos) no container dos templates, em vez de duplicar a regra. Removido por completo: `.carousel-container/-wrapper/-track/-slide`, `.carousel-arrow` (+ variantes de tema/breakpoint) e `.indicator` do `styles.css`, e todo o bloco de JS do carrossel (arraste por mouse/touch, setas, indicadores, atalho de teclado) do `actions.js` — o único código que sobrou ali é o modal de preview de PDF, que não depende do carrossel e continua funcionando igual (testado clicando em "Visualizar" depois da remoção). `.template-card` perdeu o `max-width:400px; margin:0 auto` que só fazia sentido dentro do slide do carrossel.
+
+**Os 3 documentos que faltavam** (Casos de Teste, Relatório de Bugs, Checklist de QA) foram redigidos do zero, no mesmo estilo visual do "Plano de Teste" já publicado (cabeçalho com metadados em coral/itálico, marca d'água "Modelo criado por Lorena Santos" em branco-sobre-branco, índice, seções numeradas, nota de rodapé com número de página). Conteúdo alinhado ao que o site já menciona dela (Cypress, Selenium, Postman, Azure DevOps, ClickUp, Scrum):
+
+- **Casos de Teste** — tabela de casos com ID/cenário/pré-condições/passos/resultado/status/prioridade, legenda de status, resumo de execução.
+- **Relatório de Bugs** — tabela de bugs com severidade/passos/resultado esperado x atual/status, legenda de severidade e prioridade.
+- **Checklist de QA** — checklists por categoria (funcional, usabilidade, compatibilidade, performance, segurança) + aprovação final.
+
+⚠️ **Ambiente sem LibreOffice/poppler/Python** — só Node/npm disponíveis. Isso mudou como os arquivos foram gerados:
+- `.docx`: gerado com a lib `docx` (JS) — sem problema, é o caminho normal.
+- `.pdf`: **não deu pra converter o `.docx`** (precisaria de LibreOffice, ausente aqui). Gerei o PDF **independentemente**, com `pdfkit`, replicando o mesmo conteúdo e estilo visual — não é uma conversão 1:1 do docx, é uma segunda renderização a partir dos mesmos dados. Bug feio no meio do caminho: o cabeçalho/rodapé (desenhados a cada página via evento `pageAdded`) não resetava o cursor do PDFKit de volta pro topo da área de conteúdo, deixando-o perto do rodapé — cada parágrafo achava que não cabia e forçava página nova (gerou um PDF de 146 páginas para um conteúdo de 8). Corrigido resetando `doc.x`/`doc.y` no fim da função de cabeçalho/rodapé.
+- **Miniaturas dos 4 cards:** sem como renderizar a 1ª página real de um PDF (era a abordagem original planejada), desenhei **SVGs próprias** — mockup de página de documento com cor de destaque + ícone/motivo por tipo (alvo para Plano de Teste, mini-tabela para Casos de Teste, inseto para Relatório de Bugs, checkboxes para Checklist de QA), usando só as cores da paleta atual (índigo, framboesa, vinho, greige — sem inventar tom novo). Ficam em `images/thumb-*.svg`, versionadas no repositório (não dependem do S3).
+
+**Pendência real, fora do meu alcance neste ambiente:** não tenho credenciais AWS aqui, então os 6 arquivos (3 `.docx` + 3 `.pdf`) foram entregues a ela para upload manual no mesmo bucket (`templates-portfolio-qa`, raiz, público, mesmo padrão do card 1). Os cards já apontam para as URLs finais esperadas — **os nomes abaixo precisam ser preservados exatamente** (mesmo padrão `[QA - Modelo] NOME.ext` do card 1) para os links funcionarem sem precisar editar o HTML de novo:
+
+| Arquivo | URL esperada |
+|---|---|
+| `[QA - Modelo] CASOS DE TESTE.pdf` / `.docx` | `.../%5BQA+-+Modelo%5D+CASOS+DE+TESTE.pdf` / `.docx` |
+| `[QA - Modelo] RELATORIO DE BUGS.pdf` / `.docx` | `.../%5BQA+-+Modelo%5D+RELATORIO+DE+BUGS.pdf` / `.docx` |
+| `[QA - Modelo] CHECKLIST DE QA.pdf` / `.docx` | `.../%5BQA+-+Modelo%5D+CHECKLIST+DE+QA.pdf` / `.docx` |
 
 ### Redesenho da tela inicial — sidebar fixa à esquerda (28/07/2026)
 
@@ -269,7 +294,7 @@ Correções encontradas de passagem na mesma revisão:
 - Dark mode com persistência em `localStorage`
 - Fundo animado com particles.js
 - Efeito de digitação nos títulos
-- Carrossel de templates com setas, indicadores, arraste e navegação por teclado
+- Grid de templates (mesmo padrão do grid de Projetos)
 - Modal de preview de PDF em `<iframe>`
 - Botão "voltar ao topo"
 - Bloqueio de cópia (Ctrl+C) e de menu de contexto
@@ -283,7 +308,7 @@ Correções encontradas de passagem na mesma revisão:
 |---|---|
 | `index.html` | Página única — `header` (sidebar ≥900px), `.content-area` (`.topbar` + `main` + `footer`), todas as seções |
 | `styles.css` | Estilos: variáveis, dark mode, cursores customizados, transição de seções, layout de sidebar |
-| `actions.js` | Tema, sidebar recolher/expandir, navegação, carrossel, modal de PDF, digitação, bloqueios |
+| `actions.js` | Tema, sidebar recolher/expandir, navegação, modal de PDF, digitação, bloqueios |
 | `README.md` | Apresentação pública do portfólio (não é registro de progresso) |
 | `STATUS.md` | Este arquivo |
-| `images/` | Favicons, joaninhas (uma delas agora é o fundo da sidebar) e foto de perfil antiga (a atual vem do S3) |
+| `images/` | Favicons, joaninhas (uma delas agora é o fundo da sidebar), foto de perfil antiga (a atual vem do S3) e as 4 miniaturas dos templates (`thumb-*.svg`) |

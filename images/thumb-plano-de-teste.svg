@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300">
+  <defs>
+    <clipPath id="page1"><rect x="1" y="1" width="238" height="298" rx="10"/></clipPath>
+  </defs>
+  <rect x="1" y="1" width="238" height="298" rx="10" fill="#fefefc" stroke="#e2d8cf" stroke-width="2"/>
+  <g clip-path="url(#page1)">
+    <rect x="0" y="0" width="240" height="56" fill="#28326f"/>
+  </g>
+  <text x="20" y="34" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="#fefefc">Plano de Teste</text>
+
+  <!-- ícone: alvo/objetivo -->
+  <circle cx="60" cy="120" r="26" fill="none" stroke="#28326f" stroke-width="3"/>
+  <circle cx="60" cy="120" r="15" fill="none" stroke="#28326f" stroke-width="3"/>
+  <circle cx="60" cy="120" r="4" fill="#af1958"/>
+
+  <!-- linhas de texto -->
+  <rect x="104" y="98" width="112" height="8" rx="4" fill="#28326f" opacity="0.55"/>
+  <rect x="104" y="114" width="96" height="8" rx="4" fill="#28326f" opacity="0.3"/>
+  <rect x="104" y="130" width="104" height="8" rx="4" fill="#28326f" opacity="0.3"/>
+
+  <rect x="20" y="168" width="200" height="1.5" fill="#e2d8cf"/>
+
+  <rect x="20" y="188" width="60" height="8" rx="4" fill="#28326f" opacity="0.3"/>
+  <rect x="20" y="204" width="200" height="7" rx="3.5" fill="#28326f" opacity="0.18"/>
+  <rect x="20" y="218" width="200" height="7" rx="3.5" fill="#28326f" opacity="0.18"/>
+  <rect x="20" y="232" width="150" height="7" rx="3.5" fill="#28326f" opacity="0.18"/>
+
+  <rect x="20" y="256" width="52" height="8" rx="4" fill="#28326f" opacity="0.3"/>
+  <rect x="20" y="272" width="200" height="7" rx="3.5" fill="#28326f" opacity="0.18"/>
+  <rect x="20" y="286" width="170" height="7" rx="3.5" fill="#28326f" opacity="0.18"/>
+</svg>

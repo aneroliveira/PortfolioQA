@@ -707,107 +707,6 @@ details li {
   cursor: var(--cursor-arrow), default;
 }
 
-/* ===== ESTILO DO CAROUSEL  ===== */
-.carousel-container {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  margin: var(--spacing-xl) auto;
-  overflow: hidden;
-}
-
-.carousel-wrapper {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  box-shadow: 0 4px 12px var(--shadow-light);
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform var(--transition-slow);
-  height: 100%;
-}
-
-.carousel-slide {
-  min-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 var(--spacing-lg);
-  box-sizing: border-box;
-}
-
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border: none;
-  border-radius: var(--radius-circle);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  color: var(--text-dark);
- z-index: 10;
-  box-shadow: 0 2px 5px var(--shadow-light);
-  transition: all var(--transition-normal);
-}
-
-.carousel-arrow:hover {
-  background-color: var(--color-wine);
-}
-
-.carousel-prev {
-  left: var(--spacing-sm);
-}
-
-.carousel-next {
-  right: var(--spacing-sm);
-}
-
-.carousel-indicators {
-  display: flex;
-  justify-content: center;
-  margin: var(--spacing-lg) 0 var(--spacing-sm);
-  gap: var(--spacing-md);
-}
-
-.indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: var(--radius-circle);
-  background-color: #ccc;
-  border: none;
-  transition: all var(--transition-normal);
-}
-
-.indicator.active {
-  background-color: var(--color-wine);
-  transform: scale(1.2);
-}
-
-body.dark-mode .carousel-arrow {
-  background-color: rgba(50, 50, 50, 0.8);
-  color: var(--text-light);
-}
-
-body.dark-mode .carousel-arrow:hover {
-  background-color: var(--color-wine);
-}
-
-body.dark-mode .indicator {
-  background-color: #555;
-}
-
-body.dark-mode .indicator.active {
-  background-color: var(--color-wine);
-}
-
 /* ===== CARDS DOS PROJETOS ===== */
 .projects-grid {
   display: grid;
@@ -875,8 +774,6 @@ body.dark-mode .project-meta {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
 }
 
 .template-card:hover {
@@ -1136,17 +1033,6 @@ body.dark-mode footer {
     gap: var(--spacing-sm);
   }
 
-  .carousel-slide {
-    min-width: 100%;
-    padding: 0 var(--spacing-sm);
-  }
-
-  .carousel-arrow {
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
-  }
-
   .social-icons-left,
   .social-icons-right {
     padding: 0 var(--spacing-sm);
@@ -1169,17 +1055,6 @@ body.dark-mode footer {
     flex-wrap: wrap;
     height: auto;
     padding: var(--spacing-sm) 0;
-  }
-
-  .carousel-arrow {
-    width: 25px;
-    height: 25px;
-    font-size: 14px;
-  }
-
-  .indicator {
-    width: 8px;
-    height: 8px;
   }
 
   .template-actions {

@@ -529,10 +529,6 @@
         </section>
 
         <section id="templates">
-            <!-- [ ]: incluir uma miniatura (hoje é placeholder local; a real sai da 1a página de cada PDF) -->
-            <!-- [ ]: adicionar os demais templates (cards 2-4 estão em "Em breve" até os arquivos existirem) -->
-            <!-- [x]: verificar como adicionar docs em Word -> padrão do card 1: preview aponta pro .pdf, download aponta pro .docx
-                 (o modal usa iframe, que não renderiza .docx — então o Word fica só no download) -->
             <h1>Templates</h1>
             <div>Aqui você encontra modelos e materiais que desenvolvi com base na minha experiência na área de QA e TI em geral.
                 <p><em>Os arquivos estão disponíveis para uso pessoal gratuitamente, desde que os devidos créditos sejam
@@ -542,114 +538,98 @@
                 <p> Se algum material for útil pra você, me avisa! Vou adorar saber como está sendo usado 😊</p>
             </div>
             <div class="fancy-divider"></div>
-            <div class="carousel-container">
-                <div class="carousel-wrapper">
-                    <div class="carousel-track">
-                        <!-- Template 1 -->
-                        <div class="carousel-slide">
-                            <div class="template-card">
-                                <div class="template-thumbnail">
-                                    <img src="./images/ladybug-svg.svg"
-                                        alt="Template de Plano de Teste">
-                                    <div class="pdf-overlay">PDF</div>
-                                </div>
-                                <div class="template-info">
-                                    <h3>Plano de Teste</h3>
-                                    <p>Template completo para documentação de planos de teste, incluindo objetivos,
-                                        escopo, cronograma e recursos.</p>
-                                    <div class="template-actions">
-                                        <button class="preview-btn"
-                                            data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+DOCUMENTA%C3%87%C3%83O+DE+QUALIDADE.pdf">
-                                            <i class="bi bi-eye-fill"></i> Visualizar
-                                        </button>
-                                        <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+DOCUMENTA%C3%87%C3%83O+DE+QUALIDADE.docx"
-                                            download class="download-btn">
-                                            <i class="bi bi-download"></i> Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Template 2 -->
-                        <div class="carousel-slide">
-                            <div class="template-card">
-                                <div class="template-thumbnail">
-                                    <img src="./images/ladybug-svg.svg"
-                                        alt="Template de Casos de Teste">
-                                    <div class="pdf-overlay">PDF</div>
-                                </div>
-                                <div class="template-info">
-                                    <h3>Casos de Teste</h3>
-                                    <p>Modelo estruturado para documentação de casos de teste, com pré-condições,
-                                        passos, resultados esperados e status.</p>
-                                    <div class="template-actions">
-                                        <span class="coming-soon">
-                                            <i class="bi bi-hourglass-split"></i> Em breve
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Template 3 -->
-                        <div class="carousel-slide">
-                            <div class="template-card">
-                                <div class="template-thumbnail">
-                                    <img src="./images/ladybug-svg.svg"
-                                        alt="Relatório de Bugs">
-                                    <div class="pdf-overlay">PDF</div>
-                                </div>
-                                <div class="template-info">
-                                    <h3>Relatório de Bugs</h3>
-                                    <p>Template para documentação detalhada de bugs, incluindo severidade, prioridade,
-                                        passos para reprodução e evidências.</p>
-                                    <div class="template-actions">
-                                        <span class="coming-soon">
-                                            <i class="bi bi-hourglass-split"></i> Em breve
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Template 4 -->
-                        <div class="carousel-slide">
-                            <div class="template-card">
-                                <div class="template-thumbnail">
-                                    <img src="./images/ladybug-svg.svg"
-                                        alt="Checklist de QA">
-                                    <div class="pdf-overlay">PDF</div>
-                                </div>
-                                <div class="template-info">
-                                    <h3>Checklist de QA</h3>
-                                    <p>Lista abrangente de verificações para garantir a qualidade do software antes da
-                                        entrega, cobrindo funcionalidades, usabilidade e performance.</p>
-                                    <div class="template-actions">
-                                        <span class="coming-soon">
-                                            <i class="bi bi-hourglass-split"></i> Em breve
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="projects-grid templates-grid">
+                <!-- Template 1 -->
+                <div class="template-card">
+                    <div class="template-thumbnail">
+                        <img src="./images/thumb-plano-de-teste.svg" alt="Miniatura do template Plano de Teste">
+                        <div class="pdf-overlay">PDF</div>
+                    </div>
+                    <div class="template-info">
+                        <h3>Plano de Teste</h3>
+                        <p>Template completo para documentação de planos de teste, incluindo objetivos,
+                            escopo, cronograma e recursos.</p>
+                        <div class="template-actions">
+                            <button class="preview-btn"
+                                data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+DOCUMENTA%C3%87%C3%83O+DE+QUALIDADE.pdf">
+                                <i class="bi bi-eye-fill"></i> Visualizar
+                            </button>
+                            <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+DOCUMENTA%C3%87%C3%83O+DE+QUALIDADE.docx"
+                                download class="download-btn">
+                                <i class="bi bi-download"></i> Download
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- setas de navegação -->
-                <button class="carousel-arrow carousel-prev" aria-label="Slide anterior">
-                    <i class="bi bi-chevron-left"></i>
-                </button>
-                <button class="carousel-arrow carousel-next" aria-label="Próximo slide">
-                    <i class="bi bi-chevron-right"></i>
-                </button>
+                <!-- Template 2 -->
+                <div class="template-card">
+                    <div class="template-thumbnail">
+                        <img src="./images/thumb-casos-de-teste.svg" alt="Miniatura do template Casos de Teste">
+                        <div class="pdf-overlay">PDF</div>
+                    </div>
+                    <div class="template-info">
+                        <h3>Casos de Teste</h3>
+                        <p>Modelo estruturado para documentação de casos de teste, com pré-condições,
+                            passos, resultados esperados e status.</p>
+                        <div class="template-actions">
+                            <button class="preview-btn"
+                                data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+CASOS+DE+TESTE.pdf">
+                                <i class="bi bi-eye-fill"></i> Visualizar
+                            </button>
+                            <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+CASOS+DE+TESTE.docx"
+                                download class="download-btn">
+                                <i class="bi bi-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Carousel -->
-                <div class="carousel-indicators">
-                    <button class="indicator active" data-index="0" aria-label="Slide 1"></button>
-                    <button class="indicator" data-index="1" aria-label="Slide 2"></button>
-                    <button class="indicator" data-index="2" aria-label="Slide 3"></button>
-                    <button class="indicator" data-index="3" aria-label="Slide 4"></button>
+                <!-- Template 3 -->
+                <div class="template-card">
+                    <div class="template-thumbnail">
+                        <img src="./images/thumb-relatorio-de-bugs.svg" alt="Miniatura do template Relatório de Bugs">
+                        <div class="pdf-overlay">PDF</div>
+                    </div>
+                    <div class="template-info">
+                        <h3>Relatório de Bugs</h3>
+                        <p>Template para documentação detalhada de bugs, incluindo severidade, prioridade,
+                            passos para reprodução e evidências.</p>
+                        <div class="template-actions">
+                            <button class="preview-btn"
+                                data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+RELATORIO+DE+BUGS.pdf">
+                                <i class="bi bi-eye-fill"></i> Visualizar
+                            </button>
+                            <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+RELATORIO+DE+BUGS.docx"
+                                download class="download-btn">
+                                <i class="bi bi-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 4 -->
+                <div class="template-card">
+                    <div class="template-thumbnail">
+                        <img src="./images/thumb-checklist-de-qa.svg" alt="Miniatura do template Checklist de QA">
+                        <div class="pdf-overlay">PDF</div>
+                    </div>
+                    <div class="template-info">
+                        <h3>Checklist de QA</h3>
+                        <p>Lista abrangente de verificações para garantir a qualidade do software antes da
+                            entrega, cobrindo funcionalidades, usabilidade e performance.</p>
+                        <div class="template-actions">
+                            <button class="preview-btn"
+                                data-url="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+CHECKLIST+DE+QA.pdf">
+                                <i class="bi bi-eye-fill"></i> Visualizar
+                            </button>
+                            <a href="https://templates-portfolio-qa.s3.us-east-1.amazonaws.com/%5BQA+-+Modelo%5D+CHECKLIST+DE+QA.docx"
+                                download class="download-btn">
+                                <i class="bi bi-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
