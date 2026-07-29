@@ -311,7 +311,7 @@ body.dark-mode .topbar {
   right: 0;
   opacity: 0;
   transform: translateY(60%);
-  animation: roleSwap 9s ease-in-out infinite;
+  animation: roleSwap 6s ease-in-out infinite;
 }
 
 .profile h2 span:nth-child(1) {
@@ -320,10 +320,6 @@ body.dark-mode .topbar {
 
 .profile h2 span:nth-child(2) {
   animation-delay: 3s;
-}
-
-.profile h2 span:nth-child(3) {
-  animation-delay: 6s;
 }
 
 @keyframes roleSwap {

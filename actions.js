@@ -26,13 +26,13 @@ function ajustarAlturaRoleSwap() {
 
   let maiorAltura = 0;
   container.querySelectorAll("span").forEach((span) => {
-    // Mede como texto normal (sem o position:absolute da animação),
-    // então a quebra de linha reflete a largura real da caixa
-    span.style.position = "static";
-    span.style.visibility = "hidden";
+    // Mede como já está no DOM (position:absolute; left:0; right:0 da
+    // animação) — isso já estica o span pra largura real da caixa.
+    // opacity:0 não afeta layout, então a medição funciona sem alterar nada.
+    // (Trocar pra position:static, como antes, encolhe o span pra largura do
+    // conteúdo — inline sem left/right não ocupa a caixa inteira — e
+    // subestima quantas linhas o texto realmente ocupa quando animado.)
     const altura = span.getBoundingClientRect().height;
-    span.style.position = "";
-    span.style.visibility = "";
     if (altura > maiorAltura) maiorAltura = altura;
   });
 
