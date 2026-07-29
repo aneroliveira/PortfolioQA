@@ -86,6 +86,25 @@ body{
   cursor: var(--cursor-arrow), default;
 }
 
+/* Barra de rolagem na cor greige da paleta, em vez do cinza padrão do navegador */
+html {
+  scrollbar-color: var(--color-greige) transparent;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-greige);
+  border-radius: var(--radius-sm);
+}
+
 /* ===== ESTILO DE CURSOR PARA BOTÕES, LISTAS & CIA ===== */
 a,
 button,
@@ -185,7 +204,7 @@ body.dark-mode table {
 }
 
 body.dark-mode #themeToggle i {
-  color: var(--text-light);
+  color: var(--color-raspberry);
 }
 
 /* ===== BARRA SUPERIOR (ícones de rede social + tema) ===== */
@@ -193,6 +212,10 @@ body.dark-mode #themeToggle i {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  /* Sem isso, o padding somado no layout de sidebar (≥900px) alarga a
+     topbar 40px além do container (content-box é o padrão), empurrando o
+     grupo de ícones da direita pra fora da área visível */
+  box-sizing: border-box;
   background-color: var(--light-bg-transparent);
 }
 
@@ -227,8 +250,11 @@ body.dark-mode .topbar {
 .linkedin,
 .email,
 .agenda {
-  background-color: var(--color-indigo);
+  background-color: var(--color-raspberry);
   color: #fff;
+  width: 47px;
+  height: 47px;
+  font-size: 27px;
 }
 
 /* ===== TEMA CLARO/ESCURO ===== */
@@ -243,7 +269,7 @@ body.dark-mode .topbar {
 
 #themeToggle i {
   transition: color var(--transition-normal);
-  color: var(--color-indigo);
+  color: var(--color-raspberry);
 }
 
 /* ===== PERFIL  ===== */
@@ -490,7 +516,7 @@ main {
   margin: var(--spacing-xl) auto;
   line-height: var(--line-height);
   color: var(--text-dark);
-  padding: 0 var(--spacing-lg) 50px;
+  padding: 0 var(--spacing-lg) 20px;
   flex: 1;
   font-size: var(--font-size-base);
   text-align: justify;
@@ -580,6 +606,17 @@ table {
   border-collapse: collapse;
   margin: var(--spacing-lg) 0;
   font-size: var(--font-size-small);
+}
+
+/* Tabela "Aqui você encontrará", só na Home — mais compacta pra a seção
+   caber numa tela sem precisar rolar. */
+#home table {
+  margin: var(--spacing-sm) 0;
+}
+
+#home .header-row td,
+#home td {
+  padding: 6px var(--spacing-sm);
 }
 
 .header-row td {
@@ -1161,6 +1198,16 @@ body.dark-mode .sidebar-toggle:hover {
        acabava se estendendo por baixo da sidebar */
     width: calc(100% - var(--sidebar-width));
     transition: margin-left var(--transition-normal), width var(--transition-normal);
+    /* header vira position:fixed neste breakpoint (ver abaixo), saindo do
+       fluxo normal — sem isso, .content-area some do cálculo de altura do
+       body e o footer flutua logo depois do conteúdo em seções curtas
+       (como a Home), em vez de ficar grudado no fim da tela. min-height
+       garante o piso de 100vh; o flex column + main{flex:1} empurra o
+       footer pra baixo quando sobra espaço, sem impedir o scroll normal
+       quando o conteúdo é mais alto que a tela. */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
   .topbar {
@@ -1297,5 +1344,13 @@ body.dark-mode .sidebar-toggle:hover {
   body.sidebar-collapsed .nav-menu a {
     justify-content: center;
     padding: 0;
+  }
+
+  /* Com a sidebar recolhida, o border-radius:20px do link arredonda a
+     borda esquerda isolada da barra do item ativo, virando um "parêntese"
+     solto ao lado do ícone. Sem rótulo pra ancorar visualmente, o ícone
+     já basta — removida a barra só neste estado. */
+  body.sidebar-collapsed nav ul li a.active {
+    border-left: none;
   }
 }
