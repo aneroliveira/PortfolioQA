@@ -10,6 +10,8 @@
 
 ## 🎯 Onde parei
 
+**Google Analytics (GA4) integrado e verificado em produção** — ver *"Google Analytics (GA4) integrado ao portfólio"* em Concluído.
+
 **Templates concluído: grid, 3 documentos novos e miniaturas.** Único passo que falta é manual, fora do meu alcance neste ambiente: **subir os 6 arquivos no bucket S3** (ver *"Templates completos: grid, 3 documentos novos e miniaturas"* em Concluído, com os nomes exatos a preservar).
 
 **Rodada de polimento visual concluída** (topbar, ícones de contato, footer e scroll da Home) — ver *"Topbar, ícones de contato, footer e scroll da Home"* em Concluído.
@@ -203,6 +205,18 @@ O GitHub Pages rebuilda automaticamente a cada push na `main` — o site no ar d
 ---
 
 ## ✅ Concluído
+
+### Google Analytics (GA4) integrado ao portfólio (28/07/2026)
+
+A Lorena queria métricas de acesso e sessão do portfólio. Avaliadas três opções (GA4, Cloudflare Web Analytics, GoatCounter) — ela escolheu **GA4**, pela riqueza de dados (sessões, duração, geografia, dispositivo, origem de tráfego) frente às alternativas mais simples e privacy-first.
+
+Criação da conta/propriedade/stream de dados web foi feita por ela mesma no console do Google Analytics — fora do meu alcance criar contas de terceiros. Measurement ID: `G-F26C18N3L9`.
+
+**Integração:** snippet padrão do `gtag.js` adicionado no `<head>` do [index.html](index.html), logo após o favicon e antes das pré-conexões de fontes (posição recomendada pelo Google — o mais alto possível no `<head>`, para carregar antes do resto).
+
+**Verificado em duas etapas:** localmente via `file://`, inspecionando `window.dataLayer` e confirmando os eventos `js`/`config`/`gtm.load` disparando; depois em produção, no relatório **Visão geral em tempo real** do GA4, mostrando 1 usuário ativo ao abrir o site publicado — confirma que o rebuild do GitHub Pages já está servindo a versão com o tracking.
+
+Commit: `ae3bd08` — "Adiciona Google Analytics (GA4) ao portfólio".
 
 ### Frases da sidebar: sombreado, fonte e troca de cor (28/07/2026)
 
