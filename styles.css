@@ -207,10 +207,10 @@ body.dark-mode #themeToggle i {
   color: var(--color-raspberry);
 }
 
-/* ===== BARRA SUPERIOR (ícones de rede social + tema) ===== */
+/* ===== BARRA SUPERIOR (idioma + tema) ===== */
 .topbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
   /* Sem isso, o padding somado no layout de sidebar (≥900px) alarga a
      topbar 40px além do container (content-box é o padrão), empurrando o
@@ -223,8 +223,7 @@ body.dark-mode .topbar {
   background-color: var(--dark-bg-transparent);
 }
 
-.social-icons-left,
-.social-icons-right {
+.topbar-icons {
   display: flex;
   gap: var(--spacing-sm);
   padding: 0 var(--spacing-lg);
@@ -369,6 +368,17 @@ body.dark-mode .topbar {
    acompanha, senão fica ilegível num dos dois lados */
 body.dark-mode .profile h1 {
   color: var(--color-white);
+}
+
+/* Mesmos ícones (cor sólida) usados na topbar — reaproveita .icon/.linkedin/
+   .email/.agenda, só a linha em volta muda: mais espaço acima (perto do
+   nome), colada no menu logo abaixo, sem respiro extra */
+.profile-social {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+  margin-bottom: 0;
 }
 
 body.dark-mode .profile h2 {
@@ -630,7 +640,15 @@ table {
   font-weight: bold;
   text-align: center;
   padding: var(--spacing-sm);
-  font-size: var(--font-size-small); 
+  font-size: var(--font-size-small);
+}
+
+/* Só essa linha escurece no modo escuro — o resto da tabela mantém fundo
+   claro fixo (body.dark-mode table), de propósito, pra não perder contraste
+   nas 4 linhas com tinta de cor própria. */
+body.dark-mode .header-row td {
+  background-color: var(--color-indigo);
+  color: var(--text-light);
 }
 
 /* As 4 linhas usam tons derivados da paleta "Inverno Profundo" — não são
@@ -743,6 +761,27 @@ details {
   margin-bottom: var(--spacing-md);
 }
 
+/* Transição suave ao abrir/fechar "Ver detalhes" — via ::details-content
+   (sem precisar envolver o conteúdo em uma div extra: content.js injeta
+   <summary>/<li> soltos no innerHTML). Suporte ainda parcial entre
+   navegadores (Chrome/Edge recentes); onde não há suporte, cai de volta
+   pro toggle instantâneo nativo, sem quebrar nada. */
+@media (prefers-reduced-motion: no-preference) {
+  details {
+    interpolate-size: allow-keywords;
+  }
+
+  details::details-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease, content-visibility 0.3s allow-discrete;
+  }
+
+  details[open]::details-content {
+    height: auto;
+  }
+}
+
 details li {
   margin-left: var(--spacing-xl);
   margin-bottom: var(--spacing-xs);
@@ -756,6 +795,10 @@ details li {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--spacing-lg);
   margin: var(--spacing-xl) 0;
+  /* Sem isso, o grid estica todo card de uma linha pra altura do mais alto —
+     ao abrir "Ver detalhes" de um card, os vizinhos da mesma linha ganhavam
+     um espaço vazio embaixo, do tamanho do card aberto. */
+  align-items: start;
 }
 
 .project-card {
@@ -782,6 +825,27 @@ details li {
   color: var(--text-muted);
   font-size: var(--font-size-small);
   margin: 0 0 var(--spacing-sm);
+}
+
+.card-footnote {
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--border-light);
+  font-size: var(--font-size-small);
+  color: var(--text-muted);
+}
+
+.card-footnote a {
+  color: var(--color-raspberry);
+  font-weight: bold;
+}
+
+body.dark-mode .card-footnote {
+  color: #aaa;
+}
+
+body.dark-mode .card-footnote a {
+  color: #fff;
 }
 
 .project-badge {
@@ -1076,8 +1140,7 @@ body.dark-mode footer {
     gap: var(--spacing-sm);
   }
 
-  .social-icons-left,
-  .social-icons-right {
+  .topbar-icons {
     padding: 0 var(--spacing-sm);
   }
 
@@ -1264,7 +1327,7 @@ body.dark-mode .sidebar-toggle:hover {
     height: auto;
     width: 100%;
     gap: var(--spacing-sm);
-    padding: var(--spacing-lg) 0 0;
+    padding: 0;
   }
 
   .nav-item {
@@ -1334,7 +1397,8 @@ body.dark-mode .sidebar-toggle:hover {
   }
 
   body.sidebar-collapsed .profile h1,
-  body.sidebar-collapsed .profile h2 {
+  body.sidebar-collapsed .profile h2,
+  body.sidebar-collapsed .profile-social {
     display: none;
   }
 

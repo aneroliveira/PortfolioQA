@@ -162,38 +162,54 @@ function topFunction() {
 // * Código para o comportamento de navegação do menu (entre abas)
 // Exibe a seção alvo e só então rola até ela — a ordem importa, porque as
 // seções inativas são `display: none` e não podem receber scroll
+function activateSection(targetId) {
+  const targetSection = document.getElementById(targetId);
+
+  // Oculta todas as seções
+  document.querySelectorAll("section").forEach((section) => {
+    section.classList.remove("active");
+  });
+
+  // Exibe a seção correspondente ao ID
+  if (targetSection) {
+    targetSection.classList.add("active");
+  }
+
+  // Marca o item de navegação correspondente como ativo (se existir)
+  document.querySelectorAll(".nav-item a").forEach((link) => {
+    link.classList.toggle("active", link.getAttribute("href") === "#" + targetId);
+  });
+
+  // Rolagem suave, agora que a seção já está visível
+  if (targetSection) {
+    targetSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+}
+
 document.querySelectorAll(".nav-item a").forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault(); // Impede o comportamento padrão do link
-
-    // Obtém o ID da seção alvo (sem o #)
-    const targetId = this.getAttribute("href").substring(1);
-    const targetSection = document.getElementById(targetId);
-
-    // Oculta todas as seções
-    document.querySelectorAll("section").forEach((section) => {
-      section.classList.remove("active");
-    });
-
-    // Exibe a seção correspondente ao ID
-    if (targetSection) {
-      targetSection.classList.add("active");
-    }
-
-    // Marca o item de navegação como ativo
-    document.querySelectorAll(".nav-item a").forEach((link) => {
-      link.classList.remove("active");
-    });
-    this.classList.add("active");
-
-    // Rolagem suave, agora que a seção já está visível
-    if (targetSection) {
-      targetSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    activateSection(this.getAttribute("href").substring(1));
   });
+});
+
+// Links para seções fora do menu (ex: dentro do texto de "Ver detalhes" de um
+// card) também precisam trocar de seção — não só mudar a URL. Delegado no
+// documento (em vez de um listener por link) porque content.js reescreve o
+// innerHTML desses trechos ao trocar de idioma, o que destruiria um listener
+// preso diretamente ao elemento.
+document.addEventListener("click", (e) => {
+  const anchor = e.target.closest('a[href^="#"]');
+  if (!anchor || anchor.closest(".nav-item")) return; // já tratado acima
+
+  const targetId = anchor.getAttribute("href").substring(1);
+  if (!document.getElementById(targetId)) return;
+
+  e.preventDefault();
+  activateSection(targetId);
 });
 
 // * TEMA CLARO-ESCURO *

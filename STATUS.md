@@ -4,23 +4,24 @@
 >
 > **Convenção:** os itens de trabalho ficam como comentários no próprio código, marcados `[ ]` (pendente) e `[x]` (feito), e aparecem no painel da extensão **todo-tree** do VS Code (configurada em `.vscode/settings.json`). Os comentários são a fonte da verdade — este arquivo é só uma visão consolidada por cima deles.
 
-*Última revisão: 28/07/2026 — 1 pendente, 15 concluídos*
+*Última revisão: 31/07/2026 — 0 pendentes, 21 concluídos*
 
 ---
 
 ## 🎯 Onde parei
 
+**Rodada de ajustes finos pós-rebrand PO/tradução PT-EN, em cima de feedback visual da Lorena** — quatro entradas de hoje (31/07/2026) em Concluído: correções de UI (dark mode, badge, grid, transição, link quebrado, contraste de miniatura), revisão de texto (sem travessões, nota de rodapé, dica menor), limpeza de conteúdo (divisor em Habilidades, card duplicado do Media Cloud removido, frase e data atualizadas) e o vaivém dos ícones de contato (testamos tirar a tabela da Home e destacar os ícones lá, ela preferiu reverter — tabela de volta, contatos só na sidebar, no estilo antigo da topbar).
+
+**README.md atualizado** para refletir o rebrand de QA para Product Owner e o estado atual do site (seções, PT/EN, link publicado).
+
+**Templates 100% concluídos — os 4 cards funcionam em produção.** Conteúdo real do ClickUp mesclado nos 3 documentos novos e os 6 arquivos (3 `.docx` + 3 `.pdf`) já subiram no bucket S3 pela Lorena — os 6 URLs verificados retornando 200, com o mesmo tamanho dos arquivos gerados localmente. Ver *"Templates: conteúdo real do ClickUp mesclado nos 3 documentos"* em Concluído.
+
 **Google Analytics (GA4) integrado e verificado em produção** — ver *"Google Analytics (GA4) integrado ao portfólio"* em Concluído.
 
-**Templates concluído: grid, 3 documentos novos e miniaturas.** Único passo que falta é manual, fora do meu alcance neste ambiente: **subir os 6 arquivos no bucket S3** (ver *"Templates completos: grid, 3 documentos novos e miniaturas"* em Concluído, com os nomes exatos a preservar).
-
-**Rodada de polimento visual concluída** (topbar, ícones de contato, footer e scroll da Home) — ver *"Topbar, ícones de contato, footer e scroll da Home"* em Concluído.
-
-Mais duas decisões suas registradas em *Decisões abertas*, e a externalização dos textos, deliberadamente postergada.
+Mais duas decisões suas registradas em *Decisões abertas*.
 
 ## 📥 Ideias e pedidos futuros (ainda sem ação)
 
-- **Promoção para Product Owner** — a Lorena vai atualizar tanto o portfólio quanto o LinkedIn quando a mudança for formalizada. *Só nota por enquanto, aguardando ela avisar.*
 - **App de agenda próprio** — hoje o botão de agenda ([index.html:42](index.html:42)) aponta pro SimplyMeet (`app.simplymeet.me/lorena-santos-qa`). Ideia de criar uma aplicação própria depois; se não for viável, mantém o SimplyMeet.
 - **Templates com campos preenchíveis** — ideia registrada por ela para uma próxima rodada: gerar `.docx` com campos de formulário de verdade, uma visão em PDF fiel ao layout para preview, e no download deixar só os campos abertos para o usuário preencher — sem alterar o layout do documento. Os 3 templates novos criados nesta rodada (ver Concluído) ainda são só texto comum, não campos de formulário — essa ideia continua de pé para depois.
 
@@ -195,16 +196,74 @@ O GitHub Pages rebuilda automaticamente a cada push na `main` — o site no ar d
 
 - **Título do projeto acadêmico da Fatec** — no print do LinkedIn o título estava parcialmente encoberto. Usei "eCommerce de roupas femininas" ([index.html](index.html)); confirmar o nome real.
 
-### Refatoração — decidido deixar para depois
-
-- `[ ]` **Mover os textos para arquivos externos** — [index.html:225](index.html:225)
-  Objetivo é reduzir o HTML (hoje ~460 linhas, a maior parte texto corrido).
-  ⚠️ Deliberadamente postergado: enquanto ainda entra conteúdo (templates, projetos), refatorar agora vira retrabalho.
-  Abordagem avaliada quando for a hora: um `content.js` com os textos injetados no DOM — sem build e funciona ao abrir o arquivo direto do disco. A alternativa (partials via `fetch()`) quebra em `file://` por CORS.
-
 ---
 
 ## ✅ Concluído
+
+### README atualizado para o rebrand PO (31/07/2026)
+
+O `README.md` ainda descrevia um portfólio genérico de QA, sem refletir o rebrand para Product Owner nem as seções atuais do site (Projetos, Product Owner, tradução PT/EN). Reescrito para citar a atuação atual como PO, listar as 5 seções reais e linkar o site publicado — removida também a nota "mais templates em breve", já que os 4 templates estão prontos em produção.
+
+### Ícones de contato: tabela de volta, contatos só na sidebar (31/07/2026)
+
+A Lorena perguntou se a tabela "Aqui você encontrará" (Home) era necessária, já que a sidebar já cobre a mesma navegação. Concordamos que o valor real da tabela é a frase de contexto por seção (algo que a sidebar não tem), então a ideia virou outra: liberar a tabela e usar aquele espaço para os ícones de contato (LinkedIn, e-mail, agenda), tirando-os da topbar (que ficaria só com idioma e tema).
+
+Testamos essa primeira versão: tabela removida, ícones em destaque num bloco "Vamos conversar?" na Home, e uma versão discreta (só a cor, sem fundo) abaixo do nome na sidebar, pra manter os contatos alcançáveis em qualquer seção.
+
+**Ela pediu pra reverter a Home e manter só a versão da sidebar** — mas com o mesmo visual que os ícones tinham no bloco "Vamos conversar?" (quadrado framboesa, igual ao que já existia na topbar), não a versão discreta. Estado final:
+- Tabela da Home de volta, sem alterações.
+- Topbar com só idioma e tema (classe renomeada de `.social-icons-left/-right` para `.topbar-icons`, já que só sobrou um grupo).
+- LinkedIn/e-mail/agenda abaixo do nome na sidebar (`.profile-social`), reaproveitando as classes `.icon.linkedin/.email/.agenda` já existentes — mesma cor, mesmo tamanho (34px) da topbar antiga.
+- Espaçamento ajustado a pedido dela: mais espaço entre o nome e os ícones (`margin-top` de `.profile-social`, antes negativo/colado, agora positivo), e o espaço entre os ícones e o menu removido (`padding-top` do `.nav-menu ul` no layout de sidebar zerado).
+- Ícones somem junto com o nome quando a sidebar está recolhida (mesmo padrão já usado pro nome/cargo).
+
+Verificado nos dois temas, sidebar expandida/recolhida e no layout mobile (onde a topbar perde os ícones também, e os de contato ficam visíveis abaixo do nome no header empilhado).
+
+### Limpeza de conteúdo: Habilidades, Projetos e datas (31/07/2026)
+
+- **Divisor faltando em Habilidades** — só essa seção não tinha o `.fancy-divider` entre o texto de introdução e o conteúdo abaixo (as outras quatro seções têm). Adicionado, igual às demais.
+- **Card do Media Cloud removido de Projetos** — a Lorena notou que ele duplicava a seção "Product Owner", que já cobre o mesmo projeto com mais detalhe. Removido o card (era o "Projeto 0" no grid); limpo também `card0Badge`/`card0Desc`/`card0Details` do `content.js` (PT/EN), que ficaram órfãos. `card0Date` foi mantido — o card do Media Cloud em Product Owner ainda depende dela (marcado em comentário).
+- **Frase da linha "Projetos" na tabela da Home** — trocada para "Uma seleção do que já construí em QA e sigo me aperfeiçoando, de plataformas a iniciativas autorais." (pedido dela; corrigi "autoriais" pra "autorais", grafia já usada no resto do site). Tradução em inglês ajustada junto.
+- **Data do card "Central de Qualidade"** — de "nov 2024 - atual" para "nov 2024 - out 2025" (projeto encerrado).
+
+### Revisão de texto: sem travessões, nota de rodapé e dica menor (31/07/2026)
+
+A pedido da Lorena, três ajustes de texto/conteúdo nos cards de Projetos:
+
+- **Nenhum travessão (—) nos textos do site.** 30 ocorrências reescritas em `content.js` (PT/EN) e nos textos-espelho em `index.html`, cada uma com a pontuação que fizesse sentido no contexto (vírgula, dois-pontos ou parênteses) — não foi uma troca mecânica. Ficaram de fora só os comentários de código, que não são texto do site.
+- **"Detalhes completos na seção Product Owner do menu"** (dentro do "Ver detalhes" do card do Media Cloud) virou uma nota de rodapé do card — separada da lista de bullets por uma linha divisória (`.card-footnote`), em vez de mais um item da lista. O link "Product Owner" fica em framboesa negrito no tema claro e branco negrito no tema escuro.
+- **"Clique em Ver detalhes..." em Projetos** reduzido pra 12px, no mesmo padrão já usado no hint "Navegue pelo menu" da Home.
+
+### Correções de UI: dark mode, badge, grid, transição e link (31/07/2026)
+
+Seis ajustes pontuais pedidos pela Lorena depois de revisar o site:
+
+| Pedido | Correção |
+|---|---|
+| Título "Aqui você encontrará" sem contraste no modo escuro | `.header-row td` ganhou um `body.dark-mode` próprio (fundo `--color-indigo`, texto claro) — só essa linha, o resto da tabela mantém fundo claro fixo de propósito |
+| Etiqueta do Media Cloud muito longa | Badge do card em Projetos trocado de "Product Owner de Tecnologia" pra "PO de Tecnologia", com uma chave de tradução própria (`projetos.card0Badge`) pra não afetar o cargo no header, que usa a mesma frase |
+| Espaço vazio no card vizinho ao abrir "Ver detalhes" | `.projects-grid` ganhou `align-items: start` — o grid parava de esticar todo card da linha pra altura do mais alto |
+| Toggle de "Ver detalhes" instantâneo, sem transição | Animação de altura via `::details-content` (CSS puro, sem mexer na estrutura); em navegadores sem suporte, cai pro toggle nativo sem quebrar |
+| Link pra seção Product Owner (dentro do "Ver detalhes") não navegava | Só cliques em `.nav-item a` trocavam de seção; um listener delegado no documento agora cobre qualquer link interno `#id`, sobrevivendo também às re-renderizações do `content.js` ao trocar de idioma |
+| Miniatura do Checklist de QA sem contraste (mesmo tom do fundo/borda do card) | Faixa superior do SVG trocada de `--color-greige` pra um tom mais escuro já usado na paleta (`#b8a692`) |
+
+### Templates: conteúdo real do ClickUp mesclado nos 3 documentos (30/07/2026)
+
+A Lorena achou os templates originais no ClickUp (dela mesma, de trabalho) e colou o conteúdo real de cada um, pra substituir o texto fictício que eu tinha escrito do zero na rodada anterior (ver *"Templates completos"*, 28/07/2026). Trabalho feito em `.tmp_templates/template-data.js` — mesmo gerador (`generate-docx.js` + `generate-pdf.js`), só o conteúdo mudou. Os 6 arquivos (3 `.docx` + 3 `.pdf`) foram regerados; nomes preservados, nenhuma mudança de código nos geradores.
+
+**Casos de Teste:** tabela da seção 3 trocou a coluna "Prior." por **"Resultado Obtido"** (coluna real dela, ausente antes) e "Cenário" virou "Título" — exemplo preenchido com o dela (TC001 - Login Válido). Legenda perdeu a linha de Prioridade (não existe mais coluna pra isso). Seção nova, "4. MODELO DETALHADO POR CASO (BDD)": formato complementar por caso (Título/Resumo → Objetivo → Pré-condições → Cenário no padrão Dado/Quando/Então) que ela também tinha no ClickUp, pra casos mais complexos — não substitui a tabela, soma a ela.
+
+**Relatório de Bugs:** tabela foi de 7 para **9 colunas**, ganhando "Descrição" e "Prioridade" (ambas reais, ausentes antes) — exemplo preenchido com o dela (BUG001 - Erro ao salvar usuário). "Severidade" renomeada para **"Gravidade"** (legenda e índice), termo que ela usa de fato. Larguras de coluna ajustadas numa segunda passada — a primeira versão deixou "ID"/"Status"/"Gravidade"/"Prior." quebrando em várias linhas no cabeçalho; aumentei essas e reduzi "Descrição"/"Passos"/"Resultado Esperado"/"Resultado Obtido" proporcionalmente, mantendo a largura total da tabela.
+
+**Checklist de QA:** duas seções novas, ambas a partir do conteúdo dela: **"3. CHECKLIST RESUMIDO POR CATEGORIA"** (visão geral de alto nível — Funcionalidade/Performance/Segurança/Interface do Usuário/Regressão — logo após "Como usar", antes dos checklists detalhados) e **"9. CHECKLIST DE REGRESSÃO"** (categoria que não existia nas 5 já cobertas: Funcional/Usabilidade/Compatibilidade/Performance/Segurança).
+
+⚠️ **Bug evitado, não corrigido:** o ClickUp dela usa o caractere Unicode `☐` (ballot box, U+2610) pra status de checklist. Testei isoladamente no PDFKit antes de usar em produção — a fonte Helvetica padrão (WinAnsi) não cobre esse glifo e ele virava um `&` sem sentido no PDF, silenciosamente (sem lançar erro). Troquei por `"[ ]"` (texto puro), que funciona igual nos dois formatos e não depende de fonte com cobertura Unicode.
+
+**Ela perguntou se o Checklist valeria a pena ser só um `.md`** em vez de docx/pdf. Recomendei manter docx/pdf, mesmo padrão dos outros 3 templates (mesmo par preview-PDF/download-DOCX já estabelecido nos cards) — um `.md` ficaria destoante visualmente (perde cabeçalho/rodapé de marca) e exigiria um jeito diferente de exibir no card. Ela seguiu a recomendação.
+
+**Verificado nos 3 PDFs**, abrindo cada um no navegador após regenerar: sem bug de paginação (Casos de Teste 9 págs., Relatório de Bugs 8 págs., Checklist de QA 12 págs.), tabelas novas renderizando com as colunas/linhas corretas, seções novas na posição e numeração certas no índice.
+
+**Pendência, igual à rodada anterior:** os 6 arquivos regerados ainda precisam substituir os que já estão no bucket S3 (`templates-portfolio-qa`) — mesmos nomes exatos de antes, upload manual continua fora do meu alcance neste ambiente.
 
 ### Google Analytics (GA4) integrado ao portfólio (28/07/2026)
 
